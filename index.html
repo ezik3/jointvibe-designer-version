@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Joint Vibe – Nightlife Discovery & Engagement Platform</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta
+      name="description"
+      content="Joint Vibe is a nightlife discovery and engagement platform. Discover venues, book VIP tables, check in, place orders, make payments using JV Coin, live stream, and interact with other users."
+    />
+    <meta name="author" content="Joint Vibe" />
+
+    <meta property="og:title" content="Joint Vibe – Nightlife Discovery & Engagement Platform" />
+    <meta
+      property="og:description"
+      content="Discover venues, book tables, go live, and experience nightlife like never before."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.jointvibe.app/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Joint Vibe – Nightlife Discovery & Engagement Platform" />
+    <meta
+      name="twitter:description"
+      content="Discover venues, book tables, go live, and experience nightlife like never before."
+    />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+  </head>
+
+  <body>
+    <!-- Visible app description for crawlers — renders before JS loads -->
+    <!-- Static intro hidden by default; content remains in source for crawlers/compliance -->
+    <div id="jv-static-intro" style="display:none; max-width:720px; margin:0 auto; padding:48px 24px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#d4d4d8; background:#09090b;">
+      <h1 style="color:#fff; font-size:1.75rem; margin-bottom:12px;">Joint Vibe</h1>
+      <p style="font-size:0.9rem; line-height:1.7; margin-bottom:8px;">
+        Joint Vibe is a nightlife discovery and engagement platform that allows users to discover venues, book VIP tables, check in, place orders, make payments using JV Coin, live stream, and interact with other users.
+      </p>
+      <p style="font-size:0.9rem; line-height:1.7;">
+        Whether you run a venue or you're looking for the best nightlife experience, Joint Vibe connects you with the scene. Explore trending spots, follow your favourite venues, go live, and pay seamlessly — all in one app.
+      </p>
+    </div>
+
+    <noscript>
+      <div style="max-width:720px; margin:0 auto; padding:40px 24px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#d4d4d8; background:#09090b;">
+        <h1 style="color:#fff; font-size:1.5rem;">Joint Vibe</h1>
+        <p style="font-size:0.875rem; line-height:1.6;">Joint Vibe is a nightlife discovery and engagement platform that allows users to discover venues, book VIP tables, check in, place orders, make payments using JV Coin, live stream, and interact with other users.</p>
+        <p style="font-size:0.875rem; line-height:1.6; margin-top:16px;">
+          <a href="/privacy.html" style="color:#22d3ee;">Privacy Policy</a> · 
+          <a href="/terms.html" style="color:#22d3ee;">Terms of Service</a>
+        </p>
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <footer id="jv-static-footer" style="display:none; text-align:center; font-size:12px; padding:20px 0; color:#a1a1aa; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#09090b; border-top:1px solid rgba(255,255,255,0.05);">
+      <a href="/privacy.html" style="color:#22d3ee; text-decoration:none;">Privacy Policy</a>
+      <span style="margin:0 8px; color:#3f3f46;">·</span>
+      <a href="/terms.html" style="color:#22d3ee; text-decoration:none;">Terms of Service</a>
+    </footer>
+
+    <!-- Show footer only on landing / legal pages; hide on all app routes -->
+    <script>
+      (function(){
+        var f=document.getElementById('jv-static-footer');
+        function check(){
+          var p=location.pathname;
+          var show=(p==='/'||p==='/privacy.html'||p==='/terms.html');
+          f.style.display=show?'block':'none';
+        }
+        check();
+        window.addEventListener('popstate',check);
+        var ro=new MutationObserver(check);
+        ro.observe(document.getElementById('root'),{childList:true,subtree:true});
+      })();
+    </script>
+  </body>
+</html>

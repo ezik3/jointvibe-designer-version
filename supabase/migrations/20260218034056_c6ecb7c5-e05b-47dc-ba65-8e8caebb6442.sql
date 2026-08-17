@@ -1,0 +1,1 @@
+ALTER TABLE public.live_streams REPLICA IDENTITY FULL;

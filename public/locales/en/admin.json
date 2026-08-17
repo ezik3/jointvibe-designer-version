@@ -1,0 +1,36 @@
+{
+  "dashboard": "Admin Dashboard",
+  "total_users": "Total Users",
+  "active_venues": "Active Venues",
+  "pending_venues": "Pending Venues",
+  "total_supply": "Total Supply",
+  "today_transactions": "Today's Transactions",
+  "header": {
+    "search_placeholder": "Search users, venues, transactions...",
+    "system_online": "System Online"
+  },
+  "sidebar": {
+    "portal_subtitle": "Admin Portal",
+    "super_admin": "Super Admin",
+    "logout": "Logout"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "venues": "Venues",
+    "venue_reports": "Venue Reports",
+    "referrals": "Referrals",
+    "ad_campaigns": "Ad Campaigns",
+    "treasury": "Treasury",
+    "mint_burn": "Mint/Burn",
+    "transactions": "Transactions",
+    "deposits": "Deposits",
+    "withdrawals": "Withdrawals",
+    "wallet_freezes": "Wallet Freezes",
+    "audit_log": "Audit Log",
+    "roles": "Roles",
+    "settings": "Settings",
+    "venue_tiers": "Venue Tiers",
+    "runner_analytics": "Runner Analytics"
+  }
+}

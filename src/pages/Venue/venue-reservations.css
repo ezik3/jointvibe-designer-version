@@ -1,0 +1,901 @@
+.venue-reservations-page {
+  --reservations-canvas: var(--venue-canvas, #080b0e);
+  --reservations-surface: var(--venue-surface, #11161b);
+  --reservations-surface-raised: var(--venue-surface-raised, #171d23);
+  --reservations-border: var(--venue-border, #2a323a);
+  --reservations-text: var(--venue-text, #f4f7f8);
+  --reservations-text-secondary: var(--venue-text-secondary, #a7b0b8);
+  --reservations-text-muted: var(--venue-text-muted, #717c86);
+  --reservations-cyan: var(--venue-cyan, #16d9e8);
+  --reservations-cyan-soft: var(--venue-cyan-soft, #12363b);
+  --reservations-success: #34d399;
+  --reservations-success-soft: rgba(52, 211, 153, 0.12);
+  --reservations-warning: #f59e0b;
+  --reservations-warning-soft: rgba(245, 158, 11, 0.12);
+  --reservations-danger: var(--venue-danger, #ef4444);
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 28px 48px;
+  background: var(--reservations-canvas);
+  color: var(--reservations-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-reservations-page *,
+.venue-reservations-page *::before,
+.venue-reservations-page *::after,
+.venue-reservations-modal *,
+.venue-reservations-modal *::before,
+.venue-reservations-modal *::after {
+  box-sizing: border-box;
+}
+
+.venue-reservations-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.venue-reservations-heading h1 {
+  margin: 0 0 6px;
+  color: var(--reservations-text);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.venue-reservations-heading p {
+  margin: 0;
+  color: var(--reservations-text-secondary);
+  font-size: 14px;
+}
+
+.venue-reservations-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.venue-reservations-toolbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.venue-reservations-toolbar-menu {
+  position: relative;
+}
+
+.venue-reservations-toolbar-button,
+.venue-reservations-toolbar-icon {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 11px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  background: var(--reservations-surface);
+  color: var(--reservations-text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-reservations-toolbar-button:hover,
+.venue-reservations-toolbar-icon:hover,
+.venue-reservations-toolbar-icon.is-active {
+  border-color: var(--reservations-text-muted);
+  background: var(--reservations-surface-raised);
+}
+
+.venue-reservations-toolbar-button svg,
+.venue-reservations-toolbar-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-reservations-toolbar-button svg:last-child {
+  width: 14px;
+  height: 14px;
+  color: var(--reservations-text-muted);
+}
+
+.venue-reservations-toolbar-icon {
+  width: 40px;
+  padding: 0;
+  color: var(--reservations-text-secondary);
+}
+
+.venue-reservations-toolbar-icon.is-active {
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-toolbar-menu__content {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  min-width: 164px;
+  padding: 6px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  background: var(--reservations-surface-raised);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.venue-reservations-toolbar-menu__content button {
+  min-height: 34px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--reservations-text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.venue-reservations-toolbar-menu__content button:hover,
+.venue-reservations-toolbar-menu__content button.is-active {
+  background: var(--reservations-cyan-soft);
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-tabs {
+  display: inline-flex;
+  min-height: 40px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 3px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  background: var(--reservations-surface);
+}
+
+.venue-reservations-tab {
+  min-height: 32px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--reservations-text-muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.venue-reservations-tab:hover {
+  color: var(--reservations-text-secondary);
+}
+
+.venue-reservations-tab--active {
+  background: var(--reservations-cyan-soft);
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-panel {
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--reservations-border);
+  border-radius: 8px;
+  background: var(--reservations-surface);
+}
+
+.venue-reservations-panel__summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--reservations-border);
+  color: var(--reservations-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-reservations-panel__summary span:last-child {
+  color: var(--reservations-text-secondary);
+  font-weight: 600;
+}
+
+.venue-reservations-list {
+  display: grid;
+  align-content: start;
+}
+
+.venue-reservations-item {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--reservations-border);
+  background: transparent;
+  transition: background 160ms ease;
+}
+
+.venue-reservations-item:last-child {
+  border-bottom: 0;
+}
+
+.venue-reservations-item:hover {
+  background: var(--reservations-surface-raised);
+}
+
+.venue-reservations-item--preorder {
+  box-shadow: inset 3px 0 0 var(--reservations-warning);
+}
+
+.venue-reservations-item__time {
+  display: grid;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.venue-reservations-item__time > span {
+  color: var(--reservations-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-reservations-item__time > strong {
+  color: var(--reservations-text);
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.venue-reservations-item__time > small {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--reservations-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.venue-reservations-item__time svg {
+  width: 12px;
+  height: 12px;
+}
+
+.venue-reservations-item__content {
+  min-width: 0;
+}
+
+.venue-reservations-item__title-row,
+.venue-reservations-item__meta,
+.venue-reservations-item__deposit {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.venue-reservations-item__title-row h2 {
+  margin: 0 4px 0 0;
+  color: var(--reservations-text);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.venue-reservations-status,
+.venue-reservations-preorder {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  gap: 5px;
+  padding: 0 7px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 999px;
+  color: var(--reservations-text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.venue-reservations-status--confirmed {
+  border-color: rgba(52, 211, 153, 0.35);
+  background: var(--reservations-success-soft);
+  color: var(--reservations-success);
+}
+
+.venue-reservations-status--pending,
+.venue-reservations-status--awaiting_deposit,
+.venue-reservations-status--overdue,
+.venue-reservations-preorder {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: var(--reservations-warning-soft);
+  color: var(--reservations-warning);
+}
+
+.venue-reservations-status--cancelled,
+.venue-reservations-status--no_show {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--reservations-danger);
+}
+
+.venue-reservations-status--completed {
+  border-color: rgba(22, 217, 232, 0.35);
+  background: var(--reservations-cyan-soft);
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-preorder svg {
+  width: 12px;
+  height: 12px;
+}
+
+.venue-reservations-item__meta {
+  gap: 14px;
+  margin-top: 8px;
+  color: var(--reservations-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-reservations-item__meta span {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+}
+
+.venue-reservations-item__meta svg,
+.venue-reservations-item__deposit svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-item__request,
+.venue-reservations-item__preorder-total {
+  margin: 8px 0 0;
+  color: var(--reservations-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-reservations-item__request {
+  font-style: italic;
+}
+
+.venue-reservations-item__deposit {
+  gap: 6px;
+  margin: 8px 0 0;
+  color: var(--reservations-warning);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-reservations-item__deposit svg {
+  color: var(--reservations-warning);
+}
+
+.venue-reservations-item__deposit > span {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.venue-reservations-item__deposit small {
+  color: var(--reservations-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-reservations-item__preorder-total {
+  color: var(--reservations-warning);
+  font-weight: 700;
+}
+
+.venue-reservations-item__actions {
+  display: grid;
+  min-width: 124px;
+  gap: 7px;
+}
+
+.venue-reservations-button {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.venue-reservations-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-reservations-button--primary {
+  border-color: var(--reservations-cyan);
+  background: var(--reservations-cyan);
+  color: var(--reservations-canvas);
+}
+
+.venue-reservations-button--primary:hover {
+  border-color: #58e5ed;
+  background: #58e5ed;
+}
+
+.venue-reservations-button--secondary {
+  border-color: var(--reservations-border);
+  background: var(--reservations-surface);
+  color: var(--reservations-text);
+}
+
+.venue-reservations-button--secondary:hover {
+  border-color: var(--reservations-text-muted);
+  background: var(--reservations-surface-raised);
+}
+
+.venue-reservations-button--danger {
+  border-color: rgba(239, 68, 68, 0.38);
+  background: transparent;
+  color: var(--reservations-danger);
+}
+
+.venue-reservations-button--danger:hover {
+  border-color: var(--reservations-danger);
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.venue-reservations-button--danger-solid {
+  border-color: var(--reservations-danger);
+  background: var(--reservations-danger);
+  color: #fff;
+}
+
+.venue-reservations-button--danger-solid:hover {
+  border-color: #f87171;
+  background: #f87171;
+}
+
+.venue-reservations-empty {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  place-content: center;
+  justify-items: center;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.venue-reservations-empty__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--reservations-cyan-soft);
+  color: var(--reservations-cyan);
+}
+
+.venue-reservations-empty__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.venue-reservations-empty h2 {
+  margin: 16px 0 6px;
+  color: var(--reservations-text);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.venue-reservations-empty p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--reservations-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.venue-reservations-empty__action {
+  margin-top: 18px;
+}
+
+.venue-reservations-page button,
+.venue-reservations-modal button {
+  cursor: pointer;
+}
+
+.venue-reservations-page button:focus-visible,
+.venue-reservations-modal button:focus-visible,
+.venue-reservations-modal textarea:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+.venue-reservations-modal {
+  --reservations-canvas: #080b0e;
+  --reservations-surface: #11161b;
+  --reservations-surface-raised: #171d23;
+  --reservations-border: #2a323a;
+  --reservations-text: #f4f7f8;
+  --reservations-text-secondary: #a7b0b8;
+  --reservations-text-muted: #717c86;
+  --reservations-cyan: #16d9e8;
+  --reservations-cyan-soft: #12363b;
+  --reservations-success: #34d399;
+  --reservations-success-soft: rgba(52, 211, 153, 0.12);
+  --reservations-warning: #f59e0b;
+  --reservations-warning-soft: rgba(245, 158, 11, 0.12);
+  --reservations-danger: #ef4444;
+  width: min(calc(100% - 32px), 580px);
+  max-width: 580px;
+  padding: 24px;
+  border-color: var(--reservations-border);
+  border-radius: 8px;
+  background: var(--reservations-surface);
+  color: var(--reservations-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-reservations-modal > button {
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  background: var(--reservations-surface);
+  color: var(--reservations-text-muted);
+  opacity: 1;
+}
+
+.venue-reservations-modal > button:hover {
+  border-color: var(--reservations-text-muted);
+  background: var(--reservations-surface-raised);
+  color: var(--reservations-text);
+}
+
+.venue-reservations-modal__header {
+  padding-right: 42px;
+}
+
+.venue-reservations-modal__header h2 {
+  margin: 0;
+  color: var(--reservations-text);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.venue-reservations-modal__header p {
+  margin: 6px 0 0;
+  color: var(--reservations-text-secondary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.venue-reservations-modal--new {
+  max-width: 640px;
+}
+
+.venue-reservations-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.venue-reservations-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.venue-reservations-form__field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.venue-reservations-form__field > span {
+  color: var(--reservations-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-reservations-form__field em {
+  color: var(--reservations-text-muted);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.venue-reservations-form__field input,
+.venue-reservations-form__field select,
+.venue-reservations-form__field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  outline: 0;
+  background: var(--reservations-canvas);
+  color: var(--reservations-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.venue-reservations-form__field select {
+  cursor: pointer;
+}
+
+.venue-reservations-form__field select option {
+  background: var(--reservations-surface);
+  color: var(--reservations-text);
+}
+
+.venue-reservations-form__field textarea {
+  min-height: 94px;
+  padding: 10px 12px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.venue-reservations-form__field input::placeholder,
+.venue-reservations-form__field textarea::placeholder {
+  color: var(--reservations-text-muted);
+}
+
+.venue-reservations-form__field input:focus,
+.venue-reservations-form__field select:focus,
+.venue-reservations-form__field textarea:focus {
+  border-color: var(--reservations-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-reservations-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.venue-reservations-detail-grid > div,
+.venue-reservations-detail-section,
+.venue-reservations-detail-status,
+.venue-reservations-cancel-reason {
+  display: grid;
+  gap: 6px;
+}
+
+.venue-reservations-detail-grid span,
+.venue-reservations-detail-section > span,
+.venue-reservations-detail-status > span,
+.venue-reservations-cancel-reason > span {
+  color: var(--reservations-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-reservations-detail-grid strong {
+  color: var(--reservations-text);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.venue-reservations-detail-section {
+  margin-top: 20px;
+}
+
+.venue-reservations-detail-section > p {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  background: var(--reservations-canvas);
+  color: var(--reservations-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.venue-reservations-detail-section--preorder > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--reservations-warning);
+}
+
+.venue-reservations-detail-section--preorder svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-reservations-detail-section--preorder > p {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: var(--reservations-warning-soft);
+  color: var(--reservations-warning);
+  font-weight: 700;
+}
+
+.venue-reservations-detail-status {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.venue-reservations-detail-status > span {
+  color: var(--reservations-text-secondary);
+}
+
+.venue-reservations-cancel-note {
+  display: block;
+  margin-top: 8px;
+  color: var(--reservations-warning);
+  font-weight: 700;
+}
+
+.venue-reservations-cancel-reason {
+  margin-top: 22px;
+}
+
+.venue-reservations-cancel-reason em {
+  color: var(--reservations-text-muted);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.venue-reservations-cancel-reason textarea {
+  width: 100%;
+  min-height: 92px;
+  padding: 10px 12px;
+  border: 1px solid var(--reservations-border);
+  border-radius: 6px;
+  outline: 0;
+  background: var(--reservations-canvas);
+  color: var(--reservations-text);
+  font: inherit;
+  font-size: 13px;
+  resize: vertical;
+}
+
+.venue-reservations-cancel-reason textarea::placeholder {
+  color: var(--reservations-text-muted);
+}
+
+.venue-reservations-cancel-reason textarea:focus {
+  border-color: var(--reservations-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-reservations-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .venue-reservations-page {
+    padding: 24px 20px 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .venue-reservations-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .venue-reservations-heading h1 {
+    font-size: 30px;
+  }
+
+  .venue-reservations-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .venue-reservations-tabs {
+    width: 100%;
+  }
+
+  .venue-reservations-toolbar__actions {
+    justify-content: flex-end;
+  }
+
+  .venue-reservations-tab {
+    flex: 0 0 auto;
+  }
+
+  .venue-reservations-item {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .venue-reservations-item__actions {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .venue-reservations-item__actions .venue-reservations-button {
+    flex: 1 1 132px;
+  }
+}
+
+@media (max-width: 460px) {
+  .venue-reservations-page {
+    padding: 24px 16px 36px;
+  }
+
+  .venue-reservations-panel__summary,
+  .venue-reservations-item {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .venue-reservations-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .venue-reservations-item__time {
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .venue-reservations-item__time > strong {
+    font-size: 17px;
+  }
+
+  .venue-reservations-item__time > small {
+    justify-self: end;
+  }
+
+  .venue-reservations-item__actions {
+    grid-column: auto;
+  }
+
+  .venue-reservations-modal {
+    width: calc(100% - 28px);
+    padding: 20px;
+  }
+
+  .venue-reservations-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .venue-reservations-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-reservations-modal__actions {
+    flex-direction: column-reverse;
+  }
+
+  .venue-reservations-modal__actions .venue-reservations-button {
+    width: 100%;
+  }
+}

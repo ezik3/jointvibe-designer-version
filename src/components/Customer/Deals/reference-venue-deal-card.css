@@ -1,0 +1,136 @@
+.reference-venue-deal-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 88px;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid #27323a;
+  border-radius: 8px;
+  background: #11171c;
+  color: #f3f7f8;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.reference-venue-deal-card:hover {
+  border-color: #45545d;
+  background: #171f25;
+  transform: translateY(-1px);
+}
+
+.reference-venue-deal-card__icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #36515a;
+  border-radius: 6px;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.reference-venue-deal-card__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.reference-venue-deal-card__copy {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.reference-venue-deal-card__copy strong,
+.reference-venue-deal-card__copy b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reference-venue-deal-card__copy strong {
+  font-size: 13px;
+}
+
+.reference-venue-deal-card__copy b {
+  color: #16d9e8;
+  font-size: 12px;
+}
+
+.reference-venue-deal-card__copy p {
+  margin: 2px 0 0;
+  color: #8f9ca5;
+  font-size: 11px;
+}
+
+.reference-venue-deal-card__options,
+.reference-venue-deal-card__redeem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #63707a;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.reference-venue-deal-card__options {
+  align-self: start;
+  width: 28px;
+  height: 28px;
+}
+
+.reference-venue-deal-card__options:hover {
+  border-radius: 5px;
+  background: #222c32;
+  color: #f3f7f8;
+}
+
+.reference-venue-deal-card__options svg {
+  width: 17px;
+  height: 17px;
+}
+
+.reference-venue-deal-card__redeem {
+  grid-column: 2 / 4;
+  justify-self: end;
+  gap: 7px;
+  min-height: 30px;
+  margin-top: -5px;
+  padding: 0 3px;
+  color: #f3f7f8;
+}
+
+.reference-venue-deal-card__redeem:hover {
+  color: #16d9e8;
+}
+
+.reference-venue-deal-card__redeem svg {
+  width: 15px;
+  height: 15px;
+  color: #16d9e8;
+}
+
+.reference-venue-deal-card__options:focus-visible,
+.reference-venue-deal-card__redeem:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  .reference-venue-deal-card {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .reference-venue-deal-card__redeem {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0;
+    border-top: 1px solid #27323a;
+    padding-top: 10px;
+  }
+}

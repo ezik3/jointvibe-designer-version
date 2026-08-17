@@ -1,0 +1,1 @@
+ALTER TABLE public.user_deal_impressions ADD COLUMN IF NOT EXISTS snoozed_until timestamptz DEFAULT NULL;

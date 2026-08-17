@@ -1,0 +1,153 @@
+import { Sparkles, Play } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import FollowButton from "@/components/Customer/FollowButton";
+import TierBadge from "@/components/Tier/TierBadge";
+import { type TierName } from "@/hooks/useUserTier";
+import DealCard from "@/components/Customer/Deals/DealCard";
+import { useActiveDeals } from "@/hooks/useActiveDeals";
+import MediaFrame from "@/components/Customer/Feed/MediaFrame";
+import ClampedCaption from "@/components/Customer/Feed/ClampedCaption";
+import { useTranslation } from 'react-i18next';
+
+interface Post {
+  id: string;
+  content: string;
+  image_url?: string;
+  video_url?: string;
+  pounds_count: number;
+  comments_count?: number;
+  author_name?: string;
+  author_avatar?: string;
+  author_tier?: string;
+  user_id: string;
+}
+
+interface ForYouFeedProps {
+  posts: Post[];
+  loading?: boolean;
+}
+
+const ForYouFeed = ({ posts, loading }: ForYouFeedProps) => {
+  const { t } = useTranslation('feed');
+  const { deals, recordImpression, redeemDeal } = useActiveDeals('explore', 2);
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-cyan" />
+          <Skeleton className="h-5 w-24" />
+        </div>
+        {[1, 2, 3].map((i) => (
+          <Skeleton key={i} className="w-full h-64 rounded-xl" />
+        ))}
+      </div>
+    );
+  }
+
+  if (posts.length === 0) {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-cyan" />
+          <h3 className="font-semibold text-white">{t("common:navigation.for_you")}</h3>
+        </div>
+        <div className="p-12 text-center bg-white/5 rounded-xl border border-white/10">
+          <Sparkles className="w-10 h-10 text-white/30 mx-auto mb-3" />
+          <p className="text-white/50 text-sm">{t("empty.no_posts_yet")}</p>
+          <p className="text-white/30 text-xs mt-1">{t("empty.follow_to_see")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Interleave deals: max 1 deal per 8 content items
+  const interleaved: (Post | { _isDeal: true; deal: typeof deals[0] })[] = [];
+  let dealIndex = 0;
+  posts.forEach((post, i) => {
+    interleaved.push(post);
+    if ((i + 1) % 8 === 0 && dealIndex < deals.length) {
+      interleaved.push({ _isDeal: true, deal: deals[dealIndex] });
+      dealIndex++;
+    }
+  });
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-5 h-5 text-cyan" />
+        <h3 className="font-semibold text-white">{t("common:navigation.for_you")}</h3>
+      </div>
+      
+      <div className="space-y-4">
+        {interleaved.map((item, idx) => {
+          if ('_isDeal' in item) {
+            return (
+              <DealCard
+                key={`deal-${item.deal.id}`}
+                deal={item.deal}
+                variant="full"
+                onImpression={() => recordImpression(item.deal.id, item.deal.venue_id)}
+                onRedeem={() => redeemDeal(item.deal.id, item.deal.venue_id)}
+              />
+            );
+          }
+
+          const post = item;
+          return (
+            <div
+              key={post.id}
+              className="relative bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-colors cursor-pointer"
+            >
+              {/* Media */}
+              {(post.image_url || post.video_url) && (
+                <MediaFrame
+                  imageUrl={post.image_url}
+                  videoUrl={post.video_url}
+                  aspectRatio="9/16"
+                  showPlayButton={!!post.video_url}
+                  autoPlay={false}
+                />
+              )}
+              
+              {/* Content */}
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-10 h-10 ring-2 ring-cyan/30">
+                      <AvatarImage src={post.author_avatar} />
+                      <AvatarFallback className="bg-gradient-to-br from-purple to-pink text-white">
+                        {post.author_name?.[0]}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-white font-semibold text-sm">{post.author_name}</span>
+                        {post.author_tier && post.author_tier !== "member" && (
+                          <TierBadge tier={post.author_tier as TierName} size="sm" showLabel={false} />
+                        )}
+                      </div>
+                      <ClampedCaption text={post.content} />
+                    </div>
+                  </div>
+                  <FollowButton targetUserId={post.user_id} variant="compact" />
+                </div>
+                
+                {/* Engagement */}
+                <div className="flex items-center gap-4 mt-3 text-white/50 text-xs">
+                  <span>👊 {post.pounds_count}</span>
+                  {post.comments_count !== undefined && (
+                    <span>💬 {post.comments_count}</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default ForYouFeed;

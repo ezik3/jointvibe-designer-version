@@ -1,0 +1,192 @@
+.pos-kiosk-payment,
+.pos-kiosk-complete {
+  --pos-kiosk-canvas: var(--pos-shell-canvas, #080b0e);
+  --pos-kiosk-surface: var(--pos-shell-surface, #11161b);
+  --pos-kiosk-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-kiosk-border: var(--pos-shell-border, #2a323a);
+  --pos-kiosk-text: var(--pos-shell-text, #f4f7f8);
+  --pos-kiosk-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-kiosk-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-kiosk-cyan: var(--pos-shell-cyan, #16d9e8);
+  --pos-kiosk-cyan-soft: var(--pos-shell-cyan-soft, #12363b);
+  min-height: 100dvh;
+  background: var(--pos-kiosk-canvas);
+  color: var(--pos-kiosk-text);
+}
+
+.pos-kiosk-payment {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.pos-kiosk-payment__content {
+  display: grid;
+  width: min(100%, 880px);
+  justify-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.pos-kiosk-payment__header {
+  display: grid;
+  gap: 5px;
+}
+
+.pos-kiosk-payment__eyebrow {
+  margin: 0;
+  color: var(--pos-kiosk-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pos-kiosk-payment__header h1 {
+  margin: 0;
+  color: var(--pos-kiosk-text);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.pos-kiosk-payment__amount {
+  display: grid;
+  gap: 7px;
+}
+
+.pos-kiosk-payment__amount > span,
+.pos-kiosk-payment__amount small {
+  color: var(--pos-kiosk-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pos-kiosk-payment__amount strong {
+  color: var(--pos-kiosk-cyan);
+  font-size: 64px;
+  line-height: 1;
+}
+
+.pos-kiosk-payment__methods {
+  display: grid;
+  width: min(100%, 720px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pos-kiosk-payment__method {
+  display: grid !important;
+  min-height: 168px;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 18px !important;
+  border: 1px solid var(--pos-kiosk-border) !important;
+  border-radius: 8px !important;
+  background: var(--pos-kiosk-surface) !important;
+  color: var(--pos-kiosk-text) !important;
+  box-shadow: none !important;
+}
+
+.pos-kiosk-payment__method:hover:not(:disabled) {
+  border-color: var(--pos-kiosk-cyan) !important;
+  background: var(--pos-kiosk-raised) !important;
+}
+
+.pos-kiosk-payment__method:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pos-kiosk-payment__method-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--pos-kiosk-cyan-soft);
+  color: var(--pos-kiosk-cyan);
+}
+
+.pos-kiosk-payment__method-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.6;
+}
+
+.pos-kiosk-payment__method > strong {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.pos-kiosk-payment__method > small {
+  color: var(--pos-kiosk-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-kiosk-payment__cancel {
+  min-height: 38px;
+  padding: 0 12px !important;
+  color: var(--pos-kiosk-secondary) !important;
+  box-shadow: none !important;
+}
+
+.pos-kiosk-payment__cancel:hover {
+  background: var(--pos-kiosk-raised) !important;
+  color: var(--pos-kiosk-text) !important;
+}
+
+.pos-kiosk-complete {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.pos-kiosk-complete__content {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.pos-kiosk-complete__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+  color: var(--pos-kiosk-cyan);
+}
+
+.pos-kiosk-complete h1 {
+  margin: 0;
+  color: var(--pos-kiosk-text);
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.pos-kiosk-complete p {
+  margin: 0;
+  color: var(--pos-kiosk-secondary);
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .pos-kiosk-payment {
+    padding: 20px 16px;
+  }
+
+  .pos-kiosk-payment__content {
+    gap: 24px;
+  }
+
+  .pos-kiosk-payment__amount strong {
+    font-size: 48px;
+  }
+
+  .pos-kiosk-payment__methods {
+    grid-template-columns: 1fr;
+  }
+
+  .pos-kiosk-payment__method {
+    min-height: 138px;
+  }
+}

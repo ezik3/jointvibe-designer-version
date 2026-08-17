@@ -1,0 +1,315 @@
+.pos-qr-payment-dialog,
+.pos-guest-payment-dialog {
+  --pos-flow-canvas: var(--pos-shell-canvas, #080b0e);
+  --pos-flow-surface: var(--pos-shell-surface, #11161b);
+  --pos-flow-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-flow-border: var(--pos-shell-border, #2a323a);
+  --pos-flow-text: var(--pos-shell-text, #f4f7f8);
+  --pos-flow-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-flow-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-flow-cyan: var(--pos-shell-cyan, #16d9e8);
+  --pos-flow-cyan-soft: var(--pos-shell-cyan-soft, #12363b);
+  width: min(calc(100vw - 32px), 448px) !important;
+  max-width: 448px !important;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border-color: var(--pos-flow-border);
+  border-radius: 8px;
+  background: var(--pos-flow-surface);
+  color: var(--pos-flow-text);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.pos-qr-payment-dialog > button,
+.pos-guest-payment-dialog > button {
+  top: 14px;
+  right: 16px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border-radius: 6px;
+  color: var(--pos-flow-secondary);
+}
+
+.pos-qr-payment-dialog > button:hover,
+.pos-guest-payment-dialog > button:hover {
+  background: var(--pos-flow-raised);
+  color: var(--pos-flow-text);
+}
+
+.pos-qr-payment-dialog > button svg,
+.pos-guest-payment-dialog > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-payment-flow__heading {
+  padding: 20px 54px 16px 20px;
+  border-bottom: 1px solid var(--pos-flow-border);
+}
+
+.pos-payment-flow__heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--pos-flow-text);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.pos-payment-flow__heading h2 > svg {
+  width: 19px;
+  height: 19px;
+  color: var(--pos-flow-cyan);
+}
+
+.pos-payment-flow__heading h2 span {
+  padding: 3px 6px;
+  border: 1px solid var(--pos-flow-border);
+  border-radius: 4px;
+  color: var(--pos-flow-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pos-payment-flow__heading p {
+  margin: 6px 0 0;
+  color: var(--pos-flow-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pos-payment-flow__body {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.pos-payment-flow__body--guest {
+  gap: 14px;
+}
+
+.pos-payment-flow__expiry,
+.pos-payment-flow__phone-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--pos-flow-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pos-payment-flow__expiry svg,
+.pos-payment-flow__phone-note svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.pos-payment-flow__expiry.is-expiring {
+  color: hsl(var(--destructive));
+}
+
+.pos-payment-flow__qr {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.pos-payment-flow__qr--large {
+  width: 216px;
+  height: 216px;
+  justify-self: center;
+}
+
+.pos-payment-flow__qr--guest {
+  width: 232px;
+  height: 232px;
+  justify-self: center;
+}
+
+.pos-payment-flow__qr svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.pos-payment-flow__amount {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.pos-payment-flow__amount > span,
+.pos-payment-flow__amount small {
+  color: var(--pos-flow-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-payment-flow__amount strong,
+.pos-payment-flow__amount-card strong {
+  color: var(--pos-flow-cyan);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.pos-payment-flow__amount-card {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--pos-flow-border);
+  border-radius: 8px;
+  background: var(--pos-flow-raised);
+  text-align: center;
+}
+
+.pos-payment-flow__amount-card > span {
+  color: var(--pos-flow-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pos-payment-flow__amount-card small {
+  color: var(--pos-flow-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-payment-flow__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pos-payment-flow__button {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.pos-payment-flow__button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-payment-flow__button--primary {
+  border-color: var(--pos-flow-cyan) !important;
+  background: var(--pos-flow-cyan) !important;
+  color: var(--pos-flow-canvas) !important;
+}
+
+.pos-payment-flow__button--primary:hover:not(:disabled) {
+  background: #58e5ed !important;
+}
+
+.pos-payment-flow__button--secondary {
+  border-color: var(--pos-flow-border) !important;
+  background: var(--pos-flow-surface) !important;
+  color: var(--pos-flow-text) !important;
+}
+
+.pos-payment-flow__button--secondary:hover:not(:disabled) {
+  border-color: var(--pos-flow-muted) !important;
+  background: var(--pos-flow-raised) !important;
+}
+
+.pos-payment-flow__note {
+  margin: 0;
+  color: var(--pos-flow-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.pos-payment-flow__waiting {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--pos-flow-cyan) 38%, transparent);
+  border-radius: 8px;
+  background: var(--pos-flow-cyan-soft);
+  color: var(--pos-flow-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pos-payment-flow__waiting svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-payment-flow__loading,
+.pos-payment-flow__error {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.pos-payment-flow__loading svg,
+.pos-payment-flow__error > svg {
+  width: 30px;
+  height: 30px;
+  color: var(--pos-flow-cyan);
+}
+
+.pos-payment-flow__loading p,
+.pos-payment-flow__error p {
+  margin: 0;
+  color: var(--pos-flow-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pos-payment-flow__error > svg,
+.pos-payment-flow__error small {
+  color: hsl(var(--destructive));
+}
+
+.pos-payment-flow__error small {
+  max-width: 320px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.pos-payment-flow__status-panel {
+  display: grid;
+  gap: 16px;
+  padding: 4px 0;
+}
+
+@media (max-width: 460px) {
+  .pos-qr-payment-dialog,
+  .pos-guest-payment-dialog {
+    width: calc(100vw - 24px) !important;
+  }
+
+  .pos-payment-flow__heading {
+    padding: 16px 50px 14px 16px;
+  }
+
+  .pos-payment-flow__body {
+    padding: 16px;
+  }
+}

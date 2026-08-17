@@ -1,0 +1,140 @@
+## Task: perf-homepage-initial-load-001
+## Date: 2026-03-12
+
+### DIAGNOSIS
+
+Root causes of slow initial load (ImmersiveFeed + CustomerLayout):
+
+1. **Sequential waterfall in fetchPosts() — ImmersiveFeed.tsx**
+   - Step A: Fetch user_follows (1 RTT) → blocks step B
+   - Step B: Fetch posts with limit(50), only 20 are used (2.5x larger payload)
+   - Step C: Fetch customer_profiles for authors (awaited, sequential)
+   - Step D: Fetch user_tiers for authors (awaited AFTER step C — unnecessary serial dependency)
+   - Step E: Fetch post_tagged_users
+   - Step F: Conditionally fetch customer_profiles again for tagged users
+   Steps C and D could be parallelised with Promise.all; they share the same user ID list.
+
+2. **Duplicate posts query for story ring**
+   - refreshStoryUsers() runs in the same useEffect as fetchPosts()
+   - On cache miss it issues its own .from("posts") + .from("customer_profiles") query pair
+   - This overlaps with fetchPosts in-flight → duplicate DB round-trips
+
+3. **useActiveDeals fires 6 sequential queries on mount**
+   - Query 1: user_deal_impressions COUNT
+   - Query 2: user_deal_impressions (venue_ids shown today) — same table, same user, different shape
+   - Query 3: venue_deals_library
+   - Query 4: venues (depends on 3)
+   - Query 5: user_vibe_preferences (independent)
+   - Query 6: venue_vibe_tags (depends on 3)
+   Queries 1+2 hit the same table and can be merged into one.
+   Queries 3+5 are independent and can be parallelised.
+   Queries 4+6 share the same venueIds and can be parallelised.
+
+4. **useLivePresence polls every 5 seconds**
+   - Each poll: live_streams + customer_profiles + live_stream_viewers (3 queries / 5s)
+   - Starts immediately on first subscriber (ImmersiveFeed mounts it)
+   - Ongoing background pressure during initial load window (no fix applied — polling
+     interval is a systemic trade-off; stopping it would break live UX)
+
+5. **useGlobalPrefetch fires at module load + React hook** (acceptable)
+   - Module-level prefetch fires 6 parallel queries immediately when JS bundle loads
+   - Hook awaits the module promise and skips re-fetching within TTL (1 min)
+   - ImmersiveFeed's fetchPosts then does a SEPARATE personalized query (different data set)
+   - No duplicate queries, but the module prefetch is an aggressive warm-up cost
+
+### CHANGES MADE
+
+**File 1: src/pages/Customer/ImmersiveFeed.tsx**
+  - Reduced posts query limit from 50 to 20 (posts are sliced to 20 client-side anyway)
+  - Parallelised customer_profiles + user_tiers fetches with Promise.all
+    (eliminated one sequential RTT from the enrichment waterfall)
+
+**File 2: src/hooks/useActiveDeals.ts**
+  - Merged two sequential user_deal_impressions queries into one
+    (derive count + venue_ids client-side from a single result set)
+  - Parallelised venue_deals_library + user_vibe_preferences with Promise.all
+  - Parallelised venues + venue_vibe_tags with Promise.all
+    (net reduction: 6 sequential queries → 3 phases with internal parallelism)
+
+### CHECKS RUN
+  - git diff --stat  (see below)
+  - npm run build
+
+### RISKS / FOLLOW-UPS
+  - The story users duplicate query (point 2) was left unchanged; fixing it
+    would require restructuring the useEffect and is higher-risk than the
+    targeted parallel-query fixes above.
+  - The global prefetch aggressive startup is a design choice (instant load on
+    second page visit); not changed.
+  - useLivePresence 5s poll is not changed (would break live stream UX).
+
+---
+
+## Task: maps-mobile-viewport-fit-002
+## Date: 2026-03-23
+
+### DIAGNOSIS
+
+1. Maps page used `100vh` sizing and `min-h-screen`, which can exceed iOS Safari's visual viewport when browser bars are visible.
+2. This caused users to page-scroll to reveal bottom cards (Explore search, JV Ride card, Become Driver card) and clipped top controls while scrolled.
+3. Bottom panel was anchored at `bottom: 0`, which sits too low in mobile browser mode and increased clipping risk.
+
+### CHANGES MADE
+
+**File: src/pages/Customer/Maps.tsx**
+- Added `useIsMobile` to apply mobile-specific panel anchoring.
+- Changed root container from `min-h-screen` to `h-dvh overflow-hidden` to lock Maps to visual viewport and prevent page-level scrolling on this screen.
+- Changed map container height from `calc(100vh - 56px)` to `calc(100dvh - 56px)`.
+- Anchored bottom panel above browser chrome on mobile with:
+  - `bottom: max(4.5rem, env(safe-area-inset-bottom, 0px))` on mobile
+  - `bottom: 0` on desktop.
+
+### CHECKS RUN
+
+- Pending runtime visual verification in mobile browser viewport.
+
+### RISKS / FOLLOW-UPS
+
+- Bottom panel now sits slightly higher on mobile by design to keep full card content visible without requiring page scroll.
+
+---
+
+## Task: city-view-live-ad-delivery-003
+## Date: 2026-05-09
+
+### DIAGNOSIS
+
+1. The newest Brisbane City View booking exists, is paid, live, and has a valid public image:
+   - Booking: 847cc79c-2e3b-4b4a-9959-08b6a0cf77a0
+   - Campaign: 710b8e88-4369-4ea9-a70a-ccc3cf7138ef
+   - Headline: Looks stunning, perfect for a family
+2. City View was querying `ad_bookings` from the client, but `ad_bookings` did not have a public read policy for paid/live bookings, so normal end-users could not fetch the placement.
+3. City View mobile was still using the static city image as the backdrop even when a live ad existed.
+4. The hook used a random booking when multiple Brisbane bookings were active, so the most recent approved placement was not guaranteed to show first.
+
+### CHANGES MADE
+
+**Database**
+- Added a read policy on `ad_bookings` that exposes only paid bookings whose campaign is live.
+- Draft, pending, unpaid, and non-live campaign bookings remain hidden.
+
+**File: src/hooks/useActiveAd.ts**
+- Included booking `created_at` and ordered candidate bookings newest-first.
+- Changed selection from random rotation to newest eligible booking first so a just-approved placement appears immediately.
+- Changed date matching to the current date so newly approved same-day bookings are delivered immediately.
+
+**File: src/pages/Customer/CityView.tsx**
+- Preserved all existing City View content and layout.
+- Changed only the background source so both mobile and desktop use the live ad media as the backdrop when an eligible ad exists.
+- The existing mobile ticker and desktop banner behavior remains through `AdBanner`.
+
+### CHECKS RUN
+
+- Queried live Brisbane bookings and confirmed the newest paid/live City View booking is selected first.
+- Confirmed the selected campaign media URL is public and returns HTTP 200.
+- Confirmed anonymous/public REST access can now read the paid/live ad booking rows needed by City View.
+- Attempted browser preview verification, but the preview session was redirected to onboarding, so authenticated visual confirmation requires the user to complete/log into the preview account.
+
+### RISKS / FOLLOW-UPS
+
+- Older campaigns whose media URL was previously cleaned to empty will still need their image re-uploaded. The newest Brisbane ad has a valid stored image and is the one now selected.

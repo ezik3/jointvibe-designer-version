@@ -1,0 +1,36 @@
+{
+  "dashboard": "Pannello Amministrazione",
+  "total_users": "Utenti Totali",
+  "active_venues": "Locali Attivi",
+  "pending_venues": "Locali in Attesa",
+  "total_supply": "Fornitura Totale",
+  "today_transactions": "Transazioni di Oggi",
+  "header": {
+    "search_placeholder": "Cerca utenti, locali, transazioni...",
+    "system_online": "Sistema Online"
+  },
+  "sidebar": {
+    "portal_subtitle": "Portale Amministrazione",
+    "super_admin": "Super Amministratore",
+    "logout": "Esci"
+  },
+  "nav": {
+    "dashboard": "Pannello",
+    "users": "Utenti",
+    "venues": "Locali",
+    "venue_reports": "Segnalazioni Locali",
+    "referrals": "Inviti",
+    "ad_campaigns": "Campagne Pubblicitarie",
+    "treasury": "Tesoreria",
+    "mint_burn": "Conia/Brucia",
+    "transactions": "Transazioni",
+    "deposits": "Depositi",
+    "withdrawals": "Prelievi",
+    "wallet_freezes": "Blocchi Portafoglio",
+    "audit_log": "Registro Audit",
+    "roles": "Ruoli",
+    "settings": "Impostazioni",
+    "venue_tiers": "Livelli Locali",
+    "runner_analytics": "Analisi Runner"
+  }
+}

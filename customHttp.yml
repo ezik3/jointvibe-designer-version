@@ -1,0 +1,26 @@
+customHeaders:
+  - pattern: '**/*'
+    headers:
+      - key: 'X-Content-Type-Options'
+        value: nosniff
+      - key: 'X-Frame-Options'
+        value: DENY
+      - key: 'Referrer-Policy'
+        value: strict-origin-when-cross-origin
+
+  # Cache static JS/CSS assets aggressively (Vite outputs content-hashed filenames)
+  - pattern: '/assets/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+
+  # Never cache HTML (index.html must always be fresh for SPA routing to work)
+  - pattern: '**/*.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-store'
+
+# NOTE: Redirect / rewrite rules (including the SPA catch-all) must be configured
+# in the Amplify Console → App settings → Rewrites and redirects.
+# This file is for HTTP response headers only.
+# See amplify.json for the redirect rules to import into the Console.

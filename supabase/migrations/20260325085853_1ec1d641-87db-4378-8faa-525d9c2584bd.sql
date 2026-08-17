@@ -1,0 +1,1 @@
+ALTER TABLE public.venue_test_invites ADD COLUMN IF NOT EXISTS is_simulator boolean NOT NULL DEFAULT false;

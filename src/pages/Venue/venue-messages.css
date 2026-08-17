@@ -1,0 +1,687 @@
+.venue-messages-page {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 120px);
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 28px;
+  background: var(--venue-canvas);
+  color: var(--venue-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-messages-page *,
+.venue-messages-page *::before,
+.venue-messages-page *::after {
+  box-sizing: border-box;
+}
+
+.venue-messages-page button,
+.venue-messages-page input,
+.venue-messages-page select {
+  font: inherit;
+}
+
+.venue-messages-page button {
+  cursor: pointer;
+}
+
+.venue-messages-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.venue-messages-heading h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.venue-messages-heading p {
+  margin: 0;
+  color: var(--venue-text-secondary);
+  font-size: 14px;
+}
+
+.venue-messages-heading__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--venue-cyan);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.venue-messages-heading__status svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-messages-workspace {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: minmax(270px, 320px) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--venue-border);
+  border-radius: 8px;
+  background: var(--venue-surface);
+}
+
+.venue-messages-inbox {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--venue-border);
+}
+
+.venue-messages-inbox__header {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--venue-border);
+}
+
+.venue-messages-inbox__header h2,
+.venue-messages-panel__header h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.venue-messages-inbox__header span {
+  display: block;
+  margin-top: 4px;
+  color: var(--venue-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-messages-icon-button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--venue-border);
+  border-radius: 6px;
+  background: var(--venue-surface);
+  color: var(--venue-text-secondary);
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.venue-messages-icon-button:hover {
+  border-color: var(--venue-text-muted);
+  background: var(--venue-surface-raised);
+  color: var(--venue-text);
+}
+
+.venue-messages-icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-messages-search {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 9px;
+  margin: 12px 16px;
+  padding: 0 11px;
+  border: 1px solid var(--venue-border);
+  border-radius: 6px;
+  background: var(--venue-canvas);
+  color: var(--venue-text-muted);
+}
+
+.venue-messages-search:focus-within,
+.venue-messages-composer__input:focus-within {
+  border-color: var(--venue-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-messages-search svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.venue-messages-search input,
+.venue-messages-composer input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--venue-text);
+  font-size: 13px;
+}
+
+.venue-messages-search input::placeholder,
+.venue-messages-composer input::placeholder {
+  color: var(--venue-text-muted);
+}
+
+.venue-messages-conversation-list {
+  display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
+  gap: 4px;
+  padding: 4px 8px 12px;
+  overflow-y: auto;
+  scrollbar-color: var(--venue-border) transparent;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.venue-messages-conversation-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.venue-messages-conversation-list::-webkit-scrollbar-thumb {
+  border: 2px solid var(--venue-surface);
+  border-radius: 4px;
+  background: var(--venue-border);
+}
+
+.venue-messages-conversation-list::-webkit-scrollbar-thumb:hover {
+  background: var(--venue-text-muted);
+}
+
+.venue-messages-conversation {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 72px;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--venue-text);
+  text-align: left;
+  transition: background 160ms ease;
+}
+
+.venue-messages-conversation:hover {
+  background: var(--venue-surface-raised);
+}
+
+.venue-messages-conversation--active {
+  background: var(--venue-cyan-soft);
+}
+
+.venue-messages-conversation--active::before {
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 30px;
+  border-radius: 0 3px 3px 0;
+  background: var(--venue-cyan);
+  content: "";
+}
+
+.venue-messages-avatar {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--venue-cyan-soft);
+  color: var(--venue-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-messages-conversation__copy {
+  min-width: 0;
+}
+
+.venue-messages-conversation__copy strong,
+.venue-messages-conversation__copy small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venue-messages-conversation__copy strong {
+  font-size: 13px;
+}
+
+.venue-messages-conversation__copy small {
+  margin-top: 4px;
+  color: var(--venue-text-secondary);
+  font-size: 11px;
+}
+
+.venue-messages-conversation__meta {
+  display: grid;
+  align-self: start;
+  justify-items: end;
+  gap: 5px;
+  padding-top: 1px;
+}
+
+.venue-messages-conversation__meta time {
+  color: var(--venue-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.venue-messages-badge {
+  display: inline-grid;
+  min-width: 16px;
+  height: 16px;
+  place-items: center;
+  padding: 0 4px;
+  border-radius: 99px;
+  background: var(--venue-cyan);
+  color: var(--venue-canvas);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.venue-messages-conversation-empty {
+  margin: 20px 16px;
+  color: var(--venue-text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.venue-messages-inbox__footer {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--venue-border);
+  background: var(--venue-surface);
+}
+
+.venue-messages-list-controls {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  color: var(--venue-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-messages-list-controls select {
+  width: 56px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--venue-border);
+  border-radius: 4px;
+  outline: 0;
+  background: var(--venue-surface-raised);
+  color: var(--venue-text);
+}
+
+.venue-messages-list-controls select:focus {
+  border-color: var(--venue-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-messages-list-controls option {
+  background: var(--venue-surface);
+  color: var(--venue-text);
+}
+
+.venue-messages-pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.venue-messages-pagination__page {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--venue-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-messages-pagination__page:hover {
+  border-color: var(--venue-border);
+  background: var(--venue-surface-raised);
+  color: var(--venue-text);
+}
+
+.venue-messages-pagination__page--active {
+  border-color: var(--venue-cyan);
+  background: var(--venue-cyan-soft);
+  color: var(--venue-cyan);
+}
+
+.venue-messages-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.venue-messages-panel__header {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--venue-border);
+}
+
+.venue-messages-panel__header > div:nth-child(2) {
+  min-width: 0;
+}
+
+.venue-messages-panel__header p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 0;
+  color: var(--venue-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-messages-panel__header p span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--venue-cyan);
+}
+
+.venue-messages-conversation-actions {
+  position: relative;
+  margin-left: auto;
+}
+
+.venue-messages-action-menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  display: grid;
+  width: 174px;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--venue-border);
+  border-radius: 6px;
+  background: var(--venue-surface);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.venue-messages-action-menu > button {
+  display: flex;
+  width: 100%;
+  min-height: 36px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--venue-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.venue-messages-action-menu > button:hover {
+  background: var(--venue-surface-raised);
+  color: var(--venue-text);
+}
+
+.venue-messages-action-menu > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-messages-action-menu > .venue-messages-action-menu__delete {
+  color: var(--venue-danger);
+}
+
+.venue-messages-action-menu > .venue-messages-action-menu__delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--venue-danger);
+}
+
+.venue-messages-thread {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.venue-messages-row {
+  display: flex;
+}
+
+.venue-messages-row--venue {
+  justify-content: flex-end;
+}
+
+.venue-messages-bubble {
+  max-width: min(78%, 520px);
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.venue-messages-bubble--guest {
+  background: var(--venue-surface-raised);
+}
+
+.venue-messages-bubble--venue {
+  background: var(--venue-cyan);
+  color: var(--venue-canvas);
+}
+
+.venue-messages-bubble p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.venue-messages-bubble time {
+  display: block;
+  margin-top: 5px;
+  color: var(--venue-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.venue-messages-bubble--venue time {
+  color: rgba(8, 11, 14, 0.7);
+}
+
+.venue-messages-composer {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--venue-border);
+}
+
+.venue-messages-composer__input {
+  display: flex;
+  min-height: 40px;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--venue-border);
+  border-radius: 6px;
+  background: var(--venue-canvas);
+}
+
+.venue-messages-composer__send {
+  border-color: var(--venue-cyan);
+  background: var(--venue-cyan);
+  color: var(--venue-canvas);
+}
+
+.venue-messages-composer__send:hover {
+  border-color: #58e5ed;
+  background: #58e5ed;
+}
+
+.venue-messages-composer__send:disabled {
+  cursor: not-allowed;
+  border-color: var(--venue-border);
+  background: var(--venue-surface);
+  color: var(--venue-text-muted);
+}
+
+.venue-messages-panel__empty {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 32px;
+  text-align: center;
+}
+
+.venue-messages-panel__empty > svg {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 4px;
+  color: var(--venue-text-muted);
+}
+
+.venue-messages-panel__empty h2,
+.venue-messages-panel__empty p {
+  margin: 0;
+}
+
+.venue-messages-panel__empty h2 {
+  font-size: 15px;
+}
+
+.venue-messages-panel__empty p {
+  max-width: 280px;
+  color: var(--venue-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .venue-messages-page {
+    padding: 24px 20px 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .venue-messages-page {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .venue-messages-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .venue-messages-heading h1 {
+    font-size: 30px;
+  }
+
+  .venue-messages-workspace {
+    min-height: 650px;
+    grid-template-columns: 1fr;
+  }
+
+  .venue-messages-inbox {
+    max-height: 286px;
+    border-right: 0;
+    border-bottom: 1px solid var(--venue-border);
+  }
+
+  .venue-messages-conversation-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 4px 12px 12px;
+  }
+
+  .venue-messages-inbox__footer {
+    padding: 8px 12px;
+  }
+
+  .venue-messages-conversation {
+    min-height: 62px;
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+  }
+
+  .venue-messages-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .venue-messages-panel {
+    min-height: 364px;
+  }
+
+  .venue-messages-panel__header {
+    padding: 14px 16px;
+  }
+
+  .venue-messages-thread {
+    padding: 16px;
+  }
+
+  .venue-messages-composer {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 460px) {
+  .venue-messages-page {
+    padding: 24px 16px 36px;
+  }
+
+  .venue-messages-workspace {
+    min-height: 690px;
+  }
+
+  .venue-messages-inbox {
+    max-height: 330px;
+  }
+
+  .venue-messages-conversation-list {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-messages-bubble {
+    max-width: 88%;
+  }
+
+  .venue-messages-conversation {
+    min-height: 58px;
+  }
+}

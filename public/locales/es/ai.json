@@ -1,0 +1,75 @@
+{
+  "assistant": {
+    "title": "Asistente IA",
+    "welcome": "¡Hola! Soy tu asistente Joint Vibe. ¿En qué puedo ayudarte?",
+    "suggestions": "Prueba preguntarme:",
+    "suggestion1": "Encuentra locales cerca de mí",
+    "suggestion2": "¿Qué pasa esta noche?",
+    "suggestion3": "Reservar una mesa",
+    "suggestion4": "Consultar mi saldo",
+    "typing": "La IA está escribiendo...",
+    "listening": "Escuchando...",
+    "speaking": "Hablando...",
+    "error": "Lo siento, se produjo un error"
+  },
+  "voice": {
+    "start": "Iniciar Voz",
+    "stop": "Detener Voz",
+    "speak": "Hablar",
+    "listen": "Escuchar",
+    "mute": "Silenciar",
+    "unmute": "Reactivar Audio",
+    "volume": "Volumen",
+    "speed": "Velocidad",
+    "language": "Idioma"
+  },
+  "capabilities": {
+    "find_venues": "Encontrar locales",
+    "book_tables": "Reservar mesas",
+    "check_events": "Consultar eventos",
+    "wallet_info": "Información de billetera",
+    "make_payments": "Realizar pagos",
+    "get_directions": "Obtener direcciones",
+    "venue_info": "Información del local",
+    "order_food": "Pedir comida/bebidas"
+  },
+  "responses": {
+    "found_venues": "Encontré {{count}} locales cerca de ti",
+    "booking_confirmed": "Reserva confirmada a las {{time}} en {{venue}}",
+    "event_details": "Aquí están los detalles del evento",
+    "wallet_balance": "Tu saldo es {{amount}}",
+    "payment_success": "Pago realizado",
+    "directions_sent": "Direcciones enviadas a tu teléfono",
+    "menu_items": "Aquí están los elementos del menú",
+    "order_placed": "Pedido realizado con éxito"
+  },
+  "errors": {
+    "no_venues": "No se encontraron locales en tu zona",
+    "booking_failed": "Reserva fallida. Intenta de nuevo",
+    "no_events": "No se encontraron eventos",
+    "wallet_error": "No se puede acceder a la billetera",
+    "payment_failed": "Pago fallido",
+    "no_directions": "No se pueden obtener direcciones",
+    "venue_closed": "El local está actualmente cerrado",
+    "order_failed": "Pedido fallido"
+  },
+  "commands": {
+    "find": "Buscar",
+    "book": "Reservar",
+    "check": "Consultar",
+    "show": "Mostrar",
+    "get": "Obtener",
+    "how_much": "Cuánto",
+    "where": "Dónde",
+    "when": "Cuándo",
+    "what": "Qué"
+  },
+  "confirmation": {
+    "confirm_booking": "¿Confirmar reserva a las {{time}}?",
+    "confirm_payment": "¿Confirmar pago de {{amount}}?",
+    "confirm_order": "¿Confirmar pedido?",
+    "yes": "Sí",
+    "no": "No",
+    "cancel": "Cancelar"
+  }
+}

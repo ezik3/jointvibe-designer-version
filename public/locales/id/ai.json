@@ -1,0 +1,75 @@
+{
+  "assistant": {
+    "title": "AI Assistant",
+    "welcome": "Hi! I'm your Joint Vibe assistant. How can I help?",
+    "suggestions": "Try asking me:",
+    "suggestion1": "Find venues near me",
+    "suggestion2": "What's happening tonight?",
+    "suggestion3": "Book a table",
+    "suggestion4": "Check my wallet balance",
+    "typing": "AI is typing...",
+    "listening": "Listening...",
+    "speaking": "Speaking...",
+    "error": "Sorry, I encountered an error"
+  },
+  "voice": {
+    "start": "Start Voice",
+    "stop": "Stop Voice",
+    "speak": "Speak",
+    "listen": "Listen",
+    "mute": "Mute",
+    "unmute": "Unmute",
+    "volume": "Volume",
+    "speed": "Speed",
+    "language": "Language"
+  },
+  "capabilities": {
+    "find_venues": "Find venues",
+    "book_tables": "Book tables",
+    "check_events": "Check events",
+    "wallet_info": "Wallet information",
+    "make_payments": "Make payments",
+    "get_directions": "Get directions",
+    "venue_info": "Venue information",
+    "order_food": "Order food/drinks"
+  },
+  "responses": {
+    "found_venues": "I found {{count}} venues near you",
+    "booking_confirmed": "Booking confirmed for {{time}} at {{venue}}",
+    "event_details": "Here are the event details",
+    "wallet_balance": "Your wallet balance is {{amount}}",
+    "payment_success": "Payment successful",
+    "directions_sent": "Directions sent to your phone",
+    "menu_items": "Here are the menu items",
+    "order_placed": "Order placed successfully"
+  },
+  "errors": {
+    "no_venues": "No venues found in your area",
+    "booking_failed": "Booking failed. Please try again",
+    "no_events": "No events found",
+    "wallet_error": "Unable to access wallet",
+    "payment_failed": "Payment failed",
+    "no_directions": "Unable to get directions",
+    "venue_closed": "Venue is currently closed",
+    "order_failed": "Order failed"
+  },
+  "commands": {
+    "find": "Find",
+    "book": "Book",
+    "check": "Check",
+    "show": "Show",
+    "get": "Get",
+    "how_much": "How much",
+    "where": "Where",
+    "when": "When",
+    "what": "What"
+  },
+  "confirmation": {
+    "confirm_booking": "Confirm booking for {{time}}?",
+    "confirm_payment": "Confirm payment of {{amount}}?",
+    "confirm_order": "Confirm order?",
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel"
+  }
+}

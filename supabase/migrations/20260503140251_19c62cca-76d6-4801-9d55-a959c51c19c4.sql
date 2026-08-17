@@ -1,0 +1,2 @@
+ALTER TABLE public.runner_jobs
+ADD COLUMN IF NOT EXISTS platform_fee_usd NUMERIC NOT NULL DEFAULT 0;

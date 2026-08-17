@@ -1,0 +1,35 @@
+{
+  "dashboard": "Panel de Administración",
+  "total_users": "Usuarios Totales",
+  "active_venues": "Locales Activos",
+  "pending_venues": "Locales Pendientes",
+  "total_supply": "Suministro Total",
+  "today_transactions": "Transacciones de Hoy",
+  "header": {
+    "search_placeholder": "Buscar usuarios, locales, transacciones...",
+    "system_online": "Sistema En Línea"
+  },
+  "sidebar": {
+    "portal_subtitle": "Portal de Administración",
+    "super_admin": "Super Administrador",
+    "logout": "Cerrar Sesión"
+  },
+  "nav": {
+    "dashboard": "Panel",
+    "users": "Usuarios",
+    "venues": "Locales",
+    "venue_reports": "Reportes de Locales",
+    "referrals": "Referidos",
+    "ad_campaigns": "Campañas Publicitarias",
+    "treasury": "Tesorería",
+    "mint_burn": "Acuñar/Quemar",
+    "transactions": "Transacciones",
+    "deposits": "Depósitos",
+    "withdrawals": "Retiros",
+    "wallet_freezes": "Congelar Billeteras",
+    "audit_log": "Registro de Auditoría",
+    "roles": "Roles",
+    "settings": "Configuración",
+    "venue_tiers": "Niveles de Locales"
+  }
+}

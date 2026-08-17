@@ -1,0 +1,153 @@
+{
+  "title": "Wallet",
+  "balance": {
+    "total": "Total Balance",
+    "available": "Available",
+    "pending": "Pending",
+    "subsidy": "Subsidy",
+    "jvc": "JVC",
+    "currency": "Currency",
+    "available_balance": "Available Balance",
+    "total_deposited": "Total Deposited",
+    "test_balance": "Test Balance",
+    "your_balance": "Your Balance"
+  },
+  "actions": {
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "send": "Send",
+    "request": "Request",
+    "exchange": "Exchange",
+    "history": "Transaction History",
+    "top_up": "Top Up",
+    "add_funds": "Add Funds",
+    "back_to_venues": "Back to Venues",
+    "back_to_wallet": "Back to Wallet",
+    "confirm_payment": "Confirm Payment",
+    "loading_payment": "Loading payment..."
+  },
+  "deposit": {
+    "title": "Deposit Funds",
+    "amount": "Amount",
+    "min_amount": "Minimum: {{amount}}",
+    "max_amount": "Maximum: {{amount}}",
+    "method": "Payment Method",
+    "credit_card": "Credit Card",
+    "bank_transfer": "Bank Transfer",
+    "crypto": "Crypto",
+    "gateway": "Payment Gateway",
+    "processing_fee": "Processing Fee",
+    "total": "Total to Pay",
+    "confirm": "Confirm Deposit",
+    "success": "Deposit successful!",
+    "pending": "Deposit pending..."
+  },
+  "withdraw": {
+    "title": "Withdraw Funds",
+    "amount": "Amount to Withdraw",
+    "available": "Available: {{amount}}",
+    "method": "Withdrawal Method",
+    "bank_account": "Bank Account",
+    "crypto_wallet": "Crypto Wallet",
+    "processing_time": "Processing Time",
+    "instant": "Instant",
+    "hours": "{{count}} hour",
+    "hours_plural": "{{count}} hours",
+    "days": "{{count}} day",
+    "days_plural": "{{count}} days",
+    "fee": "Withdrawal Fee",
+    "receive": "You'll Receive",
+    "confirm": "Confirm Withdrawal",
+    "success": "Withdrawal initiated!"
+  },
+  "send": {
+    "title": "Send Money",
+    "recipient": "Recipient",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "amount": "Amount",
+    "message": "Message (Optional)",
+    "fee": "Transaction Fee",
+    "total": "Total",
+    "confirm": "Send Money",
+    "success": "Money sent successfully!"
+  },
+  "transactions": {
+    "title": "Transaction History",
+    "all": "All Transactions",
+    "deposits": "Deposits",
+    "withdrawals": "Withdrawals",
+    "payments": "Payments",
+    "transfers": "Transfers",
+    "date": "Date",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed",
+    "cancelled": "Cancelled",
+    "no_transactions": "No transactions yet",
+    "load_more": "Load More",
+    "order_items": "Order Items",
+    "platform_fee": "Platform Fee",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total"
+  },
+  "security": {
+    "title": "Wallet Security",
+    "pin": "PIN Protection",
+    "biometric": "Biometric Login",
+    "face_id": "Face ID",
+    "touch_id": "Touch ID",
+    "2fa": "Two-Factor Authentication",
+    "daily_limit": "Daily Spending Limit",
+    "session_timeout": "Session Timeout",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "setup": "Set Up",
+    "change": "Change",
+    "remove": "Remove"
+  },
+  "errors": {
+    "insufficient_balance": "Insufficient balance",
+    "invalid_amount": "Invalid amount",
+    "invalid_recipient": "Invalid recipient",
+    "daily_limit_exceeded": "Daily limit exceeded",
+    "transaction_failed": "Transaction failed",
+    "security_required": "Security verification required",
+    "no_balance": "No Balance",
+    "add_funds_first": "Add funds first to send money to others",
+    "min_withdrawal": "Minimum withdrawal is $10.00",
+    "payment_error": "Payment failed",
+    "payment_expired": "Payment expired"
+  },
+  "success": {
+    "deposit_success": "Deposit successful!",
+    "withdrawal_success": "Withdrawal initiated!",
+    "send_success": "Money sent successfully!",
+    "security_updated": "Security settings updated",
+    "payment_complete": "Payment complete!"
+  },
+  "tier": "Tier",
+  "rewards": {
+    "points": "Reward Points",
+    "redeem_hint": "Redeem for perks →"
+  },
+  "fees": {
+    "platform_fee": "Platform Transaction Fee",
+    "dynamic_hint": "Dynamic fee based on your region"
+  },
+  "offline": {
+    "pending_transactions": "{{count}} Pending Transaction(s)",
+    "sync_message": "Will sync automatically when back online"
+  },
+  "in_person": {
+    "title": "In-Person Payments",
+    "description": "Seamlessly pay at partner restaurants, boutiques, and venues with a simple tap or scan.",
+    "scan_qr": "Scan QR Code",
+    "check_in_hint": "💡 Check in to a venue first to use Tap to Pay"
+  }
+}

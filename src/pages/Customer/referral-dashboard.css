@@ -1,0 +1,378 @@
+.customer-referral-page {
+  --referral-canvas: #080b0e;
+  --referral-surface: #11161b;
+  --referral-raised: #171d23;
+  --referral-border: #2a323a;
+  --referral-text: #f4f7f8;
+  --referral-secondary: #a7b0b8;
+  --referral-muted: #717c86;
+  --referral-cyan: #16d9e8;
+  --referral-cyan-soft: #12363b;
+  min-height: 100%;
+  background: var(--referral-canvas);
+  color: var(--referral-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.customer-referral-page *,
+.customer-referral-page *::before,
+.customer-referral-page *::after {
+  box-sizing: border-box;
+}
+
+.customer-referral-page__content {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 32px 28px 56px;
+}
+
+.customer-referral-page__back {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 24px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--referral-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.customer-referral-page__back:hover {
+  border-color: var(--referral-border);
+  background: var(--referral-surface);
+  color: var(--referral-text);
+}
+
+.customer-referral-page__back svg {
+  width: 16px;
+  height: 16px;
+}
+
+.customer-referral-page__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.customer-referral-page__header-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border: 1px solid var(--referral-border);
+  border-radius: 8px;
+  background: var(--referral-surface);
+  color: var(--referral-cyan);
+}
+
+.customer-referral-page__header-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.customer-referral-page__header h1 {
+  margin: 0;
+  color: var(--referral-text);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.customer-referral-page__header p {
+  margin: 5px 0 0;
+  color: var(--referral-secondary);
+  font-size: 14px;
+}
+
+.customer-referral-page__loading,
+.customer-referral-page__stack {
+  display: grid;
+  gap: 16px;
+}
+
+.customer-referral-page__stack > * {
+  min-width: 0;
+}
+
+.customer-referral-page__stats {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.customer-referral-page__card {
+  min-width: 0;
+  border: 1px solid var(--referral-border);
+  border-radius: 8px;
+  background: var(--referral-surface);
+  color: var(--referral-text);
+  box-shadow: none;
+}
+
+.customer-referral-page__card:hover {
+  border-color: #46515a;
+}
+
+.customer-referral-page__metric-card,
+.customer-referral-page__status-card,
+.customer-referral-page__link-card,
+.customer-referral-page__how-card,
+.customer-referral-page__history-card {
+  padding: 16px;
+}
+
+.customer-referral-page__metric-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--referral-secondary);
+  font-size: 12px;
+}
+
+.customer-referral-page__metric-label svg {
+  width: 16px;
+  height: 16px;
+  color: var(--referral-cyan);
+}
+
+.customer-referral-page__metric-value {
+  margin: 8px 0 0;
+  color: var(--referral-cyan);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.customer-referral-page__metric-value--pending {
+  color: #efba3e;
+}
+
+.customer-referral-page__metric-note {
+  margin: 6px 0 0;
+  color: var(--referral-muted);
+  font-size: 11px;
+}
+
+.customer-referral-page__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  color: var(--referral-text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.customer-referral-page__section-title svg {
+  width: 16px;
+  height: 16px;
+  color: var(--referral-cyan);
+}
+
+.customer-referral-page__status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.customer-referral-page__status-item {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.customer-referral-page__status-item strong {
+  color: var(--referral-text);
+  font-size: 18px;
+}
+
+.customer-referral-page__status-item span {
+  color: var(--referral-muted);
+  font-size: 11px;
+}
+
+.customer-referral-page__status-item--rewarded strong {
+  color: var(--referral-cyan);
+}
+
+.customer-referral-page__status-item--expired strong {
+  color: #ef4444;
+}
+
+.customer-referral-page__link-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.customer-referral-page__link-value {
+  min-width: 0;
+  min-height: 42px;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 11px;
+  border: 1px solid var(--referral-border);
+  border-radius: 6px;
+  background: var(--referral-canvas);
+  color: var(--referral-secondary);
+  font-size: 12px;
+  line-height: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.customer-referral-page__icon-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--referral-border);
+  border-radius: 6px;
+  background: var(--referral-surface);
+  color: var(--referral-secondary);
+}
+
+.customer-referral-page__icon-button:hover {
+  background: var(--referral-raised);
+  color: var(--referral-text);
+}
+
+.customer-referral-page__icon-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.customer-referral-page__code {
+  margin: 12px 0 0;
+  color: var(--referral-muted);
+  font-size: 12px;
+}
+
+.customer-referral-page__code strong {
+  color: #efba3e;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+}
+
+.customer-referral-page__empty {
+  display: grid;
+  min-height: 190px;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.customer-referral-page__empty > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  place-items: center;
+  border: 1px solid var(--referral-border);
+  border-radius: 50%;
+  background: var(--referral-raised);
+  color: var(--referral-muted);
+}
+
+.customer-referral-page__empty > span svg {
+  width: 23px;
+  height: 23px;
+}
+
+.customer-referral-page__empty p {
+  margin: 0;
+  color: var(--referral-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.customer-referral-page__empty small {
+  color: var(--referral-muted);
+  font-size: 12px;
+}
+
+.customer-referral-page__steps {
+  display: grid;
+  gap: 14px;
+}
+
+.customer-referral-page__step {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.customer-referral-page__step-number {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.4);
+  border-radius: 50%;
+  background: var(--referral-cyan-soft);
+  color: var(--referral-cyan);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.customer-referral-page__step strong,
+.customer-referral-page__step span {
+  display: block;
+}
+
+.customer-referral-page__step strong {
+  color: var(--referral-text);
+  font-size: 13px;
+}
+
+.customer-referral-page__step span {
+  margin-top: 3px;
+  color: var(--referral-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.customer-referral-page button:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.32);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .customer-referral-page__content {
+    padding: 82px 16px 40px;
+  }
+
+  .customer-referral-page__header h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .customer-referral-page__stats,
+  .customer-referral-page__status-grid {
+    gap: 6px;
+  }
+
+  .customer-referral-page__metric-card,
+  .customer-referral-page__status-card,
+  .customer-referral-page__link-card,
+  .customer-referral-page__how-card,
+  .customer-referral-page__history-card {
+    padding: 13px;
+  }
+}

@@ -1,0 +1,663 @@
+.pos-analytics-page {
+  --analytics-canvas: var(--pos-shell-canvas, #080b0e);
+  --analytics-surface: var(--pos-shell-surface, #11161b);
+  --analytics-surface-raised: var(--pos-shell-surface-raised, #171d23);
+  --analytics-border: var(--pos-shell-border, #2a323a);
+  --analytics-text: var(--pos-shell-text, #f4f7f8);
+  --analytics-text-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --analytics-text-muted: var(--pos-shell-text-muted, #717c86);
+  --analytics-cyan: var(--pos-shell-cyan, #16d9e8);
+  --analytics-cyan-soft: var(--pos-shell-cyan-soft, #12363b);
+  --analytics-danger: var(--pos-shell-danger, #ef4444);
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  padding: 24px 28px 40px;
+  background: var(--analytics-canvas);
+  color: var(--analytics-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.pos-analytics-page *,
+.pos-analytics-page *::before,
+.pos-analytics-page *::after {
+  box-sizing: border-box;
+}
+
+.pos-analytics-page button {
+  cursor: pointer;
+}
+
+.pos-analytics-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pos-analytics-topbar {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--analytics-border);
+}
+
+.pos-analytics-topbar > div {
+  display: grid;
+  gap: 3px;
+}
+
+.pos-analytics-topbar span {
+  overflow: hidden;
+  max-width: 260px;
+  color: var(--analytics-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-analytics-topbar strong {
+  color: var(--analytics-text);
+  font-size: 13px;
+}
+
+.pos-analytics-topbar p {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--analytics-cyan);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pos-analytics-topbar p.is-syncing {
+  color: var(--analytics-text-secondary);
+}
+
+.pos-analytics-topbar svg,
+.pos-analytics-updated svg {
+  width: 15px;
+  height: 15px;
+}
+
+.pos-analytics-updated svg {
+  color: var(--analytics-cyan);
+}
+
+.pos-analytics-updated svg.is-syncing {
+  animation: pos-analytics-spin 900ms linear infinite;
+}
+
+.pos-analytics-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.pos-analytics-heading h1 {
+  margin: 0;
+  color: var(--analytics-text);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.pos-analytics-heading p {
+  margin: 8px 0 0;
+  color: var(--analytics-text-secondary);
+  font-size: 14px;
+}
+
+.pos-analytics-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.pos-analytics-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-analytics-button--primary {
+  border-color: var(--analytics-cyan);
+  background: var(--analytics-cyan);
+  color: var(--analytics-canvas);
+}
+
+.pos-analytics-button--primary:hover {
+  border-color: #58e5ed;
+  background: #58e5ed;
+}
+
+.pos-analytics-button--secondary {
+  border-color: var(--analytics-border);
+  background: var(--analytics-surface);
+  color: var(--analytics-text-secondary);
+}
+
+.pos-analytics-button--secondary:hover {
+  border-color: var(--analytics-text-muted);
+  background: var(--analytics-surface-raised);
+  color: var(--analytics-text);
+}
+
+.pos-analytics-button--compact {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 11px;
+}
+
+.pos-analytics-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pos-analytics-period-tabs {
+  display: inline-flex;
+  min-height: 40px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 3px;
+  border: 1px solid var(--analytics-border);
+  border-radius: 6px;
+  background: var(--analytics-surface);
+}
+
+.pos-analytics-period-tabs button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--analytics-text-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pos-analytics-period-tabs button:hover {
+  color: var(--analytics-text-secondary);
+}
+
+.pos-analytics-period-tabs button.is-active {
+  background: var(--analytics-cyan-soft);
+  color: var(--analytics-cyan);
+}
+
+.pos-analytics-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--analytics-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-analytics-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pos-analytics-card {
+  border: 1px solid var(--analytics-border);
+  border-radius: 8px;
+  background: var(--analytics-surface);
+}
+
+.pos-analytics-metric {
+  min-height: 142px;
+  padding: 16px;
+}
+
+.pos-analytics-metric > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--analytics-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-analytics-metric > div > svg {
+  width: 17px;
+  height: 17px;
+  color: var(--analytics-cyan);
+}
+
+.pos-analytics-metric > strong {
+  display: block;
+  margin: 18px 0 8px;
+  color: var(--analytics-text);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.pos-analytics-metric p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  color: var(--analytics-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pos-analytics-metric p svg {
+  width: 13px;
+  height: 13px;
+  color: var(--analytics-cyan);
+}
+
+.pos-analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.pos-analytics-grid--lower {
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+.pos-analytics-panel {
+  min-width: 0;
+  padding: 20px;
+}
+
+.pos-analytics-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pos-analytics-panel__header h2 {
+  margin: 0;
+  color: var(--analytics-text);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.pos-analytics-panel__header p {
+  margin: 6px 0 0;
+  color: var(--analytics-text-secondary);
+  font-size: 12px;
+}
+
+.pos-analytics-panel__header > strong {
+  color: var(--analytics-cyan);
+  font-size: 15px;
+}
+
+.pos-analytics-panel__header .pos-analytics-button {
+  flex: 0 0 auto;
+}
+
+.pos-analytics-sales-chart {
+  display: grid;
+  height: 218px;
+  align-items: end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--analytics-border);
+}
+
+.pos-analytics-sales-chart__bar {
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  grid-template-rows: auto 1fr auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.pos-analytics-sales-chart__value {
+  overflow: hidden;
+  color: var(--analytics-text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-analytics-sales-chart__track {
+  display: flex;
+  height: 148px;
+  align-items: end;
+  border-bottom: 1px solid var(--analytics-border);
+}
+
+.pos-analytics-sales-chart__track b {
+  width: 100%;
+  min-height: 4px;
+  border-radius: 4px 4px 0 0;
+  background: var(--analytics-cyan);
+  transition: height 180ms ease;
+}
+
+.pos-analytics-sales-chart__track b.is-empty {
+  opacity: 0.28;
+}
+
+.pos-analytics-sales-chart__label {
+  color: var(--analytics-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pos-analytics-service-mix {
+  display: grid;
+  gap: 17px;
+  margin-top: 24px;
+}
+
+.pos-analytics-service-mix__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px 12px;
+}
+
+.pos-analytics-service-mix__row > div:first-child {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.pos-analytics-service-mix__dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--analytics-cyan);
+}
+
+.pos-analytics-service-mix__dot--muted {
+  background: var(--analytics-text-secondary);
+}
+
+.pos-analytics-service-mix__dot--subtle {
+  background: var(--analytics-text-muted);
+}
+
+.pos-analytics-service-mix__row span {
+  overflow: hidden;
+  color: var(--analytics-text);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-analytics-service-mix__row strong {
+  color: var(--analytics-text);
+  font-size: 12px;
+}
+
+.pos-analytics-service-mix__track {
+  grid-column: 1 / -1;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--analytics-canvas);
+}
+
+.pos-analytics-service-mix__track b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--analytics-cyan);
+}
+
+.pos-analytics-service-mix__track b.pos-analytics-service-mix__fill--muted {
+  background: var(--analytics-text-secondary);
+}
+
+.pos-analytics-service-mix__track b.pos-analytics-service-mix__fill--subtle {
+  background: var(--analytics-text-muted);
+}
+
+.pos-analytics-item-performance {
+  display: grid;
+  margin-top: 18px;
+}
+
+.pos-analytics-item-performance__row {
+  display: grid;
+  min-height: 50px;
+  grid-template-columns: 28px minmax(0, 1fr) 66px;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--analytics-border);
+}
+
+.pos-analytics-item-performance__row:last-child {
+  border-bottom: 0;
+}
+
+.pos-analytics-item-performance__rank {
+  color: var(--analytics-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pos-analytics-item-performance__copy {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.pos-analytics-item-performance__copy > span {
+  overflow: hidden;
+  color: var(--analytics-text);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-analytics-item-performance__copy > div {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--analytics-canvas);
+}
+
+.pos-analytics-item-performance__copy b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--analytics-cyan);
+}
+
+.pos-analytics-item-performance__row > strong {
+  color: var(--analytics-text);
+  font-size: 11px;
+  text-align: right;
+}
+
+.pos-analytics-service-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.pos-analytics-service-summary {
+  display: grid;
+  gap: 0;
+  margin: 18px 0 0;
+}
+
+.pos-analytics-service-summary div {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--analytics-border);
+}
+
+.pos-analytics-service-summary div:last-child {
+  border-bottom: 0;
+}
+
+.pos-analytics-service-summary dt {
+  color: var(--analytics-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-analytics-service-summary dd {
+  margin: 0;
+  color: var(--analytics-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pos-analytics-service-summary dd.is-positive {
+  color: var(--analytics-cyan);
+}
+
+.pos-analytics-empty {
+  margin: 44px 0;
+  color: var(--analytics-text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.pos-analytics-page :focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+@keyframes pos-analytics-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1180px) {
+  .pos-analytics-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pos-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pos-analytics-service-mix {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pos-analytics-service-mix__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pos-analytics-service-mix__row > strong {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .pos-analytics-page {
+    padding: 24px 16px 36px;
+  }
+
+  .pos-analytics-topbar p {
+    display: none;
+  }
+
+  .pos-analytics-heading,
+  .pos-analytics-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pos-analytics-heading h1 {
+    font-size: 30px;
+  }
+
+  .pos-analytics-period-tabs {
+    width: 100%;
+  }
+
+  .pos-analytics-period-tabs button {
+    flex: 1;
+  }
+
+  .pos-analytics-metrics,
+  .pos-analytics-service-mix {
+    grid-template-columns: 1fr;
+  }
+
+  .pos-analytics-service-mix__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .pos-analytics-service-mix__row > strong {
+    display: block;
+  }
+}
+
+@media (max-width: 420px) {
+  .pos-analytics-heading .pos-analytics-button {
+    width: 40px;
+    padding: 0;
+  }
+
+  .pos-analytics-heading .pos-analytics-button span,
+  .pos-analytics-panel__header .pos-analytics-button span {
+    display: none;
+  }
+
+  .pos-analytics-panel {
+    padding: 16px;
+  }
+
+  .pos-analytics-panel__header {
+    gap: 8px;
+  }
+
+  .pos-analytics-panel__header .pos-analytics-button {
+    width: 36px;
+    padding: 0;
+  }
+
+  .pos-analytics-sales-chart {
+    gap: 7px;
+  }
+
+  .pos-analytics-sales-chart__value {
+    font-size: 9px;
+  }
+}

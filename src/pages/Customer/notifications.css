@@ -1,0 +1,535 @@
+.customer-notifications-page {
+  --customer-notifications-canvas: #090c0f;
+  --customer-notifications-surface: #11171c;
+  --customer-notifications-raised: #171f25;
+  --customer-notifications-line: #27323a;
+  --customer-notifications-text: #f3f7f8;
+  --customer-notifications-muted: #8f9ca5;
+  --customer-notifications-faint: #63707a;
+  --customer-notifications-cyan: #16d9e8;
+  --customer-notifications-cyan-deep: #12363b;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: var(--customer-notifications-canvas);
+  background-image: none;
+  color: var(--customer-notifications-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.customer-notifications-page *,
+.customer-notifications-page *::before,
+.customer-notifications-page *::after {
+  box-sizing: border-box;
+}
+
+.customer-notifications-page .customer-notifications-page__main {
+  width: min(100%, 820px);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 64px clamp(24px, 5vw, 64px) 72px;
+}
+
+.customer-notifications-page .customer-notifications-page__heading {
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.customer-notifications-page__kicker,
+.customer-notifications-page__section-heading > span,
+.customer-notifications-page__item-time {
+  display: inline-flex;
+  align-items: center;
+}
+
+.customer-notifications-page__kicker {
+  gap: 8px;
+  margin: 0 0 8px;
+  color: var(--customer-notifications-cyan);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.customer-notifications-page__kicker svg {
+  width: 14px;
+  height: 14px;
+}
+
+.customer-notifications-page .customer-notifications-page__heading h1 {
+  margin: 0;
+  color: var(--customer-notifications-text);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.customer-notifications-page .customer-notifications-page__heading > div > p:last-child {
+  margin: 8px 0 0;
+  color: var(--customer-notifications-muted);
+  font-size: 14px;
+}
+
+.customer-notifications-page .customer-notifications-page__mark-read {
+  min-height: 36px;
+  gap: 7px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: var(--customer-notifications-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.customer-notifications-page .customer-notifications-page__mark-read:hover {
+  background: transparent;
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page .customer-notifications-page__mark-read:disabled {
+  cursor: default;
+  opacity: 0.46;
+}
+
+.customer-notifications-page .customer-notifications-page__mark-read:disabled:hover {
+  color: var(--customer-notifications-muted);
+}
+
+.customer-notifications-page__mark-read svg {
+  width: 16px;
+  height: 16px;
+}
+
+.customer-notifications-page .customer-notifications-page__tabs {
+  gap: 8px;
+  margin: 0 -4px 36px;
+  padding: 4px;
+  scrollbar-width: none;
+}
+
+.customer-notifications-page__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.customer-notifications-page .customer-notifications-page__tab {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: 0 0 auto;
+  padding: 0 14px;
+  border: 1px solid var(--customer-notifications-line);
+  border-radius: 6px;
+  background: var(--customer-notifications-surface);
+  color: var(--customer-notifications-muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.customer-notifications-page .customer-notifications-page__tab:hover {
+  border-color: var(--customer-notifications-faint);
+  background: var(--customer-notifications-raised);
+  color: var(--customer-notifications-text);
+}
+
+.customer-notifications-page .customer-notifications-page__tab--active {
+  border-color: rgba(22, 217, 232, 0.48);
+  background: var(--customer-notifications-cyan-deep);
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page__tab-count {
+  display: grid;
+  min-width: 17px;
+  height: 17px;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(22, 217, 232, 0.15);
+  color: inherit;
+  font-size: 10px;
+}
+
+.customer-notifications-page__deals {
+  margin-bottom: 24px;
+}
+
+.customer-notifications-page .customer-notifications-page__section-heading {
+  min-height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.customer-notifications-page__section-heading > span {
+  gap: 8px;
+  color: var(--customer-notifications-text);
+}
+
+.customer-notifications-page__section-heading svg {
+  width: 16px;
+  height: 16px;
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page__section-heading h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.customer-notifications-page__clear-deals {
+  min-height: 28px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--customer-notifications-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.customer-notifications-page__clear-deals:hover {
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page__clear-deals:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+.customer-notifications-page .customer-notifications-page__deal-list {
+  display: grid;
+  gap: 10px;
+}
+
+.customer-notifications-page__deal-list > div {
+  border-color: var(--customer-notifications-line);
+  border-radius: 8px;
+  background: var(--customer-notifications-surface);
+}
+
+.customer-notifications-page .customer-notifications-page__runner-card {
+  display: block;
+  width: 100%;
+  min-height: 78px;
+  padding: 14px 16px;
+  border: 1px solid var(--customer-notifications-line);
+  border-radius: 8px;
+  background: var(--customer-notifications-surface);
+  color: var(--customer-notifications-text);
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.customer-notifications-page .customer-notifications-page__runner-card:hover {
+  border-color: #45545d;
+  background: var(--customer-notifications-raised);
+  transform: translateY(-1px);
+}
+
+.customer-notifications-page .customer-notifications-page__runner-icon,
+.customer-notifications-page .customer-notifications-page__item-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border: 1px solid #36515a;
+  border-radius: 6px;
+  background: var(--customer-notifications-cyan-deep);
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page__runner-icon svg,
+.customer-notifications-page__item-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.customer-notifications-page__runner-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.customer-notifications-page .customer-notifications-page__runner-copy {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+
+.customer-notifications-page__runner-copy > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.customer-notifications-page__runner-copy > div:first-child span:first-child {
+  color: var(--customer-notifications-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.customer-notifications-page__runner-copy > div:first-child span:last-child {
+  color: var(--customer-notifications-cyan);
+  font-size: 12px;
+}
+
+.customer-notifications-page__runner-copy > div:not(:first-child) {
+  overflow: hidden;
+  color: var(--customer-notifications-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.customer-notifications-page .customer-notifications-page__list {
+  display: grid;
+  gap: 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.customer-notifications-page .customer-notifications-page__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  min-height: 88px;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid var(--customer-notifications-line);
+  border-radius: 8px;
+  background: var(--customer-notifications-surface);
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.customer-notifications-page .customer-notifications-page__item:hover {
+  border-color: #45545d;
+  background: var(--customer-notifications-raised);
+  transform: translateY(-1px);
+}
+
+.customer-notifications-page .customer-notifications-page__item:focus-visible,
+.customer-notifications-page .customer-notifications-page__tab:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+.customer-notifications-page .customer-notifications-page__item--unread {
+  border-color: rgba(22, 217, 232, 0.38);
+  background: rgba(18, 54, 59, 0.42);
+}
+
+.customer-notifications-page .customer-notifications-page__item-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.customer-notifications-page .customer-notifications-page__item-title-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+}
+
+.customer-notifications-page .customer-notifications-page__item-title {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--customer-notifications-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.customer-notifications-page__item-title-row > svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page .customer-notifications-page__item-message {
+  color: var(--customer-notifications-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.customer-notifications-page .customer-notifications-page__item-time {
+  gap: 5px;
+  margin-top: 6px;
+  color: var(--customer-notifications-faint);
+  font-size: 11px;
+}
+
+.customer-notifications-page__item-time svg {
+  width: 12px;
+  height: 12px;
+}
+
+.customer-notifications-page .customer-notifications-page__unread {
+  width: 8px;
+  height: 8px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--customer-notifications-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.12);
+}
+
+.customer-notifications-page .customer-notifications-page__invite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.customer-notifications-page .customer-notifications-page__invite-accept,
+.customer-notifications-page .customer-notifications-page__invite-decline {
+  min-height: 30px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.customer-notifications-page .customer-notifications-page__invite-accept {
+  border: 1px solid var(--customer-notifications-cyan);
+  background: var(--customer-notifications-cyan);
+  color: #080b0e;
+}
+
+.customer-notifications-page .customer-notifications-page__invite-accept:hover:not(:disabled) {
+  background: #58e5ed;
+}
+
+.customer-notifications-page .customer-notifications-page__invite-decline {
+  border-color: var(--customer-notifications-line);
+  background: transparent;
+  color: var(--customer-notifications-muted);
+}
+
+.customer-notifications-page .customer-notifications-page__invite-decline:hover:not(:disabled) {
+  border-color: var(--customer-notifications-faint);
+  background: var(--customer-notifications-raised);
+  color: var(--customer-notifications-text);
+}
+
+.customer-notifications-page .customer-notifications-page__responded {
+  margin-top: 8px;
+  color: var(--customer-notifications-cyan);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.customer-notifications-page .customer-notifications-page__loading,
+.customer-notifications-page .customer-notifications-page__empty {
+  display: grid;
+  min-height: 300px;
+  place-content: center;
+  justify-items: center;
+  padding: 32px;
+  border: 1px dashed #34414a;
+  border-radius: 8px;
+  background: #0d1216;
+  text-align: center;
+}
+
+.customer-notifications-page .customer-notifications-page__loading > div {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+  border: 3px solid var(--customer-notifications-cyan);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: customer-notifications-spin 760ms linear infinite;
+}
+
+.customer-notifications-page .customer-notifications-page__loading p {
+  margin: 0;
+  color: var(--customer-notifications-muted);
+  font-size: 13px;
+}
+
+.customer-notifications-page .customer-notifications-page__empty-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin: 0 0 18px;
+  place-items: center;
+  border: 1px solid #38545d;
+  border-radius: 50%;
+  background: var(--customer-notifications-cyan-deep);
+}
+
+.customer-notifications-page .customer-notifications-page__empty-icon svg {
+  width: 27px;
+  height: 27px;
+  color: var(--customer-notifications-cyan);
+}
+
+.customer-notifications-page .customer-notifications-page__empty h2 {
+  margin: 0 0 6px;
+  color: var(--customer-notifications-text);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.customer-notifications-page .customer-notifications-page__empty p {
+  max-width: 390px;
+  margin: 0;
+  color: var(--customer-notifications-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@keyframes customer-notifications-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .customer-notifications-page--mobile .customer-notifications-page__main {
+    padding: 86px 18px 54px;
+  }
+
+  .customer-notifications-page--dashboard-presentation .customer-notifications-page__main {
+    padding-top: 40px;
+  }
+
+  .customer-notifications-page .customer-notifications-page__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .customer-notifications-page .customer-notifications-page__tabs {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .customer-notifications-page .customer-notifications-page__heading h1 {
+    font-size: 29px;
+  }
+
+  .customer-notifications-page .customer-notifications-page__item {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .customer-notifications-page .customer-notifications-page__item-message {
+    font-size: 11px;
+  }
+
+  .customer-notifications-page .customer-notifications-page__empty {
+    min-height: 265px;
+    padding: 24px 18px;
+  }
+}

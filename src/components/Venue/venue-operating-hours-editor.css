@@ -1,0 +1,115 @@
+.venue-operating-hours-editor {
+  display: grid;
+  gap: 0;
+}
+
+.venue-operating-hours-editor__row {
+  display: grid;
+  grid-template-columns: 42px 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 0;
+  border-top: 1px solid var(--venue-border, #2a323a);
+}
+
+.venue-operating-hours-editor__row:first-child {
+  border-top: 0;
+}
+
+.venue-operating-hours-editor__row > strong {
+  color: var(--venue-text, #f4f7f8);
+  font-size: 12px;
+}
+
+.venue-operating-hours-editor__row [role="switch"] {
+  background: var(--venue-border, #2a323a);
+  box-shadow: none;
+}
+
+.venue-operating-hours-editor__row [role="switch"][data-state="checked"] {
+  background: var(--venue-cyan, #16d9e8);
+}
+
+.venue-operating-hours-editor__row [role="switch"] > span {
+  background: var(--venue-text, #f4f7f8);
+}
+
+.venue-operating-hours-editor__times {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.venue-operating-hours-editor .venue-operating-hours-editor__times input {
+  width: 108px;
+  min-width: 0;
+  height: 34px;
+  min-height: 34px;
+  padding: 0 7px 0 9px;
+  border: 1px solid var(--venue-border, #2a323a);
+  border-radius: 5px;
+  outline: 0;
+  background: var(--venue-canvas, #080b0e);
+  color: var(--venue-text, #f4f7f8);
+  color-scheme: dark;
+  font-family: inherit;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.venue-operating-hours-editor .venue-operating-hours-editor__times input::-webkit-calendar-picker-indicator {
+  margin: 0;
+  opacity: 0.72;
+}
+
+.venue-operating-hours-editor .venue-operating-hours-editor__times input:focus {
+  border-color: var(--venue-cyan, #16d9e8);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-operating-hours-editor__times > span,
+.venue-operating-hours-editor__closed {
+  color: var(--venue-text-muted, #717c86);
+  font-size: 11px;
+}
+
+.venue-operating-hours-editor__closed {
+  justify-self: start;
+}
+
+@media (max-width: 640px) {
+  .venue-operating-hours-editor__row {
+    grid-template-columns: 36px 44px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .venue-operating-hours-editor__times {
+    gap: 6px;
+  }
+
+  .venue-operating-hours-editor .venue-operating-hours-editor__times input {
+    width: 96px;
+    padding: 0 5px 0 7px;
+  }
+}
+
+@media (max-width: 520px) {
+  .venue-operating-hours-editor__row {
+    grid-template-columns: 36px 44px minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .venue-operating-hours-editor__times {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .venue-operating-hours-editor .venue-operating-hours-editor__times input {
+    width: auto;
+    max-width: 132px;
+    flex: 1 1 0;
+  }
+}

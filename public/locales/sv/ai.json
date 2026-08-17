@@ -1,0 +1,75 @@
+{
+  "assistant": {
+    "title": "AI-assistent",
+    "welcome": "Hej! Jag är din Joint Vibe-assistent. Hur kan jag hjälpa till?",
+    "suggestions": "Du kan fråga mig:",
+    "suggestion1": "Hitta platser nära mig",
+    "suggestion2": "Vad händer ikväll?",
+    "suggestion3": "Boka bord",
+    "suggestion4": "Kontrollera mitt plånbokssaldo",
+    "typing": "AI skriver...",
+    "listening": "Lyssnar...",
+    "speaking": "Talar...",
+    "error": "Ursäkta, ett fel uppstod"
+  },
+  "voice": {
+    "start": "Starta röst",
+    "stop": "Stoppa röst",
+    "speak": "Tala",
+    "listen": "Lyssna",
+    "mute": "Ljud av",
+    "unmute": "Ljud på",
+    "volume": "Volym",
+    "speed": "Hastighet",
+    "language": "Språk"
+  },
+  "capabilities": {
+    "find_venues": "Hitta platser",
+    "book_tables": "Boka bord",
+    "check_events": "Kontrollera evenemang",
+    "wallet_info": "Plånboksinformation",
+    "make_payments": "Gör betalningar",
+    "get_directions": "Få vägbeskrivningar",
+    "venue_info": "Platsinformation",
+    "order_food": "Beställ mat/dryck"
+  },
+  "responses": {
+    "found_venues": "Jag hittade {{count}} platser nära dig",
+    "booking_confirmed": "Bokning bekräftad för {{time}} på {{venue}}",
+    "event_details": "Här är evenemangsdetaljerna",
+    "wallet_balance": "Ditt plånbokssaldo är {{amount}}",
+    "payment_success": "Betalning lyckades",
+    "directions_sent": "Vägbeskrivning skickad till din telefon",
+    "menu_items": "Här är menyalternativen",
+    "order_placed": "Beställningen har lagts"
+  },
+  "errors": {
+    "no_venues": "Inga platser hittades i ditt område",
+    "booking_failed": "Bokningen misslyckades. Försök igen",
+    "no_events": "Inga evenemang hittades",
+    "wallet_error": "Det gick inte att komma åt plånboken",
+    "payment_failed": "Betalningen misslyckades",
+    "no_directions": "Det gick inte att få vägbeskrivningar",
+    "venue_closed": "Platsen är för närvarande stängd",
+    "order_failed": "Beställningen misslyckades"
+  },
+  "commands": {
+    "find": "Hitta",
+    "book": "Boka",
+    "check": "Kontrollera",
+    "show": "Visa",
+    "get": "Få",
+    "how_much": "Hur mycket",
+    "where": "Var",
+    "when": "När",
+    "what": "Vad"
+  },
+  "confirmation": {
+    "confirm_booking": "Bekräfta bokning för {{time}}?",
+    "confirm_payment": "Bekräfta betalning av {{amount}}?",
+    "confirm_order": "Bekräfta beställning?",
+    "yes": "Ja",
+    "no": "Nej",
+    "cancel": "Avbryt"
+  }
+}

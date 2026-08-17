@@ -1,0 +1,1 @@
+ALTER TYPE public.ad_placement_type ADD VALUE IF NOT EXISTS 'sidebar';

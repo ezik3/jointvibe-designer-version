@@ -1,0 +1,36 @@
+{
+  "dashboard": "Administratörspanel",
+  "total_users": "Antal Användare",
+  "active_venues": "Aktiva Arenor",
+  "pending_venues": "Väntande Arenor",
+  "total_supply": "Totalt Utbud",
+  "today_transactions": "Dagens Transaktioner",
+  "header": {
+    "search_placeholder": "Sök användare, arenor, transaktioner...",
+    "system_online": "Systemet Online"
+  },
+  "sidebar": {
+    "portal_subtitle": "Administratörsportal",
+    "super_admin": "Superadministratör",
+    "logout": "Logga ut"
+  },
+  "nav": {
+    "dashboard": "Instrumentpanel",
+    "users": "Användare",
+    "venues": "Arenor",
+    "venue_reports": "Arenarapporter",
+    "referrals": "Remisser",
+    "ad_campaigns": "Annonskampanjer",
+    "treasury": "Skattkammare",
+    "mint_burn": "Mint/Burn",
+    "transactions": "Transaktioner",
+    "deposits": "Insättningar",
+    "withdrawals": "Uttag",
+    "wallet_freezes": "Frysningar av Plånböcker",
+    "audit_log": "Granskningslogg",
+    "roles": "Roller",
+    "settings": "Inställningar",
+    "venue_tiers": "Arenanivåer",
+    "runner_analytics": "Runner-analys"
+  }
+}

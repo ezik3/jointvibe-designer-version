@@ -1,0 +1,78 @@
+{
+  "dashboard": "Dashboard",
+  "welcome_back": "Welcome back to JV POS",
+  "total_orders": "Total Orders",
+  "active_orders": "Active Orders",
+  "avg_order": "Avg. Order",
+  "recent_orders": "Recent Orders",
+  "no_recent_orders": "No recent orders",
+  "orders_appear_realtime": "Orders will appear here in real-time",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "last_7_days": "Last 7 Days",
+  "last_30_days": "Last 30 Days",
+  "this_month": "This Month",
+  "custom_range": "Custom Range",
+  "todays_sales": "Today's Sales",
+  "yesterdays_sales": "Yesterday's Sales",
+  "live": "Live",
+  "pending": "pending",
+  "ready": "ready",
+  "apply": "Apply",
+  "quick_actions": "Quick Actions",
+  "order_stats": "Order Stats",
+  "status_pending": "Pending",
+  "status_preparing": "Preparing",
+  "ready_for_pickup": "Ready for Pickup",
+  "served_today": "Served Today",
+  "order_number": "Order #{{number}}",
+  "from_label": "From:",
+  "to_label": "To:",
+  "select": "Select",
+  "common": {
+    "cancel": "Cancel",
+    "back": "Back"
+  },
+  "sidebar": {
+    "back_to_venue_home": "Back to Venue Home",
+    "exit_work_mode": "Exit Work Mode",
+    "point_of_sale": "Point of Sale",
+    "open_pos": "Open POS"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "new_order": "New Order",
+    "orders": "Orders",
+    "kitchen": "Kitchen",
+    "menu": "Menu",
+    "tables": "Tables",
+    "floorplan": "Floorplan",
+    "inventory": "Inventory",
+    "analytics": "Analytics",
+    "staff": "Staff",
+    "settings": "Settings"
+  },
+  "roles": {
+    "kitchen": "Kitchen Staff",
+    "waiter": "Waiter/Server",
+    "bartender": "Bartender",
+    "host": "Host",
+    "manager": "Sub-Manager"
+  },
+  "pin_modal": {
+    "default_title": "Enter Your PIN",
+    "default_description": "Please enter your 4-digit PIN to authorize this action",
+    "verifying": "Verifying...",
+    "invalid": "Invalid PIN. Please try again.",
+    "verified": "Verified!"
+  },
+  "set_pin_modal": {
+    "create_title": "Create Your PIN",
+    "confirm_title": "Confirm Your PIN",
+    "create_desc": "Enter a 4-digit PIN to secure your payment actions",
+    "confirm_desc": "Enter your PIN again to confirm",
+    "no_match": "PINs don't match. Please try again.",
+    "set_failed": "Failed to set PIN. Please try again.",
+    "saving": "Setting your PIN..."
+  }
+}

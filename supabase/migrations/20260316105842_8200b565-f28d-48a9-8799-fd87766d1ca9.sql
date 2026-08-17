@@ -1,0 +1,1 @@
+UPDATE public.venues SET verified_at = NULL WHERE id = '6e153817-d7f9-4299-8d63-663fb0d3e951';

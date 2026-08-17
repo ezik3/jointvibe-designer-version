@@ -1,0 +1,107 @@
+.venue-founders-offer-card {
+  min-height: 610px;
+  padding: 40px 28px;
+  text-align: center;
+}
+
+.venue-founders-offer-card .venue-onboarding-card__icon {
+  margin-top: 0;
+}
+
+.venue-founders-offer-card__body {
+  margin: 24px 0 0;
+  color: var(--venue-onboarding-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.venue-founders-offer-details {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid var(--venue-onboarding-border);
+  border-radius: 6px;
+  text-align: left;
+}
+
+.venue-founders-offer-details div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--venue-onboarding-text-secondary);
+  font-size: 12px;
+}
+
+.venue-founders-offer-details strong {
+  color: var(--venue-onboarding-text);
+  font-size: 24px;
+}
+
+.venue-founders-offer-benefits {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.venue-founders-offer-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--venue-onboarding-text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.venue-founders-offer-benefits svg {
+  width: 16px;
+  flex: 0 0 16px;
+  color: var(--venue-onboarding-cyan);
+}
+
+.venue-founders-offer-actions {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.venue-founders-offer-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--venue-onboarding-text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-founders-offer-actions button:hover {
+  color: var(--venue-onboarding-cyan);
+}
+
+.venue-founders-offer-actions svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-founders-offer-card--loading {
+  align-items: center;
+  gap: 12px;
+  color: var(--venue-onboarding-text-secondary);
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .venue-founders-offer-card {
+    min-height: 0;
+    padding: 22px 18px;
+  }
+}

@@ -1,0 +1,463 @@
+.venue-account-page {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  padding: 28px;
+  background: var(--venue-canvas);
+  color: var(--venue-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-account-page *,
+.venue-account-page *::before,
+.venue-account-page *::after {
+  box-sizing: border-box;
+}
+
+.venue-account-page button,
+.venue-account-page input,
+.venue-account-page select,
+.venue-account-page textarea {
+  font: inherit;
+}
+
+.venue-account-page button {
+  cursor: pointer;
+}
+
+.venue-account-page--loading {
+  display: grid;
+  min-height: 400px;
+  place-items: center;
+}
+
+.venue-account-page--loading > svg {
+  width: 30px;
+  height: 30px;
+  color: var(--venue-cyan);
+  animation: venue-account-spin 900ms linear infinite;
+}
+
+.venue-account-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.venue-account-heading h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.venue-account-heading p {
+  margin: 0;
+  color: var(--venue-text-secondary);
+  font-size: 14px;
+}
+
+.venue-account-status {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  border: 1px solid rgba(22, 217, 232, 0.28);
+  border-radius: 999px;
+  background: var(--venue-cyan-soft);
+  color: var(--venue-cyan);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.venue-account-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-account-card {
+  border: 1px solid var(--venue-border);
+  border-radius: 8px;
+  background: var(--venue-surface);
+}
+
+.venue-account-overview {
+  display: grid;
+  grid-template-columns: minmax(310px, 1.25fr) repeat(3, minmax(150px, 1fr));
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding: 20px 24px;
+}
+
+.venue-account-overview__identity {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.venue-account-avatar {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--venue-cyan-soft);
+  color: var(--venue-cyan);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.venue-account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-account-overview__label {
+  margin: 0 0 5px;
+  color: var(--venue-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.venue-account-overview h2 {
+  overflow: hidden;
+  margin: 0 0 4px;
+  font-size: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venue-account-overview__identity > div:nth-child(2) > span {
+  color: var(--venue-text-secondary);
+  font-size: 12px;
+}
+
+.venue-account-overview__details {
+  display: contents;
+  margin: 0;
+}
+
+.venue-account-overview__details div {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+  padding-left: 20px;
+  border-left: 1px solid var(--venue-border);
+}
+
+.venue-account-overview__details dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--venue-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.venue-account-overview__details dt svg {
+  width: 14px;
+  height: 14px;
+  color: var(--venue-cyan);
+}
+
+.venue-account-overview__details dd {
+  overflow: hidden;
+  margin: 0;
+  color: var(--venue-text);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venue-account-details {
+  padding: 24px;
+}
+
+.venue-account-details__header {
+  margin-bottom: 24px;
+}
+
+.venue-account-details h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.venue-account-details__header .venue-account-overview__label {
+  margin-bottom: 8px;
+}
+
+.venue-account-details__header > p:last-child {
+  margin: 0;
+  color: var(--venue-text-secondary);
+  font-size: 13px;
+}
+
+.venue-account-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.venue-account-field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.venue-account-field--wide,
+.venue-account-form__footer {
+  grid-column: 1 / -1;
+}
+
+.venue-account-hours {
+  display: grid;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.venue-account-hours__heading {
+  display: grid;
+  gap: 4px;
+}
+
+.venue-account-hours__heading > span {
+  color: var(--venue-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-account-hours__heading > small {
+  color: var(--venue-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-account-field > span {
+  color: var(--venue-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-account-field input,
+.venue-account-field select,
+.venue-account-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--venue-border);
+  border-radius: 6px;
+  outline: 0;
+  background: var(--venue-canvas);
+  color: var(--venue-text);
+  font-size: 13px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.venue-account-field textarea {
+  min-height: 112px;
+  padding: 10px 12px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.venue-account-field select {
+  cursor: pointer;
+}
+
+.venue-account-field select option {
+  background: var(--venue-surface);
+  color: var(--venue-text);
+}
+
+.venue-account-field input:focus,
+.venue-account-field select:focus,
+.venue-account-field textarea:focus {
+  border-color: var(--venue-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-account-form__footer {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--venue-border);
+}
+
+.venue-account-form__footer > div {
+  display: flex;
+  gap: 8px;
+}
+
+.venue-account-feedback {
+  margin: 0;
+  color: var(--venue-cyan);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.venue-account-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.venue-account-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-account-button--primary {
+  border-color: var(--venue-cyan);
+  background: var(--venue-cyan);
+  color: var(--venue-canvas);
+}
+
+.venue-account-button--primary:hover:not(:disabled) {
+  background: #58e5ed;
+}
+
+.venue-account-button--secondary {
+  border-color: var(--venue-border);
+  background: var(--venue-surface);
+  color: var(--venue-text);
+}
+
+.venue-account-button--secondary:hover:not(:disabled) {
+  border-color: var(--venue-text-muted);
+  background: var(--venue-surface-raised);
+}
+
+.venue-account-button--compact {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 11px;
+}
+
+.venue-account-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.venue-account-spin {
+  animation: venue-account-spin 900ms linear infinite;
+}
+
+@keyframes venue-account-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .venue-account-overview {
+    grid-template-columns: minmax(300px, 1fr) repeat(2, minmax(160px, 1fr));
+  }
+
+  .venue-account-overview__details div:last-child {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .venue-account-page {
+    padding: 24px 20px 40px;
+  }
+
+  .venue-account-overview {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .venue-account-overview__identity {
+    grid-column: 1 / -1;
+  }
+
+  .venue-account-overview__details div:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .venue-account-page {
+    padding: 24px 16px 36px;
+  }
+
+  .venue-account-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .venue-account-overview,
+  .venue-account-details {
+    padding: 20px;
+  }
+
+  .venue-account-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-account-overview__identity {
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+
+  .venue-account-overview__identity .venue-account-button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .venue-account-overview__details {
+    display: grid;
+    gap: 12px;
+  }
+
+  .venue-account-overview__details div,
+  .venue-account-overview__details div:last-child {
+    grid-column: auto;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--venue-border);
+    border-left: 0;
+  }
+
+  .venue-account-form {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-account-field--wide,
+  .venue-account-form__footer {
+    grid-column: auto;
+  }
+
+  .venue-account-form__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .venue-account-form__footer > div {
+    width: 100%;
+  }
+
+  .venue-account-form__footer .venue-account-button {
+    flex: 1;
+  }
+}

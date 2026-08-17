@@ -1,0 +1,327 @@
+.venue-notification-modal__overlay {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.venue-notification-modal {
+  --notification-modal-canvas: var(--venue-canvas, #080b0e);
+  --notification-modal-surface: var(--venue-surface, #11161b);
+  --notification-modal-raised: var(--venue-surface-raised, #171d23);
+  --notification-modal-border: var(--venue-border, #2a323a);
+  --notification-modal-text: var(--venue-text, #f4f7f8);
+  --notification-modal-secondary: var(--venue-text-secondary, #a7b0b8);
+  --notification-modal-muted: var(--venue-text-muted, #717c86);
+  --notification-modal-cyan: var(--venue-cyan, #16d9e8);
+  --notification-modal-cyan-soft: var(--venue-cyan-soft, #12363b);
+  width: min(calc(100vw - 32px), 580px);
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+  border: 1px solid var(--notification-modal-border);
+  border-radius: 8px;
+  background: var(--notification-modal-surface);
+  color: var(--notification-modal-text);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.venue-notification-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--notification-modal-border);
+}
+
+.venue-notification-modal__header-copy {
+  min-width: 0;
+}
+
+.venue-notification-modal__eyebrow {
+  margin: 0 0 6px;
+  color: var(--notification-modal-muted);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.venue-notification-modal__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--notification-modal-text);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.venue-notification-modal__title svg {
+  width: 19px;
+  height: 19px;
+  color: var(--notification-modal-cyan);
+}
+
+.venue-notification-modal__description {
+  margin: 6px 0 0;
+  color: var(--notification-modal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-notification-modal__close {
+  display: grid !important;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  padding: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: var(--notification-modal-secondary) !important;
+  box-shadow: none !important;
+}
+
+.venue-notification-modal__close:hover {
+  background: var(--notification-modal-raised) !important;
+  color: var(--notification-modal-text) !important;
+}
+
+.venue-notification-modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-notification-modal__body {
+  max-height: calc(100dvh - 188px);
+  overflow-y: auto;
+  padding: 16px 20px 20px;
+  scrollbar-color: var(--notification-modal-border) transparent;
+}
+
+.venue-notification-modal__master {
+  border: 1px solid var(--notification-modal-border);
+  border-radius: 8px;
+  background: var(--notification-modal-raised);
+}
+
+.venue-notification-modal__sound,
+.venue-notification-modal__types {
+  margin-top: 16px;
+}
+
+.venue-notification-modal .venue-settings-toggle {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--notification-modal-border);
+}
+
+.venue-notification-modal__master .venue-settings-toggle {
+  border-bottom: 0;
+}
+
+.venue-notification-modal .venue-settings-toggle > span:not(.venue-settings-toggle__icon) {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 4px;
+}
+
+.venue-notification-modal .venue-settings-toggle strong {
+  color: var(--notification-modal-text);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.venue-notification-modal .venue-settings-toggle small {
+  color: var(--notification-modal-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.venue-notification-modal .venue-settings-toggle__icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--notification-modal-cyan-soft);
+  color: var(--notification-modal-cyan);
+}
+
+.venue-notification-modal .venue-settings-toggle__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.venue-notification-modal .venue-settings-toggle [role="switch"] {
+  width: 44px;
+  height: 24px;
+  flex: 0 0 44px;
+  border: 0 !important;
+  background: #1d2939 !important;
+  box-shadow: none !important;
+}
+
+.venue-notification-modal .venue-settings-toggle [role="switch"][data-state="checked"] {
+  background: var(--notification-modal-cyan) !important;
+}
+
+.venue-notification-modal .venue-settings-toggle [role="switch"] > span {
+  width: 18px;
+  height: 18px;
+  background: var(--notification-modal-canvas) !important;
+  box-shadow: none !important;
+}
+
+.venue-notification-modal__volume {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 12px 20px;
+  border-bottom: 1px solid var(--notification-modal-border);
+}
+
+.venue-notification-modal__volume label,
+.venue-notification-modal__volume output {
+  color: var(--notification-modal-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.venue-notification-modal__volume output {
+  min-width: 32px;
+  color: var(--notification-modal-text);
+  text-align: right;
+}
+
+.venue-notification-modal__volume [data-orientation="horizontal"] {
+  height: 20px;
+}
+
+.venue-notification-modal__volume [data-orientation="horizontal"] > span:first-child {
+  height: 4px !important;
+  border-radius: 999px;
+  background: var(--notification-modal-border) !important;
+}
+
+.venue-notification-modal__volume [data-orientation="horizontal"] > span:first-child > span {
+  background: var(--notification-modal-cyan) !important;
+}
+
+.venue-notification-modal__volume [role="slider"] {
+  width: 16px !important;
+  height: 16px !important;
+  border: 2px solid var(--notification-modal-cyan) !important;
+  background: var(--notification-modal-canvas) !important;
+  box-shadow: none !important;
+}
+
+.venue-notification-modal__section-title {
+  margin: 24px 0 6px;
+  color: var(--notification-modal-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.venue-notification-modal__types .venue-settings-toggle:last-child {
+  border-bottom: 0;
+}
+
+.venue-notification-modal__auto-approve {
+  margin-top: 16px;
+  border-top: 1px solid var(--notification-modal-border);
+}
+
+.venue-notification-modal__auto-approve .venue-settings-toggle {
+  border-bottom: 0;
+}
+
+.venue-notification-modal__settings.is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.venue-notification-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--notification-modal-border);
+}
+
+.venue-notification-modal__button {
+  min-width: 116px;
+  min-height: 40px;
+  border: 1px solid var(--notification-modal-border) !important;
+  border-radius: 6px !important;
+  background: var(--notification-modal-surface) !important;
+  color: var(--notification-modal-text) !important;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.venue-notification-modal__button:hover:not(:disabled) {
+  border-color: var(--notification-modal-muted) !important;
+  background: var(--notification-modal-raised) !important;
+}
+
+.venue-notification-modal__button--primary {
+  border-color: var(--notification-modal-cyan) !important;
+  background: var(--notification-modal-cyan) !important;
+  color: var(--notification-modal-canvas) !important;
+}
+
+.venue-notification-modal__button--primary:hover:not(:disabled) {
+  background: #58e5ed !important;
+}
+
+.venue-notification-modal__button svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 600px) {
+  .venue-notification-modal__overlay {
+    padding: 12px;
+  }
+
+  .venue-notification-modal {
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .venue-notification-modal__header {
+    padding: 16px 16px 13px;
+  }
+
+  .venue-notification-modal__body {
+    max-height: calc(100dvh - 164px);
+    padding: 14px 16px 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .venue-notification-modal__actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .venue-notification-modal__button {
+    width: 100%;
+  }
+}

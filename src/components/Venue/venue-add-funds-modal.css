@@ -1,0 +1,119 @@
+.venue-add-funds-dialog {
+  width: min(calc(100vw - 32px), 520px);
+  max-width: 520px;
+  gap: 20px;
+  padding: 20px;
+  border-color: var(--venue-border, hsl(var(--border)));
+  background: var(--venue-surface, hsl(var(--card)));
+  color: var(--venue-text, hsl(var(--foreground)));
+}
+
+.venue-add-funds-dialog__heading {
+  padding-right: 34px;
+}
+
+.venue-add-funds-dialog__heading h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.venue-add-funds-dialog__heading p {
+  margin: 6px 0 0;
+  color: var(--venue-text-secondary, hsl(var(--muted-foreground)));
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-add-funds-dialog__form,
+.venue-add-funds-dialog__field {
+  display: grid;
+  gap: 10px;
+}
+
+.venue-add-funds-dialog__field > label {
+  color: var(--venue-text, hsl(var(--foreground)));
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-add-funds-dialog__input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--venue-border, hsl(var(--input)));
+  border-radius: 6px;
+  background: var(--venue-canvas, hsl(var(--background)));
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.venue-add-funds-dialog__input:focus-within {
+  border-color: var(--venue-cyan, hsl(var(--primary)));
+  box-shadow: 0 0 0 2px var(--venue-cyan-soft, hsl(var(--primary) / 0.14));
+}
+
+.venue-add-funds-dialog__input--error {
+  border-color: hsl(var(--destructive));
+}
+
+.venue-add-funds-dialog__input > span {
+  color: var(--venue-text-secondary, hsl(var(--muted-foreground)));
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.venue-add-funds-dialog__input input {
+  height: 44px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--venue-text, hsl(var(--foreground)));
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.venue-add-funds-dialog__input input:focus-visible {
+  box-shadow: none;
+}
+
+.venue-add-funds-dialog__field > small,
+.venue-add-funds-dialog__error {
+  margin: 0;
+  color: var(--venue-text-muted, hsl(var(--muted-foreground)));
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-add-funds-dialog__error {
+  color: hsl(var(--destructive));
+}
+
+.venue-add-funds-dialog__actions {
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.venue-add-funds-dialog__actions .venue-wallet-button {
+  min-width: 116px;
+}
+
+@media (max-width: 460px) {
+  .venue-add-funds-dialog {
+    width: calc(100vw - 24px);
+    padding: 16px;
+  }
+
+  .venue-add-funds-dialog__actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .venue-add-funds-dialog__actions .venue-wallet-button {
+    width: 100%;
+  }
+}

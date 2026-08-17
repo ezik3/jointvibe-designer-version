@@ -1,0 +1,464 @@
+.venue-withdraw-modal {
+  --venue-withdraw-canvas: #0c1422;
+  --venue-withdraw-surface: #182336;
+  --venue-withdraw-raised: #202c3c;
+  --venue-withdraw-border: #334254;
+  --venue-withdraw-text: #f3f7f8;
+  --venue-withdraw-secondary: #b2c0c9;
+  --venue-withdraw-muted: #81909b;
+  --venue-withdraw-cyan: #16d9e8;
+  --venue-withdraw-cyan-soft: #123d48;
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  gap: 20px;
+  overflow-y: auto;
+  padding: 20px;
+  border-color: var(--venue-withdraw-border);
+  border-radius: 8px;
+  background: var(--venue-withdraw-surface);
+  color: var(--venue-withdraw-text);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
+}
+
+.venue-withdraw-modal--success {
+  width: min(420px, calc(100vw - 32px));
+}
+
+.venue-withdraw-modal > button {
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--venue-withdraw-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--venue-withdraw-muted);
+  opacity: 1;
+}
+
+.venue-withdraw-modal > button:hover {
+  background: var(--venue-withdraw-raised);
+  color: var(--venue-withdraw-text);
+}
+
+.venue-withdraw-modal button {
+  font: inherit;
+}
+
+.venue-withdraw-modal button:focus-visible,
+.venue-withdraw-modal input:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.venue-withdraw-modal__header {
+  gap: 6px;
+  padding-right: 38px;
+  text-align: left;
+}
+
+.venue-withdraw-modal__title {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--venue-withdraw-text);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.venue-withdraw-modal__back {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  padding: 0;
+  border: 1px solid var(--venue-withdraw-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--venue-withdraw-secondary);
+}
+
+.venue-withdraw-modal__back:hover {
+  border-color: var(--venue-withdraw-cyan);
+  background: var(--venue-withdraw-raised);
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__back svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-withdraw-modal__description {
+  margin: 0;
+  color: var(--venue-withdraw-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-withdraw-modal__body,
+.venue-withdraw-modal__security-step,
+.venue-withdraw-modal__processing {
+  display: grid;
+  gap: 16px;
+}
+
+.venue-withdraw-modal__setup-state,
+.venue-withdraw-modal__security-step,
+.venue-withdraw-modal__processing,
+.venue-withdraw-modal__success {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 8px 12px 4px;
+  text-align: center;
+}
+
+.venue-withdraw-modal__setup-state h3,
+.venue-withdraw-modal__success h2 {
+  margin: 4px 0 0;
+  color: var(--venue-withdraw-text);
+  font-size: 18px;
+}
+
+.venue-withdraw-modal__setup-state > p,
+.venue-withdraw-modal__security-step > p,
+.venue-withdraw-modal__processing p,
+.venue-withdraw-modal__success p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--venue-withdraw-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-withdraw-modal__state-icon,
+.venue-withdraw-modal__status-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 6px;
+  background: var(--venue-withdraw-cyan-soft);
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__state-icon svg,
+.venue-withdraw-modal__status-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.venue-withdraw-modal__setup-state .venue-withdraw-modal__primary-action {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.venue-withdraw-modal__actions {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.venue-withdraw-modal__actions > button {
+  flex: 1;
+}
+
+.venue-withdraw-modal__balance {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--venue-withdraw-border);
+  border-radius: 8px;
+  background: var(--venue-withdraw-canvas);
+}
+
+.venue-withdraw-modal__balance > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--venue-withdraw-secondary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-withdraw-modal__balance > div svg {
+  width: 15px;
+  height: 15px;
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__balance > strong {
+  color: var(--venue-withdraw-text);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.venue-withdraw-modal__balance small {
+  color: var(--venue-withdraw-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-withdraw-modal__field {
+  display: grid;
+  gap: 8px;
+}
+
+.venue-withdraw-modal__field > label {
+  color: var(--venue-withdraw-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-withdraw-modal__amount-input,
+.venue-withdraw-modal__pin-input {
+  border-color: #637487;
+  border-radius: 6px;
+  background: var(--venue-withdraw-canvas);
+  color: var(--venue-withdraw-text);
+}
+
+.venue-withdraw-modal__amount-input {
+  height: 42px;
+}
+
+.venue-withdraw-modal__amount-input::placeholder {
+  color: var(--venue-withdraw-muted);
+}
+
+.venue-withdraw-modal__field-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--venue-withdraw-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-withdraw-modal__field-meta button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--venue-withdraw-cyan);
+  font-size: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.venue-withdraw-modal__field-meta button:hover {
+  color: #52e4ee;
+}
+
+.venue-withdraw-modal__summary {
+  display: grid;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid var(--venue-withdraw-border);
+  border-radius: 8px;
+  background: var(--venue-withdraw-canvas);
+}
+
+.venue-withdraw-modal__summary > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--venue-withdraw-secondary);
+  font-size: 12px;
+}
+
+.venue-withdraw-modal__summary strong {
+  color: var(--venue-withdraw-text);
+}
+
+.venue-withdraw-modal__summary-total {
+  margin-top: 3px;
+  padding-top: 10px;
+  border-top: 1px solid var(--venue-withdraw-border);
+  font-weight: 700;
+}
+
+.venue-withdraw-modal__summary-total strong {
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__payout-note,
+.venue-withdraw-modal__security-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--venue-withdraw-border);
+  border-radius: 6px;
+  background: var(--venue-withdraw-canvas);
+  color: var(--venue-withdraw-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-withdraw-modal__payout-note svg,
+.venue-withdraw-modal__security-note svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__security-step {
+  padding-top: 8px;
+}
+
+.venue-withdraw-modal__security-step > strong,
+.venue-withdraw-modal__processing > strong {
+  color: var(--venue-withdraw-text);
+  font-size: 16px;
+}
+
+.venue-withdraw-modal__pin-pad {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+}
+
+.venue-withdraw-modal__pin-input {
+  width: min(46px, calc((100vw - 128px) / 6));
+  height: 52px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.venue-withdraw-modal__pin-input:focus,
+.venue-withdraw-modal__amount-input:focus {
+  border-color: var(--venue-withdraw-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-withdraw-modal__error {
+  margin: 0;
+  color: #f29b9b;
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.venue-withdraw-modal__error p,
+.venue-withdraw-modal__error small {
+  display: block;
+  margin: 0;
+}
+
+.venue-withdraw-modal__error small {
+  margin-top: 4px;
+  color: var(--venue-withdraw-muted);
+}
+
+.venue-withdraw-modal__primary-action,
+.venue-withdraw-modal__secondary-action {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-withdraw-modal__primary-action {
+  border: 1px solid var(--venue-withdraw-cyan);
+  background: var(--venue-withdraw-cyan);
+  color: #072128;
+}
+
+.venue-withdraw-modal__primary-action:hover:not(:disabled) {
+  border-color: #52e4ee;
+  background: #52e4ee;
+  color: #072128;
+}
+
+.venue-withdraw-modal__secondary-action {
+  border-color: #637487;
+  background: transparent;
+  color: var(--venue-withdraw-text);
+}
+
+.venue-withdraw-modal__secondary-action:hover:not(:disabled) {
+  border-color: var(--venue-withdraw-cyan);
+  background: var(--venue-withdraw-raised);
+}
+
+.venue-withdraw-modal__primary-action:disabled,
+.venue-withdraw-modal__secondary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.venue-withdraw-modal__primary-action svg,
+.venue-withdraw-modal__secondary-action svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-withdraw-modal__wide-action {
+  width: 100%;
+  min-height: 48px;
+}
+
+.venue-withdraw-modal__processing {
+  min-height: 220px;
+  align-content: center;
+}
+
+.venue-withdraw-modal__processing > svg {
+  width: 42px;
+  height: 42px;
+  color: var(--venue-withdraw-cyan);
+}
+
+.venue-withdraw-modal__success {
+  min-height: 230px;
+  align-content: center;
+  padding: 18px 12px;
+}
+
+.venue-withdraw-modal__success .venue-withdraw-modal__status-icon {
+  border-radius: 50%;
+}
+
+.venue-withdraw-modal__success > strong {
+  margin-top: 2px;
+  color: var(--venue-withdraw-cyan);
+  font-size: 28px;
+  line-height: 1;
+}
+
+@media (max-width: 460px) {
+  .venue-withdraw-modal,
+  .venue-withdraw-modal--success {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    padding: 16px;
+  }
+
+  .venue-withdraw-modal__actions {
+    flex-direction: column;
+  }
+
+  .venue-withdraw-modal__pin-pad {
+    gap: 5px;
+  }
+
+  .venue-withdraw-modal__pin-input {
+    width: min(42px, calc((100vw - 110px) / 6));
+    height: 48px;
+  }
+}

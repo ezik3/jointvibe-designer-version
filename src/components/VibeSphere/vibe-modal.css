@@ -1,0 +1,235 @@
+.vibe-modal-backdrop {
+  background: rgba(0, 0, 0, 0.74);
+}
+
+.vibe-modal {
+  border: 1px solid #2a323a;
+  border-radius: 8px;
+  background: #11161b;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.vibe-modal--compact {
+  max-width: 420px;
+}
+
+.vibe-modal--chat {
+  max-width: 460px;
+  height: min(70vh, 620px);
+  overflow: hidden;
+}
+
+.vibe-modal--table,
+.vibe-menu-modal {
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.vibe-modal--table {
+  height: min(70vh, 620px);
+}
+
+.vibe-menu-modal {
+  height: min(85vh, 760px);
+}
+
+.vibe-modal__icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 8px;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.vibe-modal__option {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+}
+
+.vibe-modal__option:hover {
+  border-color: #16d9e8;
+  background: #12363b;
+}
+
+.vibe-modal__option--danger:hover {
+  border-color: #ef4444;
+  background: rgba(127, 29, 29, 0.24);
+}
+
+.vibe-modal__option-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 6px;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.vibe-modal__option--danger .vibe-modal__option-icon {
+  border-color: rgba(239, 68, 68, 0.52);
+  background: rgba(127, 29, 29, 0.24);
+  color: #fca5a5;
+}
+
+.vibe-modal__header {
+  border-bottom: 1px solid #2a323a;
+  background: #11161b;
+}
+
+.vibe-modal__pinned {
+  border-bottom: 1px solid #2a323a;
+  background: #12363b;
+}
+
+.vibe-modal__composer {
+  border-top: 1px solid #2a323a;
+  background: #11161b;
+}
+
+.vibe-modal__panel {
+  border: 1px solid #2a323a;
+  border-radius: 8px;
+  background: #171d23;
+}
+
+.vibe-modal__item {
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+}
+
+.vibe-modal__item:hover:not(:disabled) {
+  border-color: #16d9e8;
+  background: #12363b;
+}
+
+.vibe-modal__media {
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+}
+
+.vibe-modal__muted-icon {
+  display: grid;
+  place-items: center;
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+  color: #717c86;
+}
+
+.vibe-modal__meta {
+  border: 1px solid #2a323a;
+  border-radius: 999px;
+  background: #11161b;
+}
+
+.vibe-menu-modal__icon-button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+  color: #f4f7f8;
+}
+
+.vibe-menu-modal__icon-button:hover {
+  border-color: #16d9e8;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.vibe-menu-modal__search {
+  border-color: #2a323a !important;
+  border-radius: 6px !important;
+  background: #171d23 !important;
+}
+
+.vibe-menu-modal__checkout {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #16d9e8;
+  border-radius: 6px;
+  background: #16d9e8;
+  color: #080b0e;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.vibe-menu-modal__checkout:hover:not(:disabled) {
+  background: #58e5ed;
+}
+
+.vibe-menu-modal__checkout:disabled,
+.vibe-menu-modal__checkout--disabled {
+  border-color: #2a323a;
+  background: #171d23;
+  color: #717c86;
+}
+
+.vibe-menu-modal__confirmation {
+  background: #11161b;
+}
+
+.vibe-venue-shell__info,
+.vibe-venue-shell__tutorial {
+  border: 1px solid #2a323a;
+  border-radius: 8px;
+  background: #11161b;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.36);
+}
+
+.vibe-venue-shell__exit {
+  border-color: #2a323a !important;
+  border-radius: 6px !important;
+  background: #11161b !important;
+}
+
+.vibe-venue-shell__exit:hover {
+  border-color: #16d9e8 !important;
+  background: #12363b !important;
+  color: #16d9e8 !important;
+}
+
+.vibe-menu-modal [class*="rounded-2xl"] {
+  border-radius: 8px !important;
+}
+
+.vibe-menu-modal [class*="rounded-xl"] {
+  border-radius: 6px !important;
+}
+
+.vibe-menu-modal [class*="bg-gradient"] {
+  background: #171d23 !important;
+}
+
+.vibe-menu-modal [class*="backdrop-blur"] {
+  backdrop-filter: none !important;
+}
+
+@media (max-width: 520px) {
+  .vibe-modal--chat {
+    height: min(74vh, 620px);
+  }
+
+  .vibe-menu-modal {
+    height: min(90vh, 760px);
+  }
+}

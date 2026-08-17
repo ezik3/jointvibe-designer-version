@@ -1,0 +1,75 @@
+{
+  "assistant": {
+    "title": "Assistente IA",
+    "welcome": "Ciao! Sono il tuo assistente Joint Vibe. Come posso aiutarti?",
+    "suggestions": "Prova a chiedermi:",
+    "suggestion1": "Trova locali vicino a me",
+    "suggestion2": "Cosa succede stasera?",
+    "suggestion3": "Prenota un tavolo",
+    "suggestion4": "Controlla il saldo del portafoglio",
+    "typing": "L'IA sta scrivendo...",
+    "listening": "In ascolto...",
+    "speaking": "Parlando...",
+    "error": "Mi dispiace, si è verificato un errore"
+  },
+  "voice": {
+    "start": "Avvia Voce",
+    "stop": "Ferma Voce",
+    "speak": "Parla",
+    "listen": "Ascolta",
+    "mute": "Silenzia",
+    "unmute": "Riattiva Audio",
+    "volume": "Volume",
+    "speed": "Velocità",
+    "language": "Lingua"
+  },
+  "capabilities": {
+    "find_venues": "Trova locali",
+    "book_tables": "Prenota tavoli",
+    "check_events": "Controlla eventi",
+    "wallet_info": "Informazioni portafoglio",
+    "make_payments": "Effettua pagamenti",
+    "get_directions": "Ottieni indicazioni",
+    "venue_info": "Informazioni locale",
+    "order_food": "Ordina cibo/bevande"
+  },
+  "responses": {
+    "found_venues": "Ho trovato {{count}} locali vicino a te",
+    "booking_confirmed": "Prenotazione confermata per le {{time}} al {{venue}}",
+    "event_details": "Ecco i dettagli dell'evento",
+    "wallet_balance": "Il saldo del tuo portafoglio è {{amount}}",
+    "payment_success": "Pagamento effettuato",
+    "directions_sent": "Indicazioni inviate al tuo telefono",
+    "menu_items": "Ecco le voci del menù",
+    "order_placed": "Ordine effettuato con successo"
+  },
+  "errors": {
+    "no_venues": "Nessun locale trovato nella tua zona",
+    "booking_failed": "Prenotazione non riuscita. Riprova",
+    "no_events": "Nessun evento trovato",
+    "wallet_error": "Impossibile accedere al portafoglio",
+    "payment_failed": "Pagamento non riuscito",
+    "no_directions": "Impossibile ottenere le indicazioni",
+    "venue_closed": "Il locale è attualmente chiuso",
+    "order_failed": "Ordine non riuscito"
+  },
+  "commands": {
+    "find": "Trova",
+    "book": "Prenota",
+    "check": "Controlla",
+    "show": "Mostra",
+    "get": "Ottieni",
+    "how_much": "Quanto",
+    "where": "Dove",
+    "when": "Quando",
+    "what": "Cosa"
+  },
+  "confirmation": {
+    "confirm_booking": "Confermi la prenotazione per le {{time}}?",
+    "confirm_payment": "Confermi il pagamento di {{amount}}?",
+    "confirm_order": "Confermi l'ordine?",
+    "yes": "Sì",
+    "no": "No",
+    "cancel": "Annulla"
+  }
+}

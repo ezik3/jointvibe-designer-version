@@ -1,0 +1,377 @@
+.venue-vibe-credits-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 16px;
+  background: rgba(4, 9, 14, 0.76);
+}
+
+.venue-vibe-credits-modal {
+  --vibe-modal-canvas: #0c1422;
+  --vibe-modal-surface: #182336;
+  --vibe-modal-raised: #202c3c;
+  --vibe-modal-border: #334254;
+  --vibe-modal-text: #f3f7f8;
+  --vibe-modal-secondary: #b2c0c9;
+  --vibe-modal-muted: #81909b;
+  --vibe-modal-cyan: #16d9e8;
+  --vibe-modal-cyan-soft: #123d48;
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  overflow-y: auto;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 8px;
+  background: var(--vibe-modal-surface);
+  color: var(--vibe-modal-text);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
+}
+
+.venue-vibe-credits-modal button {
+  font: inherit;
+}
+
+.venue-vibe-credits-modal button:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.venue-vibe-credits-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--vibe-modal-border);
+}
+
+.venue-vibe-credits-modal__header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--vibe-modal-text);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.venue-vibe-credits-modal__header h2 svg {
+  width: 20px;
+  height: 20px;
+  color: var(--vibe-modal-cyan);
+}
+
+.venue-vibe-credits-modal__header p {
+  margin: 6px 0 0;
+  color: var(--vibe-modal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-vibe-credits-modal__icon-button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--vibe-modal-secondary);
+  cursor: pointer;
+}
+
+.venue-vibe-credits-modal__icon-button:hover:not(:disabled) {
+  border-color: var(--vibe-modal-cyan);
+  background: var(--vibe-modal-raised);
+  color: var(--vibe-modal-text);
+}
+
+.venue-vibe-credits-modal__icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.venue-vibe-credits-modal__icon-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.venue-vibe-credits-modal__body {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+}
+
+.venue-vibe-credits-modal__balance {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 6px;
+  color: var(--vibe-modal-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.venue-vibe-credits-modal__balance svg {
+  width: 15px;
+  height: 15px;
+  color: var(--vibe-modal-cyan);
+}
+
+.venue-vibe-credits-modal__balance strong {
+  color: var(--vibe-modal-text);
+}
+
+.venue-vibe-credits-modal__intro h3 {
+  margin: 0 0 6px;
+  color: var(--vibe-modal-text);
+  font-size: 14px;
+}
+
+.venue-vibe-credits-modal__intro p {
+  margin: 0;
+  color: var(--vibe-modal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-vibe-credits-modal__tabs {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 6px;
+  background: var(--vibe-modal-canvas);
+}
+
+.venue-vibe-credits-modal__tabs button {
+  display: inline-flex;
+  min-width: 118px;
+  min-height: 38px;
+  flex: 1 0 118px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-right: 1px solid var(--vibe-modal-border);
+  background: transparent;
+  color: var(--vibe-modal-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.venue-vibe-credits-modal__tabs button:last-child {
+  border-right: 0;
+}
+
+.venue-vibe-credits-modal__tabs button:hover {
+  background: var(--vibe-modal-raised);
+  color: var(--vibe-modal-text);
+}
+
+.venue-vibe-credits-modal__tabs button.is-active {
+  background: var(--vibe-modal-cyan-soft);
+  color: var(--vibe-modal-cyan);
+  box-shadow: inset 0 -2px 0 var(--vibe-modal-cyan);
+}
+
+.venue-vibe-credits-modal__tabs svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-vibe-credits-modal__packages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.venue-vibe-credits-modal__packages > button {
+  position: relative;
+  display: grid;
+  min-height: 148px;
+  align-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 6px;
+  background: var(--vibe-modal-surface);
+  color: var(--vibe-modal-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.venue-vibe-credits-modal__packages > button:hover {
+  border-color: var(--vibe-modal-muted);
+  background: var(--vibe-modal-raised);
+}
+
+.venue-vibe-credits-modal__packages > button.is-selected {
+  border-color: var(--vibe-modal-cyan);
+  background: var(--vibe-modal-cyan-soft);
+}
+
+.venue-vibe-credits-modal__packages > button > span {
+  display: grid;
+  gap: 4px;
+}
+
+.venue-vibe-credits-modal__packages strong {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.venue-vibe-credits-modal__packages small,
+.venue-vibe-credits-modal__packages em {
+  color: var(--vibe-modal-secondary);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.venue-vibe-credits-modal__packages b {
+  color: var(--vibe-modal-cyan);
+  font-size: 17px;
+}
+
+.venue-vibe-credits-modal__packages > button > svg {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 17px;
+  height: 17px;
+  color: var(--vibe-modal-cyan);
+}
+
+.venue-vibe-credits-modal__selection {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--vibe-modal-border);
+  border-radius: 8px;
+  background: var(--vibe-modal-raised);
+}
+
+.venue-vibe-credits-modal__selection > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.venue-vibe-credits-modal__selection p {
+  margin: 0;
+  color: var(--vibe-modal-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.venue-vibe-credits-modal__selection small {
+  color: var(--vibe-modal-secondary);
+  font-size: 11px;
+}
+
+.venue-vibe-credits-modal__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.venue-vibe-credits-modal__secondary-button,
+.venue-vibe-credits-modal__primary-button {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.venue-vibe-credits-modal__secondary-button {
+  border: 1px solid var(--vibe-modal-border);
+  background: var(--vibe-modal-surface);
+  color: var(--vibe-modal-text);
+}
+
+.venue-vibe-credits-modal__secondary-button:hover:not(:disabled) {
+  border-color: var(--vibe-modal-muted);
+  background: var(--vibe-modal-raised);
+}
+
+.venue-vibe-credits-modal__primary-button {
+  border: 1px solid var(--vibe-modal-cyan);
+  background: var(--vibe-modal-cyan);
+  color: var(--vibe-modal-canvas);
+}
+
+.venue-vibe-credits-modal__primary-button:hover:not(:disabled) {
+  border-color: #58e5ed;
+  background: #58e5ed;
+}
+
+.venue-vibe-credits-modal__secondary-button:disabled,
+.venue-vibe-credits-modal__primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.venue-vibe-credits-modal__primary-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-vibe-credits-modal .is-spinning {
+  animation: venue-vibe-credits-modal-spin 0.9s linear infinite;
+}
+
+@keyframes venue-vibe-credits-modal-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 560px) {
+  .venue-vibe-credits-modal__backdrop {
+    padding: 12px;
+  }
+
+  .venue-vibe-credits-modal {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+  }
+
+  .venue-vibe-credits-modal__header,
+  .venue-vibe-credits-modal__body {
+    padding: 16px;
+  }
+
+  .venue-vibe-credits-modal__packages {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-vibe-credits-modal__packages > button {
+    min-height: 88px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .venue-vibe-credits-modal__packages em {
+    grid-column: 1 / -1;
+  }
+
+  .venue-vibe-credits-modal__actions {
+    flex-direction: column;
+  }
+}

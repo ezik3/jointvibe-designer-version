@@ -1,0 +1,1 @@
+ALTER TABLE public.runner_jobs ADD COLUMN IF NOT EXISTS distance_surcharge_usd numeric NOT NULL DEFAULT 0;

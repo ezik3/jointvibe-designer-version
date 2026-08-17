@@ -1,0 +1,261 @@
+.pos-sales-page {
+  --pos-sales-canvas: var(--pos-shell-canvas, #080b0e);
+  --pos-sales-surface: var(--pos-shell-surface, #11161b);
+  --pos-sales-surface-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-sales-border: var(--pos-shell-border, #2a323a);
+  --pos-sales-text: var(--pos-shell-text, #f4f7f8);
+  --pos-sales-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-sales-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-sales-cyan: var(--pos-shell-cyan, #16d9e8);
+  min-height: 100dvh;
+  padding: 24px 28px 40px;
+  background: var(--pos-sales-canvas);
+  color: var(--pos-sales-text);
+}
+
+.pos-sales-page *,
+.pos-sales-page *::before,
+.pos-sales-page *::after {
+  box-sizing: border-box;
+}
+
+.pos-sales-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.pos-sales-heading h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.pos-sales-heading p {
+  margin: 8px 0 0;
+  color: var(--pos-sales-secondary);
+  font-size: 14px;
+}
+
+.pos-sales-export {
+  min-height: 40px;
+  border: 1px solid var(--pos-sales-cyan) !important;
+  border-radius: 6px !important;
+  background: var(--pos-sales-cyan) !important;
+  color: var(--pos-sales-canvas) !important;
+  box-shadow: none !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pos-sales-export:hover {
+  background: #58e5ed !important;
+}
+
+.pos-sales-export svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-sales-metrics,
+.pos-sales-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pos-sales-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.pos-sales-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pos-sales-card,
+.pos-sales-panel {
+  border: 1px solid var(--pos-sales-border) !important;
+  border-radius: 8px !important;
+  background: var(--pos-sales-surface) !important;
+  box-shadow: none !important;
+}
+
+.pos-sales-card {
+  min-height: 142px;
+}
+
+.pos-sales-card__header,
+.pos-sales-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 0 !important;
+}
+
+.pos-sales-card__header h3,
+.pos-sales-panel__header h3 {
+  color: var(--pos-sales-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-sales-card__header svg {
+  width: 18px;
+  height: 18px;
+  color: var(--pos-sales-cyan);
+}
+
+.pos-sales-card__content {
+  padding: 16px !important;
+}
+
+.pos-sales-card__content > strong {
+  display: block;
+  color: var(--pos-sales-text);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.pos-sales-card__content p {
+  margin: 8px 0 0;
+  color: var(--pos-sales-cyan);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-sales-panel__header {
+  padding: 20px 20px 0 !important;
+}
+
+.pos-sales-panel__header h3 {
+  color: var(--pos-sales-text);
+  font-size: 18px;
+}
+
+.pos-sales-panel__content {
+  padding: 20px !important;
+}
+
+.pos-sales-chart {
+  display: grid;
+  gap: 13px;
+}
+
+.pos-sales-chart__row > div:first-child,
+.pos-sales-ranking__row,
+.pos-sales-ranking__row > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pos-sales-chart__row > div:first-child {
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.pos-sales-chart__row span {
+  color: var(--pos-sales-muted);
+}
+
+.pos-sales-chart__row strong {
+  color: var(--pos-sales-text);
+}
+
+.pos-sales-chart__track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--pos-sales-surface-raised);
+}
+
+.pos-sales-chart__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--pos-sales-cyan);
+  transition: width 180ms ease;
+}
+
+.pos-sales-ranking {
+  display: grid;
+}
+
+.pos-sales-ranking__row {
+  min-height: 62px;
+  border-bottom: 1px solid var(--pos-sales-border);
+}
+
+.pos-sales-ranking__row:last-child {
+  border-bottom: 0;
+}
+
+.pos-sales-ranking__row > div {
+  justify-content: initial;
+  min-width: 0;
+}
+
+.pos-sales-ranking__rank {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--pos-sales-cyan-soft, #12363b);
+  color: var(--pos-sales-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pos-sales-ranking__row strong {
+  display: block;
+  overflow: hidden;
+  color: var(--pos-sales-text);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-sales-ranking__row > strong {
+  color: var(--pos-sales-cyan);
+}
+
+.pos-sales-ranking__row small {
+  display: block;
+  margin-top: 3px;
+  color: var(--pos-sales-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 1180px) {
+  .pos-sales-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .pos-sales-page {
+    padding: 0 16px 36px;
+  }
+
+  .pos-sales-heading {
+    flex-direction: column;
+  }
+
+  .pos-sales-heading h1 {
+    font-size: 30px;
+  }
+
+  .pos-sales-export {
+    width: 100%;
+  }
+
+  .pos-sales-metrics,
+  .pos-sales-grid {
+    grid-template-columns: 1fr;
+  }
+}

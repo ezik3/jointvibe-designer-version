@@ -1,0 +1,62 @@
+{
+  "project": "nocturne-pos",
+  "active_mode": "single_task_only",
+  "rules": {
+    "no_push": true,
+    "single_story_only": true,
+    "smallest_safe_change": true,
+    "forbid_unrelated_changes": true
+  },
+  "stories": [
+    {
+      "id": "perf-homepage-initial-load-001",
+      "title": "Diagnose and reduce end-user home page initial load latency",
+      "priority": 1,
+      "status": "todo",
+      "passes": false,
+      "scope": {
+        "allowed_areas": [
+          "src/pages",
+          "src/components",
+          "src/hooks",
+          "src/lib"
+        ],
+        "focus_hints": [
+          "end-user home page route",
+          "feed loading logic",
+          "initial data fetching",
+          "duplicate queries",
+          "rerender loops",
+          "slow image/render blocking on first paint"
+        ],
+        "forbidden_areas": [
+          "supabase/migrations",
+          "auth architecture",
+          "payment flows",
+          "unrelated admin pages",
+          "dependency upgrades"
+        ]
+      },
+      "requirements": [
+        "First diagnose the main contributors to slow initial load.",
+        "Then implement only narrow changes that improve initial load time.",
+        "Do not change visible UX unless necessary.",
+        "Do not change unrelated pages or systems.",
+        "Prefer reducing duplicate fetches, unnecessary effects, oversized payloads, and blocking work on first render."
+      ],
+      "acceptance_criteria": [
+        "Home page behavior remains functionally correct.",
+        "No unrelated files are changed.",
+        "Diagnosis is recorded in scripts/ralph/progress.txt.",
+        "Implemented changes are limited and performance-focused.",
+        "Project checks pass if available."
+      ],
+      "validation": {
+        "run_checks": [
+          "git diff --stat",
+          "npm run build"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+.venue-push-deals-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 16px;
+  background: rgba(4, 9, 14, 0.76);
+}
+
+.venue-push-deals-modal {
+  --push-modal-canvas: #0c1422;
+  --push-modal-surface: #182336;
+  --push-modal-raised: #202c3c;
+  --push-modal-border: #334254;
+  --push-modal-text: #f3f7f8;
+  --push-modal-secondary: #b2c0c9;
+  --push-modal-muted: #81909b;
+  --push-modal-cyan: #16d9e8;
+  --push-modal-cyan-soft: #123d48;
+  width: min(1000px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  overflow-y: auto;
+  border: 1px solid var(--push-modal-border);
+  border-radius: 8px;
+  background: var(--push-modal-surface);
+  color: var(--push-modal-text);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
+}
+
+.venue-push-deals-modal button {
+  font: inherit;
+}
+
+.venue-push-deals-modal button:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.venue-push-deals-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--push-modal-border);
+}
+
+.venue-push-deals-modal__header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--push-modal-text);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.venue-push-deals-modal__header h2 svg {
+  width: 20px;
+  height: 20px;
+  color: var(--push-modal-cyan);
+}
+
+.venue-push-deals-modal__header p {
+  margin: 6px 0 0;
+  color: var(--push-modal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-push-deals-modal__icon-button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--push-modal-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--push-modal-secondary);
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.venue-push-deals-modal__icon-button:hover:not(:disabled) {
+  border-color: var(--push-modal-cyan);
+  background: var(--push-modal-raised);
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.venue-push-deals-modal__icon-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.venue-push-deals-modal__body {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.venue-push-deals-modal__balance {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin: -4px 0 0;
+  padding: 7px 10px;
+  border: 1px solid var(--push-modal-border);
+  border-radius: 6px;
+  color: var(--push-modal-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.venue-push-deals-modal__balance svg,
+.venue-push-deals-modal__funding-note svg,
+.venue-push-deals-modal__checkout-note svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--push-modal-cyan);
+}
+
+.venue-push-deals-modal__balance strong {
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__funding-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: -10px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 6px;
+  background: var(--push-modal-cyan-soft);
+  color: var(--push-modal-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-push-deals-modal__funding-note strong {
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__intro {
+  padding: 4px 0;
+}
+
+.venue-push-deals-modal__intro h3 {
+  margin: 0 0 6px;
+  color: var(--push-modal-text);
+  font-size: 14px;
+}
+
+.venue-push-deals-modal__intro p {
+  margin: 0;
+  color: var(--push-modal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-push-deals-modal__tabs {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--push-modal-border);
+  border-radius: 6px;
+  background: var(--push-modal-canvas);
+  scrollbar-width: thin;
+}
+
+.venue-push-deals-modal__tabs button {
+  display: inline-flex;
+  min-width: 118px;
+  min-height: 38px;
+  flex: 1 0 118px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-right: 1px solid var(--push-modal-border);
+  background: transparent;
+  color: var(--push-modal-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.venue-push-deals-modal__tabs button:last-child {
+  border-right: 0;
+}
+
+.venue-push-deals-modal__tabs button:hover {
+  background: var(--push-modal-raised);
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__tabs button.is-active {
+  background: var(--push-modal-cyan-soft);
+  color: var(--push-modal-cyan);
+  box-shadow: inset 0 -2px 0 var(--push-modal-cyan);
+}
+
+.venue-push-deals-modal__tabs button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-push-deals-modal__tabs--terms {
+  margin-top: -10px;
+}
+
+.venue-push-deals-modal__tabs--terms button {
+  min-width: 145px;
+  flex-basis: 145px;
+}
+
+.venue-push-deals-modal__tabs--terms em {
+  padding: 2px 5px;
+  border: 1px solid rgba(22, 217, 232, 0.38);
+  border-radius: 4px;
+  color: var(--push-modal-cyan);
+  font-size: 9px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.venue-push-deals-modal__package-list {
+  overflow: hidden;
+  border: 1px solid var(--push-modal-border);
+  border-radius: 8px;
+}
+
+.venue-push-deals-modal__package-heading,
+.venue-push-deals-modal__package-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 112px;
+  align-items: center;
+  gap: 16px;
+}
+
+.venue-push-deals-modal__package-heading {
+  min-height: 40px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--push-modal-border);
+  color: var(--push-modal-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-push-deals-modal__package-heading span:last-child {
+  text-align: center;
+}
+
+.venue-push-deals-modal__package-row {
+  min-height: 80px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--push-modal-border);
+  background: transparent;
+  transition: background 160ms ease;
+}
+
+.venue-push-deals-modal__package-row:last-child {
+  border-bottom: 0;
+}
+
+.venue-push-deals-modal__package-row:hover,
+.venue-push-deals-modal__package-row.is-selected {
+  background: var(--push-modal-cyan-soft);
+}
+
+.venue-push-deals-modal__package-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.venue-push-deals-modal__package-amount strong {
+  color: var(--push-modal-text);
+  font-size: 20px;
+}
+
+.venue-push-deals-modal__package-amount span {
+  color: var(--push-modal-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.venue-push-deals-modal__package-price {
+  display: grid;
+  gap: 5px;
+}
+
+.venue-push-deals-modal__package-price strong {
+  color: var(--push-modal-text);
+  font-size: 14px;
+}
+
+.venue-push-deals-modal__package-price small {
+  color: var(--push-modal-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.venue-push-deals-modal__select-button,
+.venue-push-deals-modal__secondary-button,
+.venue-push-deals-modal__primary-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.venue-push-deals-modal__select-button {
+  width: 100%;
+  border: 1px solid #637487;
+  background: transparent;
+  color: var(--push-modal-secondary);
+}
+
+.venue-push-deals-modal__select-button:hover {
+  border-color: var(--push-modal-cyan);
+  background: var(--push-modal-raised);
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__package-row.is-selected .venue-push-deals-modal__select-button {
+  border-color: var(--push-modal-cyan);
+  background: var(--push-modal-cyan);
+  color: var(--push-modal-canvas);
+}
+
+.venue-push-deals-modal__select-button svg,
+.venue-push-deals-modal__primary-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-push-deals-modal__selection {
+  display: grid;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--push-modal-border);
+}
+
+.venue-push-deals-modal__selection-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.venue-push-deals-modal__selection-heading > div:first-child > p {
+  margin: 0;
+  color: var(--push-modal-cyan);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.venue-push-deals-modal__selection-heading h3 {
+  margin: 5px 0;
+  color: var(--push-modal-text);
+  font-size: 20px;
+}
+
+.venue-push-deals-modal__selection-heading > div:first-child > span {
+  color: var(--push-modal-secondary);
+  font-size: 12px;
+}
+
+.venue-push-deals-modal__selection-heading > div:last-child {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.venue-push-deals-modal__selection-heading > div:last-child strong {
+  color: var(--push-modal-text);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.venue-push-deals-modal__selection-heading > div:last-child small {
+  color: var(--push-modal-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.venue-push-deals-modal__checkout-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--push-modal-secondary);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.venue-push-deals-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.venue-push-deals-modal__actions > button {
+  flex: 1;
+  min-height: 48px;
+}
+
+.venue-push-deals-modal__secondary-button {
+  border: 1px solid #637487;
+  background: transparent;
+  color: var(--push-modal-text);
+}
+
+.venue-push-deals-modal__secondary-button:hover:not(:disabled) {
+  border-color: var(--push-modal-cyan);
+  background: var(--push-modal-raised);
+}
+
+.venue-push-deals-modal__primary-button {
+  border: 1px solid var(--push-modal-cyan);
+  background: var(--push-modal-cyan);
+  color: var(--push-modal-canvas);
+}
+
+.venue-push-deals-modal__primary-button:hover:not(:disabled) {
+  border-color: #52e4ee;
+  background: #52e4ee;
+}
+
+.venue-push-deals-modal__secondary-button:disabled,
+.venue-push-deals-modal__primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.venue-push-deals-modal .is-spinning {
+  animation: venue-push-deals-modal-spin 0.9s linear infinite;
+}
+
+@keyframes venue-push-deals-modal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .venue-push-deals-modal__backdrop {
+    padding: 12px;
+  }
+
+  .venue-push-deals-modal {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+  }
+
+  .venue-push-deals-modal__header,
+  .venue-push-deals-modal__body {
+    padding: 16px;
+  }
+
+  .venue-push-deals-modal__package-heading {
+    display: none;
+  }
+
+  .venue-push-deals-modal__package-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .venue-push-deals-modal__select-button {
+    grid-column: 1 / -1;
+  }
+
+  .venue-push-deals-modal__selection-heading,
+  .venue-push-deals-modal__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .venue-push-deals-modal__selection-heading > div:last-child {
+    text-align: left;
+  }
+}

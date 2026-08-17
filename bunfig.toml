@@ -1,0 +1,4 @@
+[install]
+# Skip lifecycle scripts entirely to prevent bun install timeout
+# Capacitor native packages have build scripts that hang in web preview
+ignore-scripts = true

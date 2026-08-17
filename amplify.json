@@ -1,0 +1,34 @@
+{
+  "customRules": [
+    {
+      "source": "https://jointvibe.app/<*>",
+      "target": "https://www.jointvibe.app/<*>",
+      "status": "301"
+    },
+    {
+      "source": "/privacy.html",
+      "target": "/privacy.html",
+      "status": "200"
+    },
+    {
+      "source": "/terms.html",
+      "target": "/terms.html",
+      "status": "200"
+    },
+    {
+      "source": "/robots.txt",
+      "target": "/robots.txt",
+      "status": "200"
+    },
+    {
+      "source": "/sitemap.xml",
+      "target": "/sitemap.xml",
+      "status": "200"
+    },
+    {
+      "source": "/<*>",
+      "target": "/index.html",
+      "status": "200"
+    }
+  ]
+}

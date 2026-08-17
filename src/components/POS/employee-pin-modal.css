@@ -1,0 +1,209 @@
+.pos-employee-pin-dialog,
+.pos-set-employee-pin-dialog {
+  --pos-pin-surface: var(--pos-shell-surface, #11161b);
+  --pos-pin-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-pin-border: var(--pos-shell-border, #2a323a);
+  --pos-pin-text: var(--pos-shell-text, #f4f7f8);
+  --pos-pin-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-pin-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-pin-cyan: var(--pos-shell-cyan, #16d9e8);
+  --pos-pin-cyan-soft: var(--pos-shell-cyan-soft, #12363b);
+  width: min(calc(100vw - 32px), 400px);
+  max-width: 400px;
+  max-height: calc(100dvh - 32px);
+  gap: 0;
+  overflow-y: auto;
+  padding: 0;
+  border-color: var(--pos-pin-border);
+  border-radius: 8px;
+  background: var(--pos-pin-surface);
+  color: var(--pos-pin-text);
+}
+
+.pos-employee-pin-dialog > button,
+.pos-set-employee-pin-dialog > button {
+  top: 14px;
+  right: 16px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border-radius: 6px;
+  color: var(--pos-pin-secondary);
+}
+
+.pos-employee-pin-dialog > button:hover,
+.pos-set-employee-pin-dialog > button:hover {
+  background: var(--pos-pin-raised);
+  color: var(--pos-pin-text);
+}
+
+.pos-employee-pin-dialog > button svg,
+.pos-set-employee-pin-dialog > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-employee-pin-dialog__header,
+.pos-set-employee-pin-dialog__header {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  padding: 20px 56px 16px 20px;
+  border-bottom: 1px solid var(--pos-pin-border);
+  text-align: center;
+}
+
+.pos-employee-pin-dialog__icon,
+.pos-set-employee-pin-dialog__icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--pos-pin-cyan) 52%, var(--pos-pin-border));
+  border-radius: 6px;
+  background: var(--pos-pin-cyan-soft);
+  color: var(--pos-pin-cyan);
+}
+
+.pos-employee-pin-dialog__icon svg,
+.pos-set-employee-pin-dialog__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.pos-employee-pin-dialog__title,
+.pos-set-employee-pin-dialog__title {
+  margin: 2px 0 0;
+  color: var(--pos-pin-text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.pos-employee-pin-dialog__description,
+.pos-set-employee-pin-dialog__description {
+  margin: 0;
+  color: var(--pos-pin-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pos-employee-pin-dialog__body,
+.pos-set-employee-pin-dialog__body {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.pos-employee-pin-dialog__digits,
+.pos-set-employee-pin-dialog__digits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pos-employee-pin-dialog__digit,
+.pos-set-employee-pin-dialog__digit {
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  border-color: var(--pos-pin-border);
+  border-radius: 6px;
+  background: var(--pos-pin-raised);
+  color: var(--pos-pin-text);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pos-employee-pin-dialog__digit:focus,
+.pos-set-employee-pin-dialog__digit:focus {
+  border-color: var(--pos-pin-cyan);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--pos-pin-cyan) 20%, transparent);
+}
+
+.pos-employee-pin-dialog__digit.is-error {
+  border-color: #dc6e6e;
+  background: #311d20;
+}
+
+.pos-employee-pin-dialog__digit.is-success {
+  border-color: #59c99a;
+  background: #173126;
+}
+
+.pos-employee-pin-dialog__status,
+.pos-set-employee-pin-dialog__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 18px;
+  color: var(--pos-pin-secondary);
+  font-size: 12px;
+}
+
+.pos-employee-pin-dialog__status svg,
+.pos-set-employee-pin-dialog__status svg {
+  width: 15px;
+  height: 15px;
+}
+
+.pos-employee-pin-dialog__status.is-error,
+.pos-set-employee-pin-dialog__status.is-error {
+  color: #ef8b8b;
+}
+
+.pos-employee-pin-dialog__status.is-success {
+  color: #69d2a7;
+}
+
+.pos-set-employee-pin-dialog__steps {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pos-set-employee-pin-dialog__step {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--pos-pin-border);
+}
+
+.pos-set-employee-pin-dialog__step.is-active {
+  background: var(--pos-pin-cyan);
+}
+
+.pos-employee-pin-dialog__footer,
+.pos-set-employee-pin-dialog__footer {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 20px;
+}
+
+.pos-employee-pin-dialog__footer button,
+.pos-set-employee-pin-dialog__footer button {
+  min-height: 38px;
+  flex: 1;
+  border-color: var(--pos-pin-border);
+  border-radius: 6px;
+  background: var(--pos-pin-raised);
+  color: var(--pos-pin-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pos-employee-pin-dialog__footer button:hover,
+.pos-set-employee-pin-dialog__footer button:hover {
+  border-color: var(--pos-pin-muted);
+  background: #202832;
+}
+
+.pos-employee-pin-dialog button:focus-visible,
+.pos-set-employee-pin-dialog button:focus-visible {
+  outline: 2px solid var(--pos-pin-cyan);
+  outline-offset: 2px;
+}

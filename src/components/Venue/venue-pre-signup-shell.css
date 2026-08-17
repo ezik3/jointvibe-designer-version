@@ -1,0 +1,167 @@
+.venue-pre-signup-shell {
+  --venue-preauth-canvas: #080b0e;
+  --venue-preauth-surface: #11161b;
+  --venue-preauth-surface-raised: #171d23;
+  --venue-preauth-border: #2a323a;
+  --venue-preauth-text: #f4f7f8;
+  --venue-preauth-secondary: #a7b0b8;
+  --venue-preauth-muted: #717c86;
+  --venue-preauth-cyan: #16d9e8;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--venue-preauth-canvas);
+  color: var(--venue-preauth-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-pre-signup-shell *,
+.venue-pre-signup-shell *::before,
+.venue-pre-signup-shell *::after {
+  box-sizing: border-box;
+}
+
+.venue-pre-signup-shell__header {
+  border-bottom: 1px solid var(--venue-preauth-border);
+  background: rgba(8, 11, 14, 0.96);
+}
+
+.venue-pre-signup-shell__header-inner,
+.venue-pre-signup-shell__footer-inner {
+  display: flex;
+  width: min(100% - 40px, 1120px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.venue-pre-signup-shell__header-inner {
+  min-height: 76px;
+}
+
+.venue-pre-signup-shell__brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  color: var(--venue-preauth-text);
+  text-decoration: none;
+}
+
+.venue-pre-signup-shell__brand img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 8px;
+  background: #0b1016;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  object-fit: cover;
+}
+
+.venue-pre-signup-shell__brand span {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.venue-pre-signup-shell__brand strong {
+  font-size: 14px;
+}
+
+.venue-pre-signup-shell__brand small {
+  color: var(--venue-preauth-muted);
+  font-size: 10px;
+}
+
+.venue-pre-signup-shell__sign-in {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid var(--venue-preauth-border);
+  border-radius: 6px;
+  background: var(--venue-preauth-surface);
+  color: var(--venue-preauth-text);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.venue-pre-signup-shell__sign-in:hover {
+  border-color: var(--venue-preauth-muted);
+  background: var(--venue-preauth-surface-raised);
+}
+
+.venue-pre-signup-shell__sign-in svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-pre-signup-shell__content {
+  flex: 1;
+}
+
+.venue-pre-signup-shell__footer {
+  margin-top: auto;
+  border-top: 1px solid var(--venue-preauth-border);
+  background: var(--venue-preauth-surface);
+}
+
+.venue-pre-signup-shell__footer-inner {
+  min-height: 96px;
+  color: var(--venue-preauth-muted);
+  font-size: 12px;
+}
+
+.venue-pre-signup-shell__footer nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.venue-pre-signup-shell__footer a {
+  color: var(--venue-preauth-secondary);
+  text-decoration: none;
+}
+
+.venue-pre-signup-shell__footer a:hover {
+  color: var(--venue-preauth-cyan);
+}
+
+.venue-pre-signup-shell a:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .venue-pre-signup-shell__header-inner,
+  .venue-pre-signup-shell__footer-inner {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .venue-pre-signup-shell__header-inner {
+    min-height: 68px;
+  }
+
+  .venue-pre-signup-shell__sign-in {
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  .venue-pre-signup-shell__footer-inner {
+    min-height: 112px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .venue-pre-signup-shell__footer nav {
+    justify-content: flex-start;
+  }
+}

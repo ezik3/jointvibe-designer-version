@@ -1,0 +1,26 @@
+.venue-verify-phone-card__code-field {
+  justify-items: center;
+}
+
+.venue-verify-phone-card__code-field label {
+  justify-self: stretch;
+}
+
+.venue-verify-phone-card__code-input {
+  width: min(100%, 210px);
+}
+
+.venue-verify-phone-card__code-input input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 22px;
+  letter-spacing: 0.32em;
+  text-align: center;
+}
+
+.venue-verify-phone-card .venue-onboarding-actions {
+  gap: 10px;
+}
+
+.venue-verify-phone-card .venue-onboarding-actions p {
+  margin: 0;
+}

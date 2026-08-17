@@ -1,0 +1,478 @@
+.pos-collect-payment-dialog,
+.pos-collect-cash-dialog {
+  --pos-payment-canvas: var(--pos-shell-canvas, #080b0e);
+  --pos-payment-surface: var(--pos-shell-surface, #11161b);
+  --pos-payment-surface-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-payment-border: var(--pos-shell-border, #2a323a);
+  --pos-payment-text: var(--pos-shell-text, #f4f7f8);
+  --pos-payment-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-payment-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-payment-cyan: var(--pos-shell-cyan, #16d9e8);
+  --pos-payment-cyan-soft: var(--pos-shell-cyan-soft, #12363b);
+  width: min(calc(100vw - 32px), 480px);
+  max-width: 480px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border-color: var(--pos-payment-border);
+  border-radius: 8px;
+  background: var(--pos-payment-surface);
+  color: var(--pos-payment-text);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.pos-collect-cash-dialog {
+  width: min(calc(100vw - 32px), 448px);
+  max-width: 448px;
+}
+
+.pos-collect-payment-dialog > button,
+.pos-collect-cash-dialog > button {
+  top: 14px;
+  right: 16px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border-radius: 6px;
+  color: var(--pos-payment-secondary);
+}
+
+.pos-collect-payment-dialog > button:hover,
+.pos-collect-cash-dialog > button:hover {
+  background: var(--pos-payment-surface-raised);
+  color: var(--pos-payment-text);
+}
+
+.pos-collect-payment-dialog > button svg,
+.pos-collect-cash-dialog > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-collect-payment-dialog__heading,
+.pos-collect-cash-dialog__heading {
+  padding: 18px 54px 14px 18px;
+  border-bottom: 1px solid var(--pos-payment-border);
+}
+
+.pos-collect-payment-dialog__heading h2,
+.pos-collect-cash-dialog__heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--pos-payment-text);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.pos-collect-payment-dialog__heading h2 span {
+  padding: 3px 6px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 4px;
+  color: var(--pos-payment-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pos-collect-cash-dialog__heading h2 {
+  font-size: 18px;
+}
+
+.pos-collect-cash-dialog__heading h2 svg {
+  width: 19px;
+  height: 19px;
+  color: var(--pos-payment-cyan);
+}
+
+.pos-collect-payment-dialog__heading p,
+.pos-collect-cash-dialog__heading p {
+  margin: 6px 0 0;
+  color: var(--pos-payment-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pos-collect-payment-dialog__body,
+.pos-collect-cash-dialog__body {
+  display: grid;
+  gap: 14px;
+  padding: 14px 18px 18px;
+}
+
+.pos-collect-payment-summary {
+  display: grid;
+  gap: 9px;
+  padding: 14px 16px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 8px;
+  background: var(--pos-payment-surface-raised);
+}
+
+.pos-collect-payment-summary > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--pos-payment-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-collect-payment-summary span {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.pos-collect-payment-summary small {
+  color: var(--pos-payment-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-collect-payment-summary strong {
+  color: var(--pos-payment-text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.pos-collect-payment-summary__total {
+  padding-top: 9px;
+  border-top: 1px solid var(--pos-payment-border);
+  color: var(--pos-payment-text) !important;
+}
+
+.pos-collect-payment-summary__total strong {
+  color: var(--pos-payment-cyan);
+  font-size: 14px;
+}
+
+.pos-collect-payment-methods {
+  display: grid;
+  gap: 8px;
+}
+
+.pos-collect-payment-method {
+  display: flex;
+  width: 100%;
+  min-height: 64px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 8px;
+  background: var(--pos-payment-surface);
+  color: var(--pos-payment-text);
+  font: inherit;
+  text-align: left;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.pos-collect-payment-method:hover:not(:disabled) {
+  border-color: var(--pos-payment-muted);
+  background: var(--pos-payment-surface-raised);
+}
+
+.pos-collect-payment-method.is-primary {
+  border-color: color-mix(in srgb, var(--pos-payment-cyan) 56%, var(--pos-payment-border));
+  background: var(--pos-payment-cyan-soft);
+}
+
+.pos-collect-payment-method:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.pos-collect-payment-method__icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--pos-payment-cyan-soft);
+  color: var(--pos-payment-cyan);
+}
+
+.pos-collect-payment-method.is-primary .pos-collect-payment-method__icon {
+  background: var(--pos-payment-surface);
+}
+
+.pos-collect-payment-method__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pos-collect-payment-method__copy {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 4px;
+}
+
+.pos-collect-payment-method__copy strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.pos-collect-payment-method__copy small {
+  overflow: hidden;
+  color: var(--pos-payment-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-collect-payment-method__copy em {
+  flex: 0 0 auto;
+  padding: 2px 4px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 3px;
+  color: var(--pos-payment-muted);
+  font-size: 9px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.pos-collect-payment-method__status {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: var(--pos-payment-cyan);
+}
+
+.pos-collect-payment-dialog__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 6px;
+  background: var(--pos-payment-surface-raised);
+  color: var(--pos-payment-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.pos-collect-payment-dialog__notice svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  color: var(--pos-payment-cyan);
+}
+
+.pos-collect-cash-dialog__body {
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.pos-collect-cash-dialog__amount-card {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 8px;
+  background: var(--pos-payment-surface-raised);
+  text-align: center;
+}
+
+.pos-collect-cash-dialog__amount-card > span {
+  color: var(--pos-payment-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pos-collect-cash-dialog__amount-card strong {
+  color: var(--pos-payment-cyan);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.pos-collect-cash-dialog__amount-card small {
+  color: var(--pos-payment-cyan);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pos-collect-cash-dialog__field {
+  display: grid;
+  gap: 8px;
+  color: var(--pos-payment-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-collect-cash-dialog__input {
+  display: flex;
+  height: 54px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid var(--pos-payment-cyan);
+  border-radius: 8px;
+  background: var(--pos-payment-canvas);
+  color: var(--pos-payment-secondary);
+}
+
+.pos-collect-cash-dialog__input:focus-within {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--pos-payment-cyan) 22%, transparent);
+}
+
+.pos-collect-cash-dialog__input .pos-collect-cash-dialog__input-field {
+  width: 100%;
+  min-width: 0;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--pos-payment-text);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pos-collect-cash-dialog__input .pos-collect-cash-dialog__input-field:focus-visible {
+  box-shadow: none;
+}
+
+.pos-collect-cash-dialog__quick-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pos-collect-cash-dialog__quick-amount {
+  min-height: 40px;
+  border: 1px solid var(--pos-payment-border);
+  border-radius: 6px;
+  background: var(--pos-payment-surface);
+  color: var(--pos-payment-text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.pos-collect-cash-dialog__quick-amount:hover {
+  border-color: var(--pos-payment-cyan);
+  background: var(--pos-payment-cyan-soft);
+  color: var(--pos-payment-cyan);
+}
+
+.pos-collect-cash-dialog__change {
+  display: grid;
+  min-height: 86px;
+  place-items: center;
+  align-content: center;
+  gap: 5px;
+  border: 1px solid color-mix(in srgb, var(--pos-payment-cyan) 38%, transparent);
+  border-radius: 8px;
+  background: var(--pos-payment-cyan-soft);
+}
+
+.pos-collect-cash-dialog__change.is-short {
+  border-color: color-mix(in srgb, hsl(var(--destructive)) 52%, transparent);
+  background: color-mix(in srgb, hsl(var(--destructive)) 11%, transparent);
+}
+
+.pos-collect-cash-dialog__change span {
+  color: var(--pos-payment-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos-collect-cash-dialog__change strong {
+  color: var(--pos-payment-cyan);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.pos-collect-cash-dialog__change.is-short strong {
+  color: hsl(var(--destructive));
+}
+
+.pos-collect-cash-dialog__button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.pos-collect-cash-dialog__button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-collect-cash-dialog__button--primary {
+  border-color: var(--pos-payment-cyan);
+  background: var(--pos-payment-cyan);
+  color: var(--pos-payment-canvas);
+}
+
+.pos-collect-cash-dialog__button--primary:hover:not(:disabled) {
+  background: #58e5ed;
+}
+
+.pos-collect-cash-dialog__button--secondary {
+  border-color: var(--pos-payment-border);
+  background: var(--pos-payment-surface);
+  color: var(--pos-payment-text);
+}
+
+.pos-collect-cash-dialog__button--secondary:hover:not(:disabled) {
+  border-color: var(--pos-payment-muted);
+  background: var(--pos-payment-surface-raised);
+}
+
+.pos-collect-cash-dialog__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (max-width: 460px) {
+  .pos-collect-payment-dialog,
+  .pos-collect-cash-dialog {
+    width: calc(100vw - 24px);
+  }
+
+  .pos-collect-payment-dialog__heading,
+  .pos-collect-cash-dialog__heading {
+    padding: 16px 50px 13px 16px;
+  }
+
+  .pos-collect-payment-dialog__body,
+  .pos-collect-cash-dialog__body {
+    padding: 14px 16px 16px;
+  }
+
+  .pos-collect-payment-summary {
+    padding: 12px;
+  }
+
+  .pos-collect-payment-method {
+    min-height: 62px;
+    padding: 10px 12px;
+  }
+}

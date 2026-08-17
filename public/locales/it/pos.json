@@ -1,0 +1,78 @@
+{
+  "dashboard": "Pannello di Controllo",
+  "welcome_back": "Bentornato a JV POS",
+  "total_orders": "Ordini Totali",
+  "active_orders": "Ordini Attivi",
+  "avg_order": "Ordine Medio",
+  "recent_orders": "Ordini Recenti",
+  "no_recent_orders": "Nessun ordine recente",
+  "orders_appear_realtime": "Gli ordini appariranno qui in tempo reale",
+  "today": "Oggi",
+  "yesterday": "Ieri",
+  "last_7_days": "Ultimi 7 Giorni",
+  "last_30_days": "Ultimi 30 Giorni",
+  "this_month": "Questo Mese",
+  "custom_range": "Intervallo Personalizzato",
+  "todays_sales": "Vendite di Oggi",
+  "yesterdays_sales": "Vendite di Ieri",
+  "live": "In Diretta",
+  "pending": "in attesa",
+  "ready": "pronti",
+  "apply": "Applica",
+  "quick_actions": "Azioni Rapide",
+  "order_stats": "Statistiche Ordini",
+  "status_pending": "In Attesa",
+  "status_preparing": "In Preparazione",
+  "ready_for_pickup": "Pronto per il Ritiro",
+  "served_today": "Serviti Oggi",
+  "order_number": "Ordine #{{number}}",
+  "from_label": "Da:",
+  "to_label": "A:",
+  "select": "Seleziona",
+  "common": {
+    "cancel": "Annulla",
+    "back": "Indietro"
+  },
+  "sidebar": {
+    "back_to_venue_home": "Torna alla Home del Locale",
+    "exit_work_mode": "Esci dalla Modalità Lavoro",
+    "point_of_sale": "Punto Vendita",
+    "open_pos": "Apri POS"
+  },
+  "nav": {
+    "dashboard": "Pannello",
+    "new_order": "Nuovo Ordine",
+    "orders": "Ordini",
+    "kitchen": "Cucina",
+    "menu": "Menu",
+    "tables": "Tavoli",
+    "floorplan": "Planimetria",
+    "inventory": "Inventario",
+    "analytics": "Analitiche",
+    "staff": "Staff",
+    "settings": "Impostazioni"
+  },
+  "roles": {
+    "kitchen": "Personale Cucina",
+    "waiter": "Cameriere",
+    "bartender": "Barista",
+    "host": "Host",
+    "manager": "Sub-Manager"
+  },
+  "pin_modal": {
+    "default_title": "Inserisci il tuo PIN",
+    "default_description": "Inserisci il tuo PIN di 4 cifre per autorizzare questa azione",
+    "verifying": "Verifica in corso...",
+    "invalid": "PIN non valido. Riprova.",
+    "verified": "Verificato!"
+  },
+  "set_pin_modal": {
+    "create_title": "Crea il tuo PIN",
+    "confirm_title": "Conferma il tuo PIN",
+    "create_desc": "Inserisci un PIN di 4 cifre per proteggere le tue azioni di pagamento",
+    "confirm_desc": "Inserisci nuovamente il tuo PIN per confermare",
+    "no_match": "I PIN non corrispondono. Riprova.",
+    "set_failed": "Impostazione PIN fallita. Riprova.",
+    "saving": "Impostazione del tuo PIN..."
+  }
+}

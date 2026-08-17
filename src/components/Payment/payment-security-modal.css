@@ -1,0 +1,123 @@
+.payment-security-dialog {
+  width: min(calc(100vw - 24px), 420px) !important;
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  border-color: #2a323a !important;
+  background: #11161b !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.payment-security-modal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.payment-security-modal__icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 8px;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.payment-security-modal__title {
+  margin: 0;
+  color: #f4f7f8;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.payment-security-modal__copy {
+  max-width: 280px;
+  margin: 8px 0 20px;
+  color: #a7b0b8;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.payment-security-modal__dots {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-security-modal__dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #2a323a;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.payment-security-modal__dot--filled {
+  border-color: #16d9e8;
+  background: #16d9e8;
+}
+
+.payment-security-modal__keypad {
+  display: grid;
+  width: 100%;
+  max-width: 280px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.payment-security-modal__key {
+  display: grid;
+  height: 52px;
+  place-items: center;
+  border: 1px solid #2a323a;
+  border-radius: 6px;
+  background: #171d23;
+  color: #f4f7f8;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out;
+}
+
+.payment-security-modal__key:hover:not(:disabled) {
+  border-color: #16d9e8;
+  background: #12363b;
+  color: #16d9e8;
+}
+
+.payment-security-modal__key:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.payment-security-modal__error {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  border-radius: 6px;
+  background: rgba(127, 29, 29, 0.24);
+  color: #fca5a5;
+  font-size: 13px;
+  text-align: left;
+}
+
+.payment-security-modal__actions {
+  display: grid;
+  width: 100%;
+  max-width: 280px;
+  gap: 8px;
+}
+
+@media (max-width: 420px) {
+  .payment-security-modal__body {
+    padding: 20px 16px;
+  }
+}

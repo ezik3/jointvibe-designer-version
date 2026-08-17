@@ -1,0 +1,153 @@
+{
+  "title": "Portafoglio",
+  "balance": {
+    "total": "Saldo Totale",
+    "available": "Disponibile",
+    "available_balance": "Saldo Disponibile",
+    "pending": "In Sospeso",
+    "subsidy": "Sussidio",
+    "jvc": "JVC",
+    "currency": "Valuta",
+    "total_deposited": "Totale Depositato",
+    "test_balance": "Saldo di prova",
+    "your_balance": "Il tuo saldo"
+  },
+  "actions": {
+    "deposit": "Deposita",
+    "withdraw": "Preleva",
+    "send": "Invia",
+    "request": "Richiedi",
+    "exchange": "Scambia",
+    "history": "Cronologia Transazioni",
+    "top_up": "Ricarica",
+    "add_funds": "Aggiungi Fondi",
+    "back_to_venues": "Torna ai locali",
+    "back_to_wallet": "Torna al portafoglio",
+    "confirm_payment": "Conferma pagamento",
+    "loading_payment": "Caricamento pagamento..."
+  },
+  "deposit": {
+    "title": "Deposita Fondi",
+    "amount": "Importo",
+    "min_amount": "Minimo: {{amount}}",
+    "max_amount": "Massimo: {{amount}}",
+    "method": "Metodo di Pagamento",
+    "credit_card": "Carta di Credito",
+    "bank_transfer": "Bonifico Bancario",
+    "crypto": "Crypto",
+    "gateway": "Gateway di Pagamento",
+    "processing_fee": "Commissione di Elaborazione",
+    "total": "Totale da Pagare",
+    "confirm": "Conferma Deposito",
+    "success": "Deposito effettuato!",
+    "pending": "Deposito in sospeso..."
+  },
+  "withdraw": {
+    "title": "Preleva Fondi",
+    "amount": "Importo da Prelevare",
+    "available": "Disponibile: {{amount}}",
+    "method": "Metodo di Prelievo",
+    "bank_account": "Conto Bancario",
+    "crypto_wallet": "Portafoglio Crypto",
+    "processing_time": "Tempo di Elaborazione",
+    "instant": "Istantaneo",
+    "hours": "{{count}} ora",
+    "hours_plural": "{{count}} ore",
+    "days": "{{count}} giorno",
+    "days_plural": "{{count}} giorni",
+    "fee": "Commissione di Prelievo",
+    "receive": "Riceverai",
+    "confirm": "Conferma Prelievo",
+    "success": "Prelievo avviato!"
+  },
+  "send": {
+    "title": "Invia Denaro",
+    "recipient": "Destinatario",
+    "username": "Nome Utente",
+    "email": "Email",
+    "phone": "Telefono",
+    "amount": "Importo",
+    "message": "Messaggio (Opzionale)",
+    "fee": "Commissione Transazione",
+    "total": "Totale",
+    "confirm": "Invia Denaro",
+    "success": "Denaro inviato con successo!"
+  },
+  "transactions": {
+    "title": "Cronologia Transazioni",
+    "all": "Tutte le Transazioni",
+    "deposits": "Depositi",
+    "withdrawals": "Prelievi",
+    "payments": "Pagamenti",
+    "transfers": "Trasferimenti",
+    "date": "Data",
+    "description": "Descrizione",
+    "amount": "Importo",
+    "status": "Stato",
+    "completed": "Completato",
+    "pending": "In Sospeso",
+    "failed": "Non Riuscito",
+    "cancelled": "Annullato",
+    "no_transactions": "Nessuna transazione ancora",
+    "load_more": "Carica Altro",
+    "order_items": "Articoli dell'ordine",
+    "platform_fee": "Commissione piattaforma",
+    "subtotal": "Subtotale",
+    "tax": "Imposta",
+    "total": "Totale"
+  },
+  "security": {
+    "title": "Sicurezza Portafoglio",
+    "pin": "Protezione PIN",
+    "biometric": "Accesso Biometrico",
+    "face_id": "Face ID",
+    "touch_id": "Touch ID",
+    "2fa": "Autenticazione a Due Fattori",
+    "daily_limit": "Limite di Spesa Giornaliero",
+    "session_timeout": "Timeout Sessione",
+    "enabled": "Abilitato",
+    "disabled": "Disabilitato",
+    "setup": "Configura",
+    "change": "Modifica",
+    "remove": "Rimuovi"
+  },
+  "errors": {
+    "insufficient_balance": "Saldo insufficiente",
+    "invalid_amount": "Importo non valido",
+    "invalid_recipient": "Destinatario non valido",
+    "daily_limit_exceeded": "Limite giornaliero superato",
+    "transaction_failed": "Transazione non riuscita",
+    "security_required": "Verifica di sicurezza richiesta",
+    "no_balance": "Nessun Saldo",
+    "add_funds_first": "Aggiungi fondi prima per inviare denaro ad altri",
+    "min_withdrawal": "Il prelievo minimo è di $10,00",
+    "payment_error": "Pagamento fallito",
+    "payment_expired": "Pagamento scaduto"
+  },
+  "success": {
+    "deposit_success": "Deposito effettuato!",
+    "withdrawal_success": "Prelievo avviato!",
+    "send_success": "Denaro inviato con successo!",
+    "security_updated": "Impostazioni di sicurezza aggiornate",
+    "payment_complete": "Pagamento completato!"
+  },
+  "tier": "Livello",
+  "rewards": {
+    "points": "Punti Premio",
+    "redeem_hint": "Riscatta per vantaggi →"
+  },
+  "fees": {
+    "platform_fee": "Commissione Transazione Piattaforma",
+    "dynamic_hint": "Commissione dinamica basata sulla tua regione"
+  },
+  "offline": {
+    "pending_transactions": "{{count}} Transazione/i in Sospeso",
+    "sync_message": "Si sincronizzerà automaticamente quando tornerai online"
+  },
+  "in_person": {
+    "title": "Pagamenti di Persona",
+    "description": "Paga senza problemi nei ristoranti, boutique e locali partner con un semplice tocco o scansione.",
+    "scan_qr": "Scansiona Codice QR",
+    "check_in_hint": "💡 Effettua il check-in in un locale prima di usare Tap to Pay"
+  }
+}

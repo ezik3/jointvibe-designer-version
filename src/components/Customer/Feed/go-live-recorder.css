@@ -1,0 +1,702 @@
+.go-live-recorder__mode-backdrop,
+.go-live-recorder__recording-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 9, 12, 0.78);
+}
+
+.go-live-recorder__mode-backdrop {
+  pointer-events: auto;
+}
+
+.go-live-recorder__mode-dialog {
+  position: relative;
+  width: min(100%, 460px);
+  padding: 30px;
+  border: 1px solid #334254;
+  border-radius: 8px;
+  background: #0c1422;
+  color: #f3f7f8;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.go-live-recorder__mode-dialog button,
+.go-live-recorder__surface button {
+  font: inherit;
+}
+
+.go-live-recorder__mode-dialog button:focus-visible,
+.go-live-recorder__surface button:focus-visible,
+.go-live-recorder__description-input:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.go-live-recorder__mode-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #334254;
+  border-radius: 5px;
+  background: transparent;
+  color: #8f9ca5;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.go-live-recorder__mode-close:hover {
+  background: #182336;
+  color: #f3f7f8;
+}
+
+.go-live-recorder__mode-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.go-live-recorder__mode-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  place-items: center;
+  border: 1px solid rgba(237, 93, 123, 0.38);
+  border-radius: 50%;
+  background: rgba(237, 93, 123, 0.16);
+  color: #ed5d7b;
+}
+
+.go-live-recorder__mode-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.go-live-recorder__mode-dialog h2 {
+  margin: 0;
+  color: #f3f7f8;
+  font-size: 24px;
+}
+
+.go-live-recorder__mode-dialog > p {
+  margin: 7px 0 24px;
+  color: #8f9ca5;
+  font-size: 13px;
+}
+
+.go-live-recorder__mode-options {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.go-live-recorder__mode-option {
+  display: grid;
+  width: 100%;
+  min-height: 78px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #334254;
+  border-radius: 8px;
+  background: #182336;
+  color: #f3f7f8;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.go-live-recorder__mode-option:hover:not(:disabled) {
+  border-color: rgba(22, 217, 232, 0.65);
+  background: #202c3c;
+}
+
+.go-live-recorder__mode-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+
+.go-live-recorder__mode-option > span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.36);
+  border-radius: 6px;
+  background: #123d48;
+  color: #16d9e8;
+}
+
+.go-live-recorder__mode-option > span svg {
+  width: 20px;
+  height: 20px;
+}
+
+.go-live-recorder__mode-option > div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.go-live-recorder__mode-option strong {
+  color: #f3f7f8;
+  font-size: 13px;
+}
+
+.go-live-recorder__mode-option small {
+  overflow: hidden;
+  color: #8f9ca5;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.go-live-recorder__mode-option > svg {
+  width: 18px;
+  height: 18px;
+  color: #8f9ca5;
+}
+
+.go-live-recorder__mode-option em {
+  padding: 3px 6px;
+  border: 1px solid rgba(22, 217, 232, 0.38);
+  border-radius: 5px;
+  color: #16d9e8;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.go-live-recorder__mode-note {
+  display: block;
+  margin-top: 16px;
+  color: #8f9ca5;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.go-live-recorder__recording-backdrop {
+  z-index: 1001;
+  pointer-events: auto;
+  touch-action: none;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.go-live-recorder__surface {
+  position: relative;
+  width: min(100%, 520px);
+  height: min(86dvh, 680px);
+  min-height: min(560px, calc(100dvh - 48px));
+  overflow: hidden;
+  border: 1px solid #334254;
+  border-radius: 8px;
+  background: #090d10;
+  color: #f3f7f8;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.62);
+}
+
+.go-live-recorder__hidden-media {
+  display: none !important;
+}
+
+.go-live-recorder__preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #090d10;
+}
+
+.go-live-recorder__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #090d10;
+  object-fit: cover;
+}
+
+.go-live-recorder__media.is-mirrored {
+  transform: scaleX(-1);
+}
+
+.go-live-recorder__media--preview,
+.go-live-recorder__surface--screen .go-live-recorder__media {
+  object-fit: contain;
+}
+
+.go-live-recorder__canvas {
+  cursor: move;
+}
+
+.go-live-recorder__draw-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.go-live-recorder__draw-canvas.is-enabled {
+  pointer-events: auto;
+}
+
+.go-live-recorder__camera-off {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  background: #11171c;
+  color: #8f9ca5;
+  text-align: center;
+}
+
+.go-live-recorder__camera-off svg {
+  width: 42px;
+  height: 42px;
+}
+
+.go-live-recorder__camera-off p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.go-live-recorder__header {
+  position: absolute;
+  z-index: 10;
+  top: 14px;
+  right: 14px;
+  left: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px;
+  border: 1px solid rgba(51, 66, 84, 0.86);
+  border-radius: 8px;
+  background: rgba(9, 13, 16, 0.9);
+  pointer-events: auto;
+}
+
+.go-live-recorder__profile,
+.go-live-recorder__header-actions,
+.go-live-recorder__profile-meta,
+.go-live-recorder__control-row,
+.go-live-recorder__post-actions,
+.go-live-recorder__share-status {
+  display: flex;
+  align-items: center;
+}
+
+.go-live-recorder__profile {
+  min-width: 0;
+  gap: 10px;
+}
+
+.go-live-recorder__avatar {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid #ed5d7b;
+}
+
+.go-live-recorder__avatar [data-radix-avatar-fallback] {
+  background: #182336;
+  color: #f3f7f8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.go-live-recorder__profile > div {
+  min-width: 0;
+}
+
+.go-live-recorder__profile strong {
+  display: block;
+  overflow: hidden;
+  color: #f3f7f8;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.go-live-recorder__profile-meta {
+  gap: 5px;
+  margin-top: 4px;
+  color: #8f9ca5;
+  font-size: 10px;
+}
+
+.go-live-recorder__profile-meta > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.go-live-recorder__profile-meta button {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #334254;
+  border-radius: 5px;
+  background: transparent;
+  color: #8f9ca5;
+  cursor: pointer;
+}
+
+.go-live-recorder__profile-meta button.is-active {
+  border-color: #16d9e8;
+  background: #123d48;
+  color: #16d9e8;
+}
+
+.go-live-recorder__profile-meta svg {
+  width: 12px;
+  height: 12px;
+}
+
+.go-live-recorder__header-actions {
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.go-live-recorder__recording-status {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  border: 1px solid rgba(237, 93, 123, 0.54);
+  border-radius: 5px;
+  background: rgba(237, 93, 123, 0.16);
+  color: #f7d7df;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.go-live-recorder__recording-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ed5d7b;
+  animation: go-live-recorder-pulse 1.1s ease-in-out infinite;
+}
+
+.go-live-recorder__close,
+.go-live-recorder__utility {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #334254;
+  border-radius: 50%;
+  background: rgba(17, 23, 28, 0.92);
+  color: #f3f7f8;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.go-live-recorder__close {
+  width: 40px;
+  height: 40px;
+}
+
+.go-live-recorder__utility {
+  width: 48px;
+  height: 48px;
+}
+
+.go-live-recorder__close:hover,
+.go-live-recorder__utility:hover {
+  border-color: #16d9e8;
+  color: #16d9e8;
+}
+
+.go-live-recorder__close svg,
+.go-live-recorder__utility svg {
+  width: 19px;
+  height: 19px;
+}
+
+.go-live-recorder__utility .is-off {
+  color: #ed5d7b;
+}
+
+.go-live-recorder__share-status {
+  position: absolute;
+  z-index: 8;
+  right: 14px;
+  bottom: 158px;
+  left: 14px;
+  min-height: 52px;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid #334254;
+  border-radius: 8px;
+  background: rgba(24, 35, 54, 0.94);
+}
+
+.go-live-recorder__share-status > span:first-child {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  color: #16d9e8;
+}
+
+.go-live-recorder__share-status > span:first-child svg {
+  width: 18px;
+  height: 18px;
+}
+
+.go-live-recorder__share-status > span:last-child {
+  display: grid;
+  gap: 2px;
+}
+
+.go-live-recorder__share-status strong {
+  color: #f3f7f8;
+  font-size: 11px;
+}
+
+.go-live-recorder__share-status small {
+  color: #8f9ca5;
+  font-size: 10px;
+}
+
+.go-live-recorder__description {
+  position: absolute;
+  z-index: 15;
+  right: 14px;
+  bottom: 150px;
+  left: 14px;
+  pointer-events: auto;
+}
+
+.go-live-recorder__description-input {
+  min-height: 72px;
+  border-color: #334254;
+  border-radius: 8px;
+  background: rgba(9, 13, 16, 0.92);
+  color: #f3f7f8;
+  resize: none;
+}
+
+.go-live-recorder__description-input::placeholder {
+  color: #8f9ca5;
+}
+
+.go-live-recorder__controls {
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  justify-items: center;
+  gap: 13px;
+  padding: 14px 16px 16px;
+  border-top: 1px solid #334254;
+  background: rgba(9, 13, 16, 0.94);
+  pointer-events: auto;
+}
+
+.go-live-recorder__control-row {
+  gap: 18px;
+}
+
+.go-live-recorder__record {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  padding: 0;
+  border: 4px solid rgba(237, 93, 123, 0.4);
+  border-radius: 50%;
+  background: #ed5d7b;
+  box-shadow: 0 0 0 3px rgba(237, 93, 123, 0.14);
+  color: #fff;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.go-live-recorder__record:hover {
+  background: #f77993;
+}
+
+.go-live-recorder__record.is-recording {
+  background: #c64260;
+}
+
+.go-live-recorder__record svg {
+  width: 31px;
+  height: 31px;
+}
+
+.go-live-recorder__record.is-recording svg {
+  fill: currentColor;
+}
+
+.go-live-recorder__flip {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  background: rgba(17, 23, 28, 0.92);
+  color: #f3f7f8;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.go-live-recorder__flip:hover {
+  color: #16d9e8;
+}
+
+.go-live-recorder__flip svg {
+  width: 14px;
+  height: 14px;
+}
+
+.go-live-recorder__controls > p {
+  margin: 0;
+  color: #f3f7f8;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.go-live-recorder__post-actions {
+  width: 100%;
+  gap: 8px;
+}
+
+.go-live-recorder__secondary-action,
+.go-live-recorder__primary-action {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.go-live-recorder__secondary-action {
+  border: 1px solid #637487;
+  background: transparent;
+  color: #f3f7f8;
+}
+
+.go-live-recorder__secondary-action:hover:not(:disabled) {
+  border-color: #16d9e8;
+  background: #182336;
+}
+
+.go-live-recorder__primary-action {
+  border: 1px solid #16d9e8;
+  background: #16d9e8;
+  color: #072128;
+}
+
+.go-live-recorder__primary-action:hover:not(:disabled) {
+  border-color: #52e4ee;
+  background: #52e4ee;
+}
+
+.go-live-recorder__secondary-action:disabled,
+.go-live-recorder__primary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.go-live-recorder__secondary-action svg,
+.go-live-recorder__primary-action svg {
+  width: 16px;
+  height: 16px;
+}
+
+.go-live-recorder__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: go-live-recorder-spin 0.8s linear infinite;
+}
+
+@keyframes go-live-recorder-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes go-live-recorder-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .go-live-recorder__mode-backdrop,
+  .go-live-recorder__recording-backdrop {
+    padding: 12px;
+  }
+
+  .go-live-recorder__mode-dialog {
+    padding: 24px 18px 18px;
+  }
+
+  .go-live-recorder__mode-option {
+    min-height: 70px;
+  }
+
+  .go-live-recorder__surface {
+    width: calc(100vw - 24px);
+    height: calc(100dvh - 24px);
+    min-height: 0;
+  }
+
+  .go-live-recorder__header {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .go-live-recorder__recording-status {
+    display: none;
+  }
+
+  .go-live-recorder__share-status,
+  .go-live-recorder__description {
+    right: 10px;
+    left: 10px;
+  }
+
+  .go-live-recorder__post-actions {
+    flex-direction: column;
+  }
+}

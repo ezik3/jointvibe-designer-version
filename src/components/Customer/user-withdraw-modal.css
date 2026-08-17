@@ -1,0 +1,365 @@
+.user-withdraw-dialog {
+  width: min(calc(100vw - 32px), 460px);
+  max-width: 460px;
+  max-height: calc(100dvh - 40px);
+  gap: 0;
+  overflow-y: auto;
+  padding: 0;
+  border: 1px solid var(--customer-modal-line);
+  border-radius: 8px;
+  background: var(--customer-modal-surface);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.46);
+}
+
+.user-withdraw-dialog > button {
+  top: 16px;
+  right: 16px;
+  border-radius: 6px;
+}
+
+.user-withdraw-modal__header {
+  display: grid;
+  gap: 7px;
+  padding: 22px 62px 18px 24px;
+  border-bottom: 1px solid var(--customer-modal-line);
+  text-align: left;
+}
+
+.user-withdraw-modal__header > * + * {
+  margin-top: 0 !important;
+}
+
+.user-withdraw-modal__title {
+  margin: 0;
+  color: hsl(var(--foreground));
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.user-withdraw-modal__intro {
+  margin: 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.user-withdraw-modal__content {
+  padding: 24px;
+}
+
+.user-withdraw-modal__setup {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.user-withdraw-modal__icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  place-items: center;
+  border-radius: 8px;
+  background: hsl(var(--primary) / 0.14);
+  color: hsl(var(--primary));
+}
+
+.user-withdraw-modal__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.user-withdraw-modal__setup h3 {
+  margin: 0;
+  color: hsl(var(--foreground));
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.user-withdraw-modal__copy {
+  margin: 10px auto 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.user-withdraw-modal__setup .user-withdraw-modal__copy {
+  max-width: 336px;
+}
+
+.user-withdraw-modal__primary-action,
+.user-withdraw-modal__secondary-action {
+  min-height: 42px;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.user-withdraw-modal__primary-action {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.user-withdraw-modal__primary-action:hover:not(:disabled) {
+  box-shadow: none;
+}
+
+.user-withdraw-modal__secondary-action {
+  border-color: var(--customer-modal-line);
+  background: var(--customer-modal-canvas);
+  color: hsl(var(--foreground));
+}
+
+.user-withdraw-modal__secondary-action:hover:not(:disabled) {
+  border-color: var(--customer-modal-faint);
+  background: var(--customer-modal-raised);
+}
+
+.user-withdraw-modal__connect-actions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.user-withdraw-modal__connect-actions .user-withdraw-modal__primary-action,
+.user-withdraw-modal__connect-actions .user-withdraw-modal__secondary-action {
+  width: auto;
+  margin-top: 0;
+}
+
+.user-withdraw-modal__form {
+  display: grid;
+  gap: 18px;
+}
+
+.user-withdraw-modal__balance,
+.user-withdraw-modal__breakdown {
+  border: 1px solid var(--customer-modal-line);
+  border-radius: 8px;
+  background: var(--customer-modal-canvas);
+}
+
+.user-withdraw-modal__balance {
+  padding: 14px;
+}
+
+.user-withdraw-modal__balance > p {
+  margin: 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+}
+
+.user-withdraw-modal__balance > strong {
+  display: block;
+  margin-top: 4px;
+  color: hsl(var(--foreground));
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.user-withdraw-modal__pending {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: hsl(var(--warning) / 0.1);
+  color: hsl(var(--warning));
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.user-withdraw-modal__pending svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.user-withdraw-modal__field {
+  display: grid;
+  gap: 8px;
+}
+
+.user-withdraw-modal__label {
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.user-withdraw-modal__amount-input {
+  height: 48px;
+  border-radius: 6px;
+  background: var(--customer-modal-canvas);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.user-withdraw-modal__amount-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: hsl(var(--muted-foreground));
+  font-size: 11px;
+}
+
+.user-withdraw-modal__amount-meta button {
+  border: 0;
+  background: transparent;
+  color: hsl(var(--primary));
+  font: inherit;
+  font-weight: 700;
+}
+
+.user-withdraw-modal__amount-meta button:hover {
+  color: hsl(var(--foreground));
+}
+
+.user-withdraw-modal__breakdown {
+  padding: 12px 14px;
+}
+
+.user-withdraw-modal__breakdown > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.user-withdraw-modal__breakdown > div + div {
+  margin-top: 7px;
+}
+
+.user-withdraw-modal__fee {
+  color: hsl(var(--warning)) !important;
+}
+
+.user-withdraw-modal__total {
+  margin-top: 10px !important;
+  padding-top: 10px;
+  border-top: 1px solid var(--customer-modal-line);
+  color: hsl(var(--foreground)) !important;
+  font-size: 13px !important;
+  font-weight: 700;
+}
+
+.user-withdraw-modal__total-value {
+  color: hsl(var(--primary));
+}
+
+.user-withdraw-modal__total-value--invalid {
+  color: hsl(var(--destructive));
+}
+
+.user-withdraw-modal__form > .user-withdraw-modal__primary-action {
+  margin-top: 0;
+}
+
+.user-withdraw-modal__pin {
+  display: grid;
+  gap: 20px;
+}
+
+.user-withdraw-modal__pin-head {
+  text-align: center;
+}
+
+.user-withdraw-modal__pin-head .user-withdraw-modal__icon {
+  margin: 0 auto 16px;
+}
+
+.user-withdraw-modal__pin-amount {
+  margin: 0;
+  color: hsl(var(--foreground));
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.user-withdraw-modal__pin-inputs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.user-withdraw-modal__pin-input {
+  min-width: 0;
+  height: 52px;
+  padding: 0;
+  border-radius: 6px;
+  background: var(--customer-modal-canvas);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.user-withdraw-modal__pin-error {
+  margin: -8px 0 0;
+  color: hsl(var(--destructive));
+  font-size: 12px;
+  text-align: center;
+}
+
+.user-withdraw-modal__pin .user-withdraw-modal__primary-action,
+.user-withdraw-modal__pin .user-withdraw-modal__secondary-action {
+  margin-top: 0;
+}
+
+.user-withdraw-modal__status {
+  padding: 32px 24px;
+}
+
+.user-withdraw-modal__status--error {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+}
+
+.user-withdraw-modal__status--error .user-withdraw-modal__secondary-action {
+  min-width: 132px;
+}
+
+@media (max-width: 520px) {
+  .user-withdraw-dialog {
+    width: min(calc(100vw - 24px), 460px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .user-withdraw-modal__header {
+    padding: 20px 54px 16px 18px;
+  }
+
+  .user-withdraw-modal__content {
+    padding: 20px 18px;
+  }
+
+  .user-withdraw-modal__status {
+    padding: 28px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .user-withdraw-modal__connect-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .user-withdraw-modal__connect-actions .user-withdraw-modal__secondary-action {
+    width: 100%;
+  }
+
+  .user-withdraw-modal__pin-inputs {
+    gap: 5px;
+  }
+}

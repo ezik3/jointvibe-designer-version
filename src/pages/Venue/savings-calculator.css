@@ -1,0 +1,1210 @@
+.venue-savings-calculator {
+  --savings-canvas: #080b0e;
+  --savings-surface: #11161b;
+  --savings-surface-raised: #171d23;
+  --savings-border: #2a323a;
+  --savings-text: #f4f7f8;
+  --savings-secondary: #a7b0b8;
+  --savings-muted: #717c86;
+  --savings-cyan: #16d9e8;
+  --savings-cyan-soft: #12363b;
+  min-width: 0;
+  background: var(--savings-canvas);
+  color: var(--savings-text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.venue-savings-calculator *,
+.venue-savings-calculator *::before,
+.venue-savings-calculator *::after {
+  box-sizing: border-box;
+}
+
+.venue-savings-calculator button,
+.venue-savings-calculator input,
+.venue-savings-calculator select {
+  font: inherit;
+}
+
+.venue-savings-calculator button {
+  cursor: pointer;
+}
+
+.venue-savings-calculator button:focus-visible,
+.venue-savings-calculator input:focus-visible,
+.venue-savings-calculator select:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.34);
+  outline-offset: 3px;
+}
+
+.venue-savings-calculator .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.venue-savings-calculator__main {
+  width: min(100% - 40px, 1120px);
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.venue-savings-intro {
+  max-width: 660px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.venue-savings-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 10px;
+  color: var(--savings-cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-savings-kicker svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-savings-intro h1 {
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.venue-savings-intro > p:not(.venue-savings-kicker) {
+  margin: 12px auto 0;
+  color: var(--savings-secondary);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.venue-savings-intro ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  padding: 0;
+  margin: 24px 0 0;
+  color: var(--savings-muted);
+  font-size: 12px;
+  list-style: none;
+}
+
+.venue-savings-intro li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.venue-savings-intro li svg {
+  width: 15px;
+  height: 15px;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-choice,
+.venue-savings-entry,
+.venue-savings-upload,
+.venue-savings-result-panel,
+.venue-savings-results-total,
+.venue-savings-cost-summary,
+.venue-savings-explainer,
+.venue-savings-results-cta {
+  border: 1px solid var(--savings-border);
+  border-radius: 8px;
+  background: var(--savings-surface);
+}
+
+.venue-savings-choice,
+.venue-savings-entry,
+.venue-savings-upload {
+  padding: 24px;
+}
+
+.venue-savings-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.venue-savings-section-heading > span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--savings-canvas);
+  color: var(--savings-secondary);
+}
+
+.venue-savings-section-heading > span svg {
+  width: 19px;
+  height: 19px;
+}
+
+.venue-savings-section-heading h2,
+.venue-savings-result-panel h2,
+.venue-savings-results h2,
+.venue-savings-faq h2 {
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.venue-savings-section-heading p:not(.venue-savings-kicker) {
+  margin: 3px 0 0;
+  color: var(--savings-muted);
+  font-size: 12px;
+}
+
+.venue-savings-choice__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.venue-savings-choice__grid button {
+  display: grid;
+  min-height: 158px;
+  place-content: center;
+  justify-items: center;
+  gap: 9px;
+  padding: 20px;
+  border: 1px dashed #53636d;
+  border-radius: 6px;
+  background: var(--savings-canvas);
+  color: var(--savings-text);
+  text-align: center;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.venue-savings-choice__grid button:hover {
+  border-color: var(--savings-cyan);
+  background: var(--savings-cyan-soft);
+}
+
+.venue-savings-choice__grid svg {
+  width: 24px;
+  height: 24px;
+  color: var(--savings-cyan);
+}
+
+.venue-savings-choice__grid strong {
+  font-size: 14px;
+}
+
+.venue-savings-choice__grid span {
+  max-width: 290px;
+  color: var(--savings-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-savings-help {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 16px 0 0;
+  color: var(--savings-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-savings-help svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-file-picker {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.venue-savings-entry-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.venue-savings-entry-header .venue-savings-kicker {
+  margin-bottom: 4px;
+}
+
+.venue-savings-restart {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--savings-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-savings-restart:hover {
+  color: var(--savings-text);
+}
+
+.venue-savings-restart svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venue-savings-import-status {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  margin-top: 24px;
+  border: 1px solid rgba(22, 217, 232, 0.36);
+  border-radius: 6px;
+  background: rgba(18, 54, 59, 0.36);
+}
+
+.venue-savings-import-status > svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  color: var(--savings-cyan);
+}
+
+.venue-savings-import-status > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.venue-savings-import-status strong {
+  color: var(--savings-text);
+  font-size: 12px;
+}
+
+.venue-savings-import-status span {
+  overflow: hidden;
+  color: var(--savings-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venue-savings-import-status em {
+  margin-left: auto;
+  padding: 4px 7px;
+  border: 1px solid rgba(22, 217, 232, 0.36);
+  border-radius: 4px;
+  color: var(--savings-cyan);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.venue-savings-data-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.venue-savings-data-grid > div {
+  display: grid;
+  gap: 5px;
+  padding: 13px;
+  border: 1px solid var(--savings-border);
+  border-radius: 6px;
+  background: var(--savings-canvas);
+}
+
+.venue-savings-data-grid span,
+.venue-savings-projection p,
+.venue-savings-date {
+  color: var(--savings-muted);
+  font-size: 11px;
+}
+
+.venue-savings-data-grid strong {
+  color: var(--savings-text);
+  font-size: 16px;
+}
+
+.venue-savings-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 0;
+}
+
+.venue-savings-date svg {
+  width: 13px;
+  height: 13px;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-projection {
+  padding: 14px;
+  margin-top: 16px;
+  border: 1px solid var(--savings-border);
+  border-radius: 6px;
+  background: var(--savings-canvas);
+}
+
+.venue-savings-projection p {
+  margin: 0;
+}
+
+.venue-savings-projection > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 8px;
+}
+
+.venue-savings-projection span {
+  color: var(--savings-secondary);
+  font-size: 12px;
+}
+
+.venue-savings-projection strong {
+  margin-left: 5px;
+  color: var(--savings-cyan);
+}
+
+.venue-savings-additional-costs {
+  padding-top: 24px;
+  margin-top: 26px;
+  border-top: 1px solid var(--savings-border);
+}
+
+.venue-savings-additional-costs h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 14px;
+}
+
+.venue-savings-additional-costs h3 svg {
+  width: 16px;
+  height: 16px;
+  color: var(--savings-cyan);
+}
+
+.venue-savings-additional-costs > div > p {
+  margin: 5px 0 0;
+  color: var(--savings-muted);
+  font-size: 11px;
+}
+
+.venue-savings-cost-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.venue-savings-cost-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 86px 116px 32px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--savings-border);
+  border-radius: 6px;
+  background: var(--savings-canvas);
+}
+
+.venue-savings-cost-row > div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.venue-savings-cost-row strong,
+.venue-savings-cost-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.venue-savings-cost-row strong {
+  color: var(--savings-text);
+  font-size: 12px;
+}
+
+.venue-savings-cost-row span {
+  color: var(--savings-muted);
+  font-size: 10px;
+}
+
+.venue-savings-cost-row input,
+.venue-savings-cost-row select,
+.venue-savings-add-cost select {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid var(--savings-border);
+  border-radius: 5px;
+  outline: 0;
+  background: var(--savings-surface-raised);
+  color: var(--savings-text);
+  font-size: 11px;
+}
+
+.venue-savings-cost-row input {
+  padding: 0 7px;
+  text-align: right;
+}
+
+.venue-savings-cost-row select,
+.venue-savings-add-cost select {
+  padding: 0 8px;
+}
+
+.venue-savings-cost-row > button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--savings-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--savings-muted);
+}
+
+.venue-savings-cost-row > button:hover {
+  border-color: #76505a;
+  color: #ef7786;
+}
+
+.venue-savings-cost-row > button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-savings-add-cost {
+  display: block;
+  margin-top: 12px;
+}
+
+.venue-savings-calculate,
+.venue-savings-result-panel > button,
+.venue-savings-results-cta button:first-child {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--savings-cyan);
+  border-radius: 6px;
+  background: var(--savings-cyan);
+  color: var(--savings-canvas);
+  font-size: 13px;
+  font-weight: 800;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.venue-savings-calculate:hover,
+.venue-savings-result-panel > button:hover,
+.venue-savings-results-cta button:first-child:hover {
+  border-color: #58e5ed;
+  background: #58e5ed;
+}
+
+.venue-savings-calculate {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.venue-savings-calculate svg,
+.venue-savings-result-panel > button svg,
+.venue-savings-results-cta button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.venue-savings-manual-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+  align-items: stretch;
+  gap: 24px;
+}
+
+.venue-savings-manual-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.venue-savings-field {
+  display: grid;
+  gap: 12px;
+}
+
+.venue-savings-field--wide {
+  grid-column: 1 / -1;
+}
+
+.venue-savings-field > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.venue-savings-field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--savings-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.venue-savings-field label svg {
+  width: 15px;
+  height: 15px;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-field output {
+  color: var(--savings-text);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.venue-savings-field--wide output {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.venue-savings-field input[type="range"] {
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  appearance: none;
+  border-radius: 3px;
+  outline: 0;
+  background: var(--savings-border);
+  accent-color: var(--savings-cyan);
+  cursor: pointer;
+}
+
+.venue-savings-field input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: 2px solid var(--savings-canvas);
+  border-radius: 50%;
+  background: var(--savings-cyan);
+  box-shadow: 0 0 0 1px rgba(22, 217, 232, 0.45);
+}
+
+.venue-savings-field input[type="range"]::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--savings-canvas);
+  border-radius: 50%;
+  background: var(--savings-cyan);
+  box-shadow: 0 0 0 1px rgba(22, 217, 232, 0.45);
+}
+
+.venue-savings-field > span {
+  display: flex;
+  justify-content: space-between;
+  color: var(--savings-muted);
+  font-size: 10px;
+}
+
+.venue-savings-field small {
+  font-size: inherit;
+}
+
+.venue-savings-service-toggles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 24px;
+  margin-top: 26px;
+  border-top: 1px solid var(--savings-border);
+}
+
+.venue-savings-service-toggles label {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: var(--savings-surface-raised);
+  cursor: pointer;
+}
+
+.venue-savings-service-toggles label > span {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: var(--savings-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-savings-service-toggles svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-service-toggles input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.venue-savings-service-toggles b {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: var(--savings-muted);
+  transition: background 160ms ease;
+}
+
+.venue-savings-service-toggles b::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--savings-canvas);
+  content: "";
+  transition: transform 160ms ease;
+}
+
+.venue-savings-service-toggles input:checked + b {
+  background: var(--savings-cyan);
+}
+
+.venue-savings-service-toggles input:checked + b::after {
+  transform: translateX(14px);
+}
+
+.venue-savings-service-toggles input:focus-visible + b {
+  outline: 3px solid rgba(22, 217, 232, 0.28);
+  outline-offset: 3px;
+}
+
+.venue-savings-result-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px;
+}
+
+.venue-savings-result-total {
+  margin-top: 32px;
+}
+
+.venue-savings-result-total strong {
+  display: block;
+  color: var(--savings-cyan);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.venue-savings-result-total span {
+  display: block;
+  margin-top: 6px;
+  color: var(--savings-muted);
+  font-size: 12px;
+}
+
+.venue-savings-result-panel dl {
+  display: grid;
+  gap: 0;
+  padding: 16px 0;
+  margin: 24px 0 0;
+  border-top: 1px solid var(--savings-border);
+  border-bottom: 1px solid var(--savings-border);
+}
+
+.venue-savings-result-panel dl div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.venue-savings-result-panel dt {
+  color: var(--savings-muted);
+  font-size: 11px;
+}
+
+.venue-savings-result-panel dd {
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.venue-savings-result-panel > p {
+  margin: 20px 0 0;
+  color: var(--savings-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.venue-savings-result-panel > button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.venue-savings-results {
+  display: grid;
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.venue-savings-results-total {
+  display: grid;
+  justify-items: center;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.venue-savings-results-total > strong {
+  margin-top: 14px;
+  color: var(--savings-cyan);
+  font-size: 48px;
+  line-height: 1;
+}
+
+.venue-savings-results-total > p:not(.venue-savings-kicker) {
+  margin: 12px 0 0;
+  color: var(--savings-secondary);
+  font-size: 14px;
+}
+
+.venue-savings-results-total > span,
+.venue-savings-results-total > em {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.venue-savings-results-total > span {
+  color: var(--savings-cyan);
+}
+
+.venue-savings-results-total > span svg,
+.venue-savings-results-total > em svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-savings-results-total > em {
+  padding: 6px 8px;
+  border: 1px solid var(--savings-border);
+  border-radius: 5px;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-results-total > em.is-actual {
+  border-color: rgba(22, 217, 232, 0.38);
+  color: var(--savings-cyan);
+}
+
+.venue-savings-results-total > em.is-estimate {
+  color: #d8c58f;
+}
+
+.venue-savings-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.venue-savings-cost-summary {
+  padding: 24px;
+}
+
+.venue-savings-cost-summary > div:first-child,
+.venue-savings-explainer > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.venue-savings-cost-summary > div:first-child > svg,
+.venue-savings-explainer > div > svg {
+  width: 19px;
+  height: 19px;
+  color: var(--savings-secondary);
+}
+
+.venue-savings-cost-summary h3,
+.venue-savings-explainer h3,
+.venue-savings-results-cta h3 {
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 17px;
+}
+
+.venue-savings-cost-summary > strong {
+  display: block;
+  margin-top: 22px;
+  color: var(--savings-text);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.venue-savings-cost-summary > strong small {
+  color: var(--savings-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.venue-savings-cost-summary > p {
+  margin: 9px 0 0;
+  color: var(--savings-muted);
+  font-size: 11px;
+}
+
+.venue-savings-cost-summary > p b {
+  color: var(--savings-secondary);
+}
+
+.venue-savings-cost-summary dl {
+  display: grid;
+  gap: 0;
+  padding: 14px 0 0;
+  margin: 16px 0 0;
+  border-top: 1px solid var(--savings-border);
+}
+
+.venue-savings-cost-summary dl div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.venue-savings-cost-summary dt {
+  color: var(--savings-secondary);
+  font-size: 12px;
+}
+
+.venue-savings-cost-summary dd {
+  margin: 0;
+  color: var(--savings-text);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.venue-savings-cost-summary .venue-savings-subline dt,
+.venue-savings-cost-summary .venue-savings-subline dd {
+  color: var(--savings-muted);
+  font-size: 10px;
+}
+
+.venue-savings-cost-summary--jv {
+  border-color: rgba(22, 217, 232, 0.45);
+}
+
+.venue-savings-cost-summary--jv > div:first-child > svg,
+.venue-savings-cost-summary--jv > strong,
+.venue-savings-cost-summary--jv dd {
+  color: var(--savings-cyan);
+}
+
+.venue-savings-explainer {
+  padding: 24px;
+}
+
+.venue-savings-explainer ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 22px 0 0;
+  list-style: none;
+}
+
+.venue-savings-explainer li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.venue-savings-explainer li > b {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  place-items: center;
+  border-radius: 5px;
+  background: var(--savings-cyan-soft);
+  color: var(--savings-cyan);
+  font-size: 12px;
+}
+
+.venue-savings-explainer li span {
+  display: grid;
+  gap: 4px;
+}
+
+.venue-savings-explainer li strong {
+  color: var(--savings-text);
+  font-size: 12px;
+}
+
+.venue-savings-explainer li small {
+  color: var(--savings-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-savings-results-cta {
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.venue-savings-results-cta p {
+  max-width: 500px;
+  margin: 9px auto 0;
+  color: var(--savings-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.venue-savings-results-cta > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.venue-savings-results-cta button {
+  min-height: 40px;
+  padding: 0 13px;
+}
+
+.venue-savings-results-cta button:last-child {
+  border: 1px solid var(--savings-border);
+  border-radius: 6px;
+  background: var(--savings-surface);
+  color: var(--savings-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-savings-results-cta button:last-child:hover {
+  border-color: var(--savings-muted);
+  background: var(--savings-surface-raised);
+}
+
+.venue-savings-faq {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.4fr) minmax(0, 1fr);
+  gap: 40px;
+  padding-top: 40px;
+  margin-top: 56px;
+  border-top: 1px solid var(--savings-border);
+}
+
+.venue-savings-faq-list {
+  border-top: 1px solid var(--savings-border);
+}
+
+.venue-savings-faq-list article {
+  border-bottom: 1px solid var(--savings-border);
+}
+
+.venue-savings-faq-list button {
+  display: flex;
+  width: 100%;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--savings-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.venue-savings-faq-list button:hover {
+  color: var(--savings-cyan);
+}
+
+.venue-savings-faq-list button svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: var(--savings-muted);
+  transition: transform 160ms ease;
+}
+
+.venue-savings-faq-list button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.venue-savings-faq-list p {
+  margin: -3px 30px 16px 0;
+  color: var(--savings-secondary);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .venue-savings-data-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .venue-savings-explainer ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .venue-savings-calculator__main {
+    padding-top: 48px;
+  }
+
+  .venue-savings-manual-layout,
+  .venue-savings-faq,
+  .venue-savings-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-savings-result-panel {
+    min-height: 0;
+  }
+
+  .venue-savings-faq {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .venue-savings-calculator__main {
+    width: min(100% - 32px, 1120px);
+    padding: 40px 0 56px;
+  }
+
+  .venue-savings-intro {
+    text-align: left;
+  }
+
+  .venue-savings-intro > p:not(.venue-savings-kicker) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .venue-savings-intro ul {
+    justify-content: flex-start;
+  }
+
+  .venue-savings-intro h1 {
+    font-size: 29px;
+  }
+
+  .venue-savings-choice,
+  .venue-savings-entry,
+  .venue-savings-upload,
+  .venue-savings-result-panel,
+  .venue-savings-results-total,
+  .venue-savings-cost-summary,
+  .venue-savings-explainer,
+  .venue-savings-results-cta {
+    padding: 18px;
+  }
+
+  .venue-savings-choice__grid,
+  .venue-savings-manual-fields,
+  .venue-savings-service-toggles,
+  .venue-savings-data-grid,
+  .venue-savings-explainer ol {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-savings-entry-header {
+    align-items: flex-start;
+  }
+
+  .venue-savings-cost-row {
+    grid-template-columns: minmax(0, 1fr) 32px;
+  }
+
+  .venue-savings-cost-row > div {
+    grid-column: 1;
+  }
+
+  .venue-savings-cost-row > label {
+    grid-row: 2;
+  }
+
+  .venue-savings-cost-row > label:nth-of-type(1) {
+    grid-column: 1;
+  }
+
+  .venue-savings-cost-row > label:nth-of-type(2) {
+    grid-column: 2;
+  }
+
+  .venue-savings-cost-row > button {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .venue-savings-results-total > strong {
+    font-size: 38px;
+  }
+
+  .venue-savings-results-cta > div,
+  .venue-savings-results-cta button {
+    width: 100%;
+  }
+}

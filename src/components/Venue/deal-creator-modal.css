@@ -1,0 +1,892 @@
+.venue-deal-modal__backdrop {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 16px;
+  background: rgba(5, 9, 12, 0.78);
+}
+
+.venue-deal-modal__frame {
+  width: min(100%, 1000px);
+  margin: auto;
+}
+
+.venue-deal-modal {
+  --deal-canvas: #0c1422;
+  --deal-surface: #182336;
+  --deal-raised: #202c3c;
+  --deal-border: #334254;
+  --deal-text: #f3f7f8;
+  --deal-secondary: #b2c0c9;
+  --deal-muted: #81909b;
+  --deal-cyan: #16d9e8;
+  --deal-cyan-soft: #123d48;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  border-color: var(--deal-border);
+  border-radius: 8px;
+  background: var(--deal-surface);
+  color: var(--deal-text);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
+}
+
+.venue-deal-modal--compact {
+  width: min(620px, 100%);
+  margin: auto;
+}
+
+.venue-deal-modal button {
+  font: inherit;
+}
+
+.venue-deal-modal button:focus-visible,
+.venue-deal-modal input:focus-visible,
+.venue-deal-modal textarea:focus-visible {
+  outline: 3px solid rgba(22, 217, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.venue-deal-modal__header {
+  display: flex;
+  min-height: 76px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--deal-border);
+}
+
+.venue-deal-modal__header-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.venue-deal-modal__title-row,
+.venue-deal-modal__launch-toggle,
+.venue-deal-modal__footer,
+.venue-deal-modal__progress,
+.venue-deal-modal__progress-step {
+  display: flex;
+  align-items: center;
+}
+
+.venue-deal-modal__title-row {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.venue-deal-modal__title {
+  margin: 0;
+  color: var(--deal-text);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.venue-deal-modal__launch-toggle {
+  flex: 0 0 auto;
+  gap: 7px;
+  color: var(--deal-secondary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__launch-toggle > svg {
+  width: 15px;
+  height: 15px;
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__launch-toggle button {
+  width: 34px;
+  height: 20px;
+  border: 1px solid #44546a;
+  background: var(--deal-canvas);
+  box-shadow: none;
+}
+
+.venue-deal-modal__launch-toggle button[data-state="checked"] {
+  border-color: var(--deal-cyan);
+  background: var(--deal-cyan-soft);
+  box-shadow: none;
+}
+
+.venue-deal-modal__launch-toggle button > span {
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  background: var(--deal-muted);
+}
+
+.venue-deal-modal__launch-toggle button[data-state="checked"] > span {
+  background: var(--deal-cyan);
+  transform: translateX(14px);
+}
+
+.venue-deal-modal__progress {
+  gap: 0;
+  margin-top: 12px;
+}
+
+.venue-deal-modal__progress-step {
+  gap: 8px;
+}
+
+.venue-deal-modal__progress-step > div {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid var(--deal-border);
+  border-radius: 50%;
+  background: var(--deal-canvas);
+  color: var(--deal-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__progress-step > div.is-active {
+  border-color: var(--deal-cyan);
+  background: var(--deal-cyan-soft);
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__progress-step > span {
+  width: 32px;
+  height: 1px;
+  background: var(--deal-border);
+}
+
+.venue-deal-modal__progress-step > span.is-active {
+  background: var(--deal-cyan);
+}
+
+.venue-deal-modal__close {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  padding: 0;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--deal-muted);
+}
+
+.venue-deal-modal__close:hover:not(:disabled) {
+  border-color: var(--deal-cyan);
+  background: var(--deal-raised);
+  color: var(--deal-text);
+}
+
+.venue-deal-modal__close svg {
+  width: 17px;
+  height: 17px;
+}
+
+.venue-deal-modal__content {
+  min-height: 0;
+  padding: 20px;
+}
+
+.venue-deal-modal__footer {
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--deal-border);
+}
+
+.venue-deal-modal__footer > button {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__footer > button:first-child {
+  border-color: #637487;
+  background: transparent;
+  color: var(--deal-text);
+}
+
+.venue-deal-modal__footer > button:first-child:hover:not(:disabled) {
+  border-color: var(--deal-cyan);
+  background: var(--deal-raised);
+}
+
+.venue-deal-modal__footer > button:last-child,
+.venue-deal-modal__primary-action,
+.venue-deal-modal .bg-cyan-500 {
+  border-color: var(--deal-cyan);
+  background: var(--deal-cyan);
+  color: #072128;
+}
+
+.venue-deal-modal__primary-action {
+  min-height: 40px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__footer > button:last-child:hover:not(:disabled),
+.venue-deal-modal__primary-action:hover:not(:disabled) {
+  border-color: #52e4ee;
+  background: #52e4ee;
+  color: #072128;
+}
+
+.venue-deal-modal__section-title {
+  margin: 0 0 6px;
+  color: var(--deal-text);
+  font-size: 14px;
+}
+
+.venue-deal-modal__section-copy {
+  margin: 0;
+  color: var(--deal-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.venue-deal-modal__quick,
+.venue-deal-modal__format,
+.venue-deal-modal__creative,
+.venue-deal-modal__credit-gate {
+  display: grid;
+  gap: 16px;
+}
+
+.venue-deal-modal__goal-list {
+  display: grid;
+  gap: 8px;
+}
+
+.venue-deal-modal__goal {
+  position: relative;
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  color: var(--deal-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.venue-deal-modal__goal .text-2xl {
+  display: none;
+}
+
+.venue-deal-modal__goal::before {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin-right: 12px;
+  border: 1px solid rgba(22, 217, 232, 0.5);
+  border-radius: 6px;
+  background: var(--deal-cyan-soft);
+  content: "";
+}
+
+.venue-deal-modal__goal p {
+  margin: 0;
+}
+
+.venue-deal-modal__goal:hover,
+.venue-deal-modal__goal.is-selected {
+  border-color: var(--deal-cyan);
+  background: var(--deal-cyan-soft);
+}
+
+.venue-deal-modal__goal.is-selected::after {
+  position: absolute;
+  left: -1px;
+  width: 3px;
+  height: 28px;
+  border-radius: 0 3px 3px 0;
+  background: var(--deal-cyan);
+  content: "";
+}
+
+.venue-deal-modal__fields {
+  display: grid;
+  gap: 14px;
+}
+
+.venue-deal-modal__quick .space-y-4,
+.venue-deal-modal__creative .space-y-4 {
+  display: grid;
+  gap: 14px;
+}
+
+.venue-deal-modal__field,
+.venue-deal-modal__creative .space-y-2 {
+  display: grid;
+  gap: 7px;
+}
+
+.venue-deal-modal label {
+  color: var(--deal-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-deal-modal label svg {
+  width: 15px;
+  height: 15px;
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal input:not([type="file"]),
+.venue-deal-modal textarea {
+  border-color: #637487;
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  color: var(--deal-text);
+}
+
+.venue-deal-modal input:not([type="file"]):focus,
+.venue-deal-modal textarea:focus {
+  border-color: var(--deal-cyan);
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.13);
+}
+
+.venue-deal-modal input::placeholder,
+.venue-deal-modal textarea::placeholder {
+  color: var(--deal-muted);
+}
+
+.venue-deal-modal__upload-inline,
+.venue-deal-modal__credit-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.venue-deal-modal__upload-trigger {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px dashed #637487;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--deal-secondary);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.venue-deal-modal__upload-trigger:hover {
+  border-color: var(--deal-cyan);
+  color: var(--deal-text);
+}
+
+.venue-deal-modal__upload-trigger svg {
+  width: 15px;
+  height: 15px;
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__upload-preview {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.venue-deal-modal__credit-status {
+  padding: 10px 12px;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  color: var(--deal-secondary);
+  font-size: 11px;
+}
+
+.venue-deal-modal__credit-status span:first-child {
+  color: var(--deal-cyan);
+  font-weight: 700;
+}
+
+.venue-deal-modal__credit-gate {
+  justify-items: center;
+  padding: 16px;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 8px;
+  background: var(--deal-cyan-soft);
+  text-align: center;
+}
+
+.venue-deal-modal__credit-gate > div > p:first-child {
+  margin: 0;
+  color: var(--deal-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__credit-gate > div > p:last-child,
+.venue-deal-modal__credit-gate > small {
+  margin: 5px 0 0;
+  color: var(--deal-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-deal-modal__credit-gate-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__credit-gate-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.venue-deal-modal__secondary-action {
+  min-height: 36px;
+  border-color: #637487;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--deal-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__secondary-action:hover:not(:disabled) {
+  border-color: var(--deal-cyan);
+  background: var(--deal-raised);
+}
+
+.venue-deal-modal__wide-action {
+  width: 100%;
+}
+
+.venue-deal-modal__format-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.venue-deal-modal__format-card,
+.venue-deal-modal__content .border-border {
+  border-color: var(--deal-border);
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  box-shadow: none;
+}
+
+.venue-deal-modal__format-card {
+  cursor: pointer;
+}
+
+.venue-deal-modal__format-card:hover,
+.venue-deal-modal__format-card.is-selected {
+  border-color: var(--deal-cyan);
+  background: var(--deal-cyan-soft);
+}
+
+.venue-deal-modal__format-card-content {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 14px;
+  text-align: center;
+}
+
+.venue-deal-modal__format-card-content > div {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  background: var(--deal-raised);
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__format-card-content svg {
+  width: 18px;
+  height: 18px;
+}
+
+.venue-deal-modal__format-card-content h4 {
+  margin: 0;
+  color: var(--deal-text);
+  font-size: 12px;
+}
+
+.venue-deal-modal__format-card-content p {
+  margin: 0;
+  color: var(--deal-secondary);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.venue-deal-modal__selected-badge {
+  padding: 3px 6px;
+  border: 1px solid var(--deal-cyan);
+  border-radius: 5px;
+  background: var(--deal-cyan);
+  color: #072128;
+  font-size: 9px;
+}
+
+.venue-deal-modal__info-note {
+  padding: 12px;
+  border: 1px solid rgba(22, 217, 232, 0.42);
+  border-radius: 6px;
+  background: var(--deal-cyan-soft);
+}
+
+.venue-deal-modal__info-note > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--deal-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__info-note svg {
+  width: 15px;
+  height: 15px;
+}
+
+.venue-deal-modal__info-note p {
+  margin: 6px 0 0;
+  color: var(--deal-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.venue-deal-modal__creative {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+  align-items: start;
+}
+
+.venue-deal-modal__creative-form {
+  display: grid;
+  gap: 16px;
+}
+
+.venue-deal-modal__media-field {
+  display: grid;
+  gap: 8px;
+}
+
+.venue-deal-modal__media-upload {
+  display: grid;
+  min-height: 160px;
+  place-items: center;
+  align-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px dashed #637487;
+  border-radius: 6px;
+  background: var(--deal-canvas);
+  color: var(--deal-secondary);
+  text-align: center;
+  cursor: pointer;
+}
+
+.venue-deal-modal__media-upload:hover {
+  border-color: var(--deal-cyan);
+}
+
+.venue-deal-modal__media-upload > svg {
+  width: 28px;
+  height: 28px;
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__media-upload p,
+.venue-deal-modal__media-upload small {
+  margin: 0;
+  font-size: 11px;
+}
+
+.venue-deal-modal__media-preview {
+  display: block;
+  max-height: 180px;
+  max-width: 100%;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.venue-deal-modal__device {
+  width: min(300px, 100%);
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid var(--deal-border);
+  border-radius: 8px;
+  background: var(--deal-canvas);
+}
+
+.venue-deal-modal__device-screen {
+  overflow: hidden;
+  border: 1px solid var(--deal-border);
+  border-radius: 6px;
+  background: #11171c;
+}
+
+.venue-deal-modal__device-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  color: var(--deal-secondary);
+  font-size: 10px;
+}
+
+.venue-deal-modal__device-battery > div {
+  width: 16px;
+  height: 10px;
+  padding: 1px;
+  border: 1px solid var(--deal-secondary);
+  border-radius: 2px;
+}
+
+.venue-deal-modal__device-battery > div > div {
+  width: 8px;
+  height: 100%;
+  background: var(--deal-secondary);
+}
+
+.venue-deal-modal__device-post {
+  background: #182336;
+}
+
+.venue-deal-modal__device-author {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px;
+}
+
+.venue-deal-modal__device-avatar {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid var(--deal-cyan);
+  border-radius: 6px;
+  background: var(--deal-cyan-soft);
+  color: var(--deal-cyan);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.venue-deal-modal__device-author-copy {
+  min-width: 0;
+}
+
+.venue-deal-modal__device-author-copy p {
+  margin: 0;
+  color: var(--deal-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__device-author-copy p + p {
+  margin-top: 3px;
+  color: var(--deal-secondary);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.venue-deal-modal__device-author-copy svg {
+  width: 11px;
+  height: 11px;
+  color: var(--deal-cyan);
+  vertical-align: -2px;
+}
+
+.venue-deal-modal__device-media {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  background: var(--deal-cyan-soft);
+}
+
+.venue-deal-modal__device-media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-deal-modal__device-placeholder {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: var(--deal-secondary);
+  text-align: center;
+}
+
+.venue-deal-modal__device-placeholder svg {
+  width: 38px;
+  height: 38px;
+  color: var(--deal-cyan);
+}
+
+.venue-deal-modal__device-placeholder p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.venue-deal-modal__device-discount {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 6px;
+  border: 1px solid var(--deal-cyan);
+  border-radius: 5px;
+  background: var(--deal-canvas);
+  color: var(--deal-cyan);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.venue-deal-modal__device-copy {
+  display: grid;
+  gap: 7px;
+  padding: 10px;
+}
+
+.venue-deal-modal__device-copy p {
+  margin: 0;
+  color: var(--deal-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.venue-deal-modal__device-copy p + p {
+  color: var(--deal-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.venue-deal-modal__device-cta {
+  width: 100%;
+  min-height: 34px;
+  border-color: var(--deal-cyan);
+  border-radius: 5px;
+  background: var(--deal-cyan);
+  color: #072128;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.venue-deal-modal__preview-note {
+  margin: 0;
+  color: var(--deal-muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.venue-deal-modal__credit-gate [class*="bg-amber"],
+.venue-deal-modal [class*="bg-gradient"],
+.venue-deal-modal [class*="bg-blue"],
+.venue-deal-modal [class*="bg-green"],
+.venue-deal-modal [class*="bg-purple"] {
+  background: var(--deal-cyan-soft) !important;
+}
+
+.venue-deal-modal [class*="text-amber"],
+.venue-deal-modal [class*="text-green"],
+.venue-deal-modal [class*="text-blue"],
+.venue-deal-modal [class*="text-purple"] {
+  color: var(--deal-cyan) !important;
+}
+
+.venue-deal-modal [class*="rounded-2xl"],
+.venue-deal-modal [class*="rounded-3xl"] {
+  border-radius: 8px !important;
+}
+
+.venue-deal-modal [class*="bg-slate"],
+.venue-deal-modal [class*="bg-black"] {
+  background: var(--deal-canvas) !important;
+}
+
+.venue-deal-modal .bg-card,
+.venue-deal-modal .bg-secondary,
+.venue-deal-modal .bg-muted\/30,
+.venue-deal-modal .bg-secondary\/30 {
+  background: var(--deal-canvas) !important;
+}
+
+.venue-deal-modal .text-muted-foreground,
+.venue-deal-modal .text-gray-300,
+.venue-deal-modal .text-gray-400 {
+  color: var(--deal-secondary) !important;
+}
+
+.venue-deal-modal .text-white,
+.venue-deal-modal .text-foreground {
+  color: var(--deal-text) !important;
+}
+
+@media (max-width: 760px) {
+  .venue-deal-modal__creative {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-deal-modal__format-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .venue-deal-modal__backdrop {
+    padding: 12px;
+  }
+
+  .venue-deal-modal__header,
+  .venue-deal-modal__content,
+  .venue-deal-modal__footer {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .venue-deal-modal__title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .venue-deal-modal__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .venue-deal-modal__footer > button {
+    width: 100%;
+  }
+
+  .venue-deal-modal__progress-step > span {
+    width: 16px;
+  }
+}

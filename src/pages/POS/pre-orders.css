@@ -1,0 +1,184 @@
+.pos-preorders-dialog {
+  --pos-preorders-surface: var(--pos-shell-surface, #11161b);
+  --pos-preorders-raised: var(--pos-shell-surface-raised, #171d23);
+  --pos-preorders-border: var(--pos-shell-border, #2a323a);
+  --pos-preorders-text: var(--pos-shell-text, #f4f7f8);
+  --pos-preorders-secondary: var(--pos-shell-text-secondary, #a7b0b8);
+  --pos-preorders-muted: var(--pos-shell-text-muted, #717c86);
+  --pos-preorders-cyan: var(--pos-shell-cyan, #16d9e8);
+  width: min(calc(100vw - 32px), 480px);
+  max-width: 480px;
+  max-height: calc(100dvh - 32px);
+  gap: 0;
+  overflow-y: auto;
+  padding: 0;
+  border-color: var(--pos-preorders-border);
+  border-radius: 8px;
+  background: var(--pos-preorders-surface);
+  color: var(--pos-preorders-text);
+}
+
+.pos-preorders-dialog > button {
+  top: 14px;
+  right: 16px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border-radius: 6px;
+  color: var(--pos-preorders-secondary);
+}
+
+.pos-preorders-dialog > button:hover {
+  background: var(--pos-preorders-raised);
+  color: var(--pos-preorders-text);
+}
+
+.pos-preorders-dialog > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pos-preorders-dialog__header {
+  padding: 18px 54px 14px 18px;
+  border-bottom: 1px solid var(--pos-preorders-border);
+}
+
+.pos-preorders-dialog__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--pos-preorders-text);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.pos-preorders-dialog__title svg {
+  width: 19px;
+  height: 19px;
+  color: var(--pos-preorders-cyan);
+}
+
+.pos-preorders-dialog__body {
+  display: grid;
+  gap: 14px;
+  padding: 14px 18px 18px;
+}
+
+.pos-preorders-dialog__customer,
+.pos-preorders-dialog__item,
+.pos-preorders-dialog__special {
+  border: 1px solid var(--pos-preorders-border);
+  border-radius: 6px;
+  background: var(--pos-preorders-raised);
+}
+
+.pos-preorders-dialog__customer {
+  padding: 12px;
+}
+
+.pos-preorders-dialog__customer > div:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.pos-preorders-dialog__customer > div:first-child > span:first-child {
+  color: var(--pos-preorders-text);
+  font-size: 13px;
+}
+
+.pos-preorders-dialog__customer > div:first-child > span:last-child,
+.pos-preorders-dialog__customer-meta,
+.pos-preorders-dialog__item p {
+  color: var(--pos-preorders-secondary);
+}
+
+.pos-preorders-dialog__customer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.pos-preorders-dialog__customer-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pos-preorders-dialog__customer-meta svg {
+  width: 14px;
+  height: 14px;
+  color: var(--pos-preorders-muted);
+}
+
+.pos-preorders-dialog__items h4 {
+  margin: 0 0 8px;
+  color: var(--pos-preorders-text);
+  font-size: 13px;
+}
+
+.pos-preorders-dialog__item-list {
+  display: grid;
+  gap: 6px;
+}
+
+.pos-preorders-dialog__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  color: var(--pos-preorders-text);
+  font-size: 12px;
+}
+
+.pos-preorders-dialog__item p {
+  margin: 3px 0 0;
+  font-size: 11px;
+}
+
+.pos-preorders-dialog__item > span {
+  flex: 0 0 auto;
+}
+
+.pos-preorders-dialog__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--pos-preorders-border);
+  color: var(--pos-preorders-text);
+  font-size: 14px;
+}
+
+.pos-preorders-dialog__total > span:last-child {
+  color: var(--pos-preorders-cyan);
+}
+
+.pos-preorders-dialog__special {
+  padding: 11px 12px;
+  border-color: #7a612c;
+  background: #2a2417;
+  color: #f1c86b;
+}
+
+.pos-preorders-dialog__special strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+}
+
+.pos-preorders-dialog__special p {
+  margin: 0;
+  color: var(--pos-preorders-text);
+  font-size: 12px;
+  line-height: 1.45;
+}

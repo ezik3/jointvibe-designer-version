@@ -1,0 +1,78 @@
+{
+  "dashboard": "Dashboard",
+  "welcome_back": "Välkommen tillbaka till JV POS",
+  "total_orders": "Totalt antal beställningar",
+  "active_orders": "Aktiva beställningar",
+  "avg_order": "Snittbeställning",
+  "recent_orders": "Senaste beställningar",
+  "no_recent_orders": "Inga nya beställningar",
+  "orders_appear_realtime": "Beställningar kommer att visas här i realtid",
+  "today": "Idag",
+  "yesterday": "Igår",
+  "last_7_days": "Senaste 7 dagarna",
+  "last_30_days": "Senaste 30 dagarna",
+  "this_month": "Denna månad",
+  "custom_range": "Anpassat datumintervall",
+  "todays_sales": "Dagens försäljning",
+  "yesterdays_sales": "Gårdagens försäljning",
+  "live": "Live",
+  "pending": "väntande",
+  "ready": "klar",
+  "apply": "Verkställ",
+  "quick_actions": "Snabba åtgärder",
+  "order_stats": "Orderstatistik",
+  "status_pending": "Väntar",
+  "status_preparing": "Förbereder",
+  "ready_for_pickup": "Redo för avhämtning",
+  "served_today": "Serveras idag",
+  "order_number": "Beställning #{{number}}",
+  "from_label": "Från:",
+  "to_label": "Till:",
+  "select": "Välj",
+  "common": {
+    "cancel": "Avbryt",
+    "back": "Tillbaka"
+  },
+  "sidebar": {
+    "back_to_venue_home": "Tillbaka till startsidan",
+    "exit_work_mode": "Avsluta arbetsläge",
+    "point_of_sale": "Kassasystem",
+    "open_pos": "Öppna kassasystem"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "new_order": "Ny beställning",
+    "orders": "Beställningar",
+    "kitchen": "Kök",
+    "menu": "Meny",
+    "tables": "Bord",
+    "floorplan": "Planskiss",
+    "inventory": "Lager",
+    "analytics": "Analys",
+    "staff": "Personal",
+    "settings": "Inställningar"
+  },
+  "roles": {
+    "kitchen": "Kökspersonal",
+    "waiter": "Servitör/Servitris",
+    "bartender": "Bartender",
+    "host": "Värd",
+    "manager": "Biträdande chef"
+  },
+  "pin_modal": {
+    "default_title": "Ange din PIN-kod",
+    "default_description": "Ange din 4-siffriga PIN-kod för att godkänna denna åtgärd",
+    "verifying": "Verifierar...",
+    "invalid": "Ogiltig PIN-kod. Försök igen.",
+    "verified": "Verifierad!"
+  },
+  "set_pin_modal": {
+    "create_title": "Skapa din PIN-kod",
+    "confirm_title": "Bekräfta din PIN-kod",
+    "create_desc": "Ange en 4-siffrig PIN-kod för att skydda dina betalningsåtgärder",
+    "confirm_desc": "Ange din PIN-kod igen för att bekräfta",
+    "no_match": "PIN-koderna stämmer inte överens. Försök igen.",
+    "set_failed": "Misslyckades med att ställa in PIN-kod. Försök igen.",
+    "saving": "Sparar din PIN-kod..."
+  }
+}
